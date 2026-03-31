@@ -1,23 +1,16 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Users, GraduationCap, School, MapPin } from "lucide-react";
+import { Users, GraduationCap, School, MapPin, Sparkles, BarChart2, CalendarDays, Share2 } from "lucide-react";
 
 // Assets
-import heroImg from "@/assets/impact-hero-highres.png";
+import heroImg from "@/assets/australian-students-impact.png";
 import sydneyImg from "@/assets/impact-sydney.png";
 import qldImg from "@/assets/impact-qld.png";
 import vicImg from "@/assets/impact-vic.png";
 import funRunImg from "@/assets/impact-funrun.png";
 
 const ImpactPage = () => {
-  const stats = [
-    { icon: <Users className="w-10 h-10 lg:w-12 lg:h-12 text-white stroke-[1.5]" />, value: "500,000+", label: "STUDENTS AND PARENTS IMPACTED" },
-    { icon: <Users className="w-10 h-10 lg:w-12 lg:h-12 text-white stroke-[1.5]" />, value: "364+", label: "TRAINED TEACHERS" },
-    { icon: <School className="w-10 h-10 lg:w-12 lg:h-12 text-white stroke-[1.5]" />, value: "125+", label: "SCHOOLS" },
-    { icon: <MapPin className="w-10 h-10 lg:w-12 lg:h-12 text-white stroke-[1.5]" />, value: "42+", label: "CITIES" },
-  ];
-
   const projects = [
     {
       title: "GROWTH ASSESSMENT AND HEALTH AWARENESS AT WESTERN SYDNEY SCHOOLS",
@@ -55,47 +48,90 @@ const ImpactPage = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section - Elite Desktop Responsiveness */}
-      <section className="relative min-h-[700px] lg:h-[90vh] lg:max-h-[850px] flex flex-col overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      {/* Structured Impact Hero Section */}
+      <section className="relative bg-white">
+        
+        {/* Top Image + Overlay Text Area */}
+        <div className="relative w-full h-[50vh] min-h-[400px] lg:h-[60vh] max-h-[700px] overflow-hidden">
           <img
             src={heroImg}
-            alt="Impact Hero - Official High-Res"
-            className="w-full h-full object-cover brightness-[0.75] contrast-[1.05]"
+            alt="Australian Students Impact"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/30" />
-        </div>
-        
-        {/* Hero Headline - Single line, left aligned */}
-        <div className="flex-grow flex items-center relative z-10 w-full pt-24 lg:pt-0">
-          <div className="container mx-auto px-4 text-left">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight uppercase leading-[0.85] drop-shadow-[0_20px_60px_rgba(0,0,0,0.7)] max-w-4xl">
-              OUR JOURNEY OF IMPACT
-            </h1>
+          {/* Base gradient fading from red at bottom over the image to add more reds */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#EE1D26] via-[#EE1D26]/80 to-transparent bottom-0 h-full lg:h-[70%] top-auto" />
+          
+          {/* Headlines bounded to bottom portion */}
+          <div className="absolute bottom-4 lg:bottom-12 left-0 w-full z-10">
+            <div className="container mx-auto px-6 md:px-12 max-w-[1300px]">
+              <span className="text-white font-bold text-xs sm:text-sm tracking-[0.2em] lg:tracking-[0.2em] mb-2 block uppercase drop-shadow-md opacity-90">
+                Our Evolution of Impact
+              </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-[0.95] drop-shadow-xl">
+                Transforming
+                <br />
+                Education
+              </h1>
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* Signature Red Metrics Banner - Separate section to allow full hero image visibility */}
-      <section className="w-full bg-primary py-10 lg:py-16 relative z-20">
-           <div className="container mx-auto px-4 max-w-[1400px]">
-               <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-4 lg:gap-12">
-                  {stats.map((stat, i) => (
-                    <div key={i} className="flex flex-col items-center text-center text-white relative">
-                      <div className="mb-4 md:mb-6 transform hover:scale-110 transition-transform duration-300">
-                         {React.cloneElement(stat.icon as React.ReactElement, { className: "w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white stroke-[1.5]" })}
-                      </div>
-                      <div className="text-2xl md:text-3xl lg:text-6xl font-black mb-2 leading-none tracking-tight">{stat.value}</div>
-                      <div className="text-[10px] lg:text-sm uppercase tracking-[0.2em] lg:tracking-[0.25em] font-black opacity-95 max-w-[160px] lg:max-w-[200px] leading-relaxed">
-                        {stat.label}
-                      </div>
+        {/* Mid Content Area */}
+        <div className="bg-white pb-10 pt-4 md:py-16">
+          <div className="container mx-auto px-6 md:px-12 max-w-[1300px]">
+            {/* Descriptive Text block */}
+            <div className="max-w-[800px] mb-12">
+              <h2 className="text-[#2B3544] font-bold text-xl md:text-2xl lg:text-3xl leading-snug lg:leading-normal mb-8 tracking-tight">
+                From a single classroom to a nationwide movement, our commitment to transforming education remains unwavering.
+              </h2>
+              <div className="pl-6 border-l-[3px] border-[#EE1D26]">
+                <p className="text-[#555] text-sm md:text-[17px] leading-relaxed font-medium">
+                  We started with a simple belief: every child deserves a path to success. Today, we're not just reaching students; we're empowering entire communities through data-driven innovation and human-centric design.
+                </p>
+              </div>
+            </div>
 
-                      {/* Vertical dividers for desktop */}
-                      {i < 3 && <div className="hidden md:block absolute -right-[15%] lg:-right-[10%] top-1/2 -translate-y-1/2 w-[1px] h-24 bg-white/20" />}
-                    </div>
-                  ))}
-               </div>
-           </div>
+            {/* Balanced 2x2 Stats Grid Block */}
+            <div className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+              
+              {/* Card 1: Lives Impacted */}
+              <div className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
+                <div className="flex flex-col">
+                  <span className="text-[#111] text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">500,000+</span>
+                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Lives Impacted Regionally</span>
+                </div>
+                <Users className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
+              </div>
+              
+              {/* Card 2: Trained Teachers */}
+              <div className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
+                <div className="flex flex-col">
+                  <span className="text-[#111] text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">364+</span>
+                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Trained Teachers</span>
+                </div>
+                <GraduationCap className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
+              </div>
+              
+              {/* Card 3: Partner Schools */}
+              <div className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
+                <div className="flex flex-col">
+                  <span className="text-[#111] text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">125+</span>
+                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Partner Schools</span>
+                </div>
+                <School className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
+              </div>
+              
+              {/* Card 4: Cities Reached */}
+              <div className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
+                <div className="flex flex-col">
+                  <span className="text-[#111] text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">42+</span>
+                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Cities Reached</span>
+                </div>
+                <MapPin className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Special Projects Section - Asymmetrical Design */}
@@ -113,7 +149,7 @@ const ImpactPage = () => {
               <div
                 key={i}
                 className={`flex flex-col items-center gap-12 lg:gap-24 ${
-                  i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* Image with Organic/Asymmetrical Mask */}

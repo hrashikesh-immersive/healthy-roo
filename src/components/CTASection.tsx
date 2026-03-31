@@ -58,11 +58,11 @@ const CTASection = () => {
             Call-to-action
           </span>
           
-          <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-foreground leading-[1.3] mb-8 tracking-tight">
-            From freshers to experienced<br className="hidden md:block" />
-            individuals, all have a chance to evolve<br className="hidden md:block" />
-            at HealthyRoo. Here's what it looks like<br className="hidden md:block" />
-            working at HealthuRoo.
+          <h2 className="text-3xl md:text-[2.5rem] lg:text-4xl font-bold text-foreground leading-[1.2] mb-8 tracking-tight">
+            From freshers to experienced<br className="hidden lg:block" />
+            individuals, all have a chance to evolve<br className="hidden lg:block" />
+            at HealthyRoo. Here's what it looks like<br className="hidden lg:block" />
+            working at HealthyRoo.
           </h2>
           
           <button className="bg-primary text-primary-foreground font-semibold px-9 py-3.5 rounded-full hover:bg-primary/90 transition-colors shadow-sm cursor-pointer border-none text-base">

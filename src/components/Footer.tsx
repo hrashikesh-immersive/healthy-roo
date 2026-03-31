@@ -9,12 +9,16 @@ const Footer = () => {
           
           {/* Column 1: Brand & Description */}
           <div className="lg:col-span-4 lg:pr-8">
-            <div className="flex items-center mb-8">
-              <img 
-                src={logo} 
-                alt="HealthyRoo Logo" 
-                className="h-10 md:h-12 w-auto object-contain" 
-              />
+            <div className="flex items-center gap-2 mb-8">
+              <div className="w-10 h-10 overflow-hidden relative">
+                <img 
+                  src={logo} 
+                  alt="HealthyRoo" 
+                  className="h-full w-auto max-w-none ml-0"
+                  style={{ objectPosition: 'left center', objectFit: 'contain' }}
+                />
+              </div>
+              <span className="text-white font-bold text-2xl tracking-tighter">HealthyRoo</span>
             </div>
             
             <p className="text-[#BBBBBB] text-sm leading-loose mb-8">

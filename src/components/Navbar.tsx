@@ -16,12 +16,12 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden lg:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <li key={link}>
               <a 
                 href={link === "Home" ? "/" : link === "Services" ? "/#services" : link === "Impact" ? "/impact" : link === "About Us" ? "/about" : link === "Contact Us" ? "/contact" : "#"} 
-                className="text-foreground hover:text-primary transition-colors font-medium text-sm"
+                className="text-foreground hover:text-primary transition-colors font-medium text-xs lg:text-sm whitespace-nowrap"
               >
                 {link}
               </a>
@@ -30,18 +30,18 @@ const Navbar = () => {
         </ul>
 
         {/* CTA Buttons */}
-        <div className="hidden md:flex items-center gap-3">
-          <a href="/school-login" className="px-6 py-2.5 rounded-full border border-primary text-primary font-medium text-sm hover:bg-primary/5 transition-colors">
+        <div className="hidden lg:flex items-center gap-2 lg:gap-3">
+          <a href="/school-login" className="px-4 lg:px-6 py-2.5 rounded-full border border-primary text-primary font-medium text-xs lg:text-sm hover:bg-primary/5 transition-colors whitespace-nowrap">
             School Login
           </a>
-          <a href="#" className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors">
+          <a href="#" className="px-4 lg:px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-xs lg:text-sm hover:bg-primary/90 transition-colors whitespace-nowrap">
             Sign In
           </a>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-foreground"
+          className="lg:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -51,7 +51,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background border-t border-border px-4 pb-4">
+        <div className="lg:hidden bg-background border-t border-border px-4 pb-4">
           <ul className="flex flex-col gap-3 py-4">
             {navLinks.map((link) => (
               <li key={link}>

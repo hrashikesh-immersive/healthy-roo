@@ -20,6 +20,14 @@ import schoolNurse from "@/assets/school-nurse-portrait.png";
 import workshopNurse from "@/assets/how-it-works-nurse.png";
 import careerMan from "@/assets/career-contact-man.png";
 
+// SDG Icons
+import sdg3 from "@/assets/sdg-3.png";
+import sdg4 from "@/assets/sdg-4.png";
+import sdg6 from "@/assets/sdg-6.png";
+import sdg10 from "@/assets/sdg-10.png";
+import sdg12 from "@/assets/sdg-12.png";
+
+
 const HexTeamMember = ({ 
   color = "bg-muted", 
   active = false, 
@@ -57,69 +65,68 @@ const AboutPage = () => {
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <Navbar />
 
-      {/* Section 1: Who We Are / Hero - Refined Offsets */}
-      <section className="relative h-[650px] md:h-[800px] lg:h-[900px] flex items-center overflow-visible bg-white border-b-8 border-primary">
-        {/* Full Hero Background Image */}
-        <div className="absolute inset-0 z-0">
+      {/* Section 1: Who We Are / Hero - Precision Layout Match */}
+      <section className="relative w-full overflow-visible bg-white">
+        
+        {/* Image Backdrop bounded above lower area */}
+        <div className="relative w-full h-[300px] md:h-[500px] lg:h-[600px]">
           <img
             src={heroImg}
             alt="HealthyRoo Australian School Engagement"
-            className="w-full h-full object-cover brightness-[0.85] contrast-[1.05]"
+            className="w-full h-full object-cover brightness-[0.9] contrast-[1.05]"
           />
         </div>
 
-        {/* Brand Circle Area - Stable Circle Logic */}
-        <div className="container relative z-20 mx-auto px-4 lg:px-12 h-full flex items-center justify-center md:justify-end">
-            <div className="relative md:absolute md:bottom-0 md:right-0 lg:right-0 w-[300px] h-[300px] md:w-[480px] md:h-[480px] lg:w-[580px] lg:h-[580px] shrink-0 bg-primary rounded-full flex flex-col items-center justify-center text-center text-white p-6 md:p-12 lg:p-16 shadow-[0_60px_150px_rgba(227,62,51,0.3)] md:transform md:translate-y-[25%] lg:translate-y-[30%] mt-20 md:mt-0 z-30">
-               
-               {/* Sun Graphic */}
-               <div className="absolute top-[12%] left-[12%] transform -translate-x-1/2 -translate-y-1/2">
-                 <img src={sunImg} alt="Sun" className="w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24 drop-shadow-lg" />
-               </div>
+        {/* Container strictly bound to the image height to ensure accurate overlapping placement */}
+        <div className="absolute top-0 left-0 w-full h-[300px] md:h-[500px] lg:h-[600px] z-20 pointer-events-none flex items-end">
+           <div className="container mx-auto px-4 lg:px-12 flex justify-center md:justify-end">
+             {/* High-Impact Red Circle positioned identically to screenshot - Proportions Scaled Down for Visibility */}
+             <div className="pointer-events-auto relative w-[230px] h-[230px] sm:w-[280px] sm:h-[280px] md:w-[380px] md:h-[380px] lg:w-[460px] lg:h-[460px] bg-[#EE1D26] rounded-full flex flex-col items-center justify-center text-center text-white p-4 md:p-8 lg:p-10 translate-y-[30%] lg:translate-y-[25%] shadow-xl shadow-red-500/10">
+             
+             {/* Sun Doodle Graphic */}
+             <div className="absolute top-[8%] left-[2%] md:top-[10%] md:left-[3%] w-6 md:w-12 lg:w-16">
+               <img src={sunImg} alt="Sun highlight" className="w-full h-full object-contain" />
+             </div>
 
-               {/* Lightbulb Doodle */}
-               <div className="absolute bottom-[8%] right-[10%] transform rotate-[-8deg] z-30">
-                 <img 
-                   src={bulbImg} 
-                   alt="Innovation Seed" 
-                   className="w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 object-contain brightness-0 invert opacity-95" 
-                 />
-               </div>
+             {/* Lightbulb Doodle Graphic */}
+             <div className="absolute bottom-[10%] lg:bottom-[15%] right-[10%] lg:right-[12%] w-5 md:w-10 lg:w-12 rotate-[-12deg]">
+               <img 
+                 src={bulbImg} 
+                 alt="Innovation Lightbulb" 
+                 className="w-full h-full object-contain brightness-0 invert opacity-90" 
+               />
+             </div>
 
-               <div className="z-10 flex flex-col items-center justify-center pt-4">
-                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-none mb-3 md:mb-5 uppercase whitespace-nowrap">
-                   WHO WE ARE
-                 </h1>
-                 
-                 <p className="text-[10px] md:text-sm lg:text-lg font-black uppercase tracking-[0.1em] mb-3 md:mb-6 max-w-[240px] md:max-w-[380px] leading-[1.2] opacity-95">
-                   THE SCHOOL HEALTH PARTNER FOR A <br className="hidden md:block" /> HEALTHIER FUTURE
-                 </p>
-
-                 {/* Thin white divider */}
-                 <div className="w-12 md:w-24 h-[1px] bg-white/30 mb-5 md:mb-8" />
-
-                 <p className="text-[10px] md:text-base lg:text-lg leading-relaxed font-bold opacity-90 max-w-[240px] md:max-w-lg">
-                   HealthyRoo is Australia's largest healthcare organization for
-                   primary and secondary schools with the mission to nurture the world's 
-                   largest network of health promoting schools.
-                 </p>
-              </div>
-
-               {/* Red Star below circle */}
-               <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 hidden lg:block">
-                 <Star className="w-14 h-14 text-primary fill-current" />
-               </div>
-            </div>
+             {/* Inner Typography Layout */}
+             <h1 className="text-2xl md:text-4xl lg:text-[48px] font-black uppercase tracking-tight mb-2 md:mb-4 drop-shadow-sm leading-none pt-2 lg:pt-3 whitespace-nowrap">
+               WHO WE ARE
+             </h1>
+             
+             <h2 className="text-[7px] sm:text-[8px] md:text-[11px] lg:text-[13px] font-black uppercase tracking-[0.1em] lg:tracking-[0.15em] mb-3 md:mb-5 leading-[1.8] lg:leading-[2] opacity-95">
+               THE SCHOOL HEALTH PARTNER FOR<br />A<br />HEALTHIER FUTURE
+             </h2>
+             
+             <div className="w-8 md:w-16 lg:w-24 h-[1px] bg-white/40 mb-3 md:mb-5" />
+             
+             <p className="text-[7px] sm:text-[8px] md:text-[12px] lg:text-[13px] leading-relaxed lg:leading-[1.6] font-semibold opacity-100 max-w-[200px] md:max-w-none">
+               HealthyRoo is Australia's largest healthcare organization for<br className="hidden md:block" />
+               primary and secondary schools with the mission to nurture<br className="hidden md:block" />
+               the world's largest network of health promoting schools.
+             </p>
+           </div>
+          </div>
         </div>
+
       </section>
 
-      {/* Section 2: Vision & Mission - Coordinated Vertical Spacing */}
-      <section className="pt-40 pb-24 md:pt-64 md:pb-40 lg:pt-80 lg:pb-56 relative bg-white overflow-hidden">
+      {/* Section 2: Vision & Mission */}
+      <section className="pt-4 pb-12 md:pt-6 md:pb-20 lg:pt-8 lg:pb-24 relative bg-white overflow-hidden">
+
          <div className="container mx-auto px-4 lg:px-12 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-center justify-center relative">
                
                {/* Vision Panel - Overlapping Focal Point */}
-               <div className="relative z-20 flex flex-col md:flex-row items-center lg:translate-x-[-40px]">
+               <div className="relative z-20 flex flex-col lg:flex-row items-center lg:translate-x-[-40px]">
                   {/* Overlapping Image of Child */}
                   <div className="relative -mb-12 md:-mb-0 md:-mr-16 z-30 transform hover:scale-105 transition-transform duration-500">
                      <div className="w-[180px] h-[240px] md:w-[280px] md:h-[350px] lg:w-[320px] lg:h-[400px]">
@@ -150,7 +157,7 @@ const AboutPage = () => {
                </div>
 
                {/* Mission Panel - Horizontal Staggering */}
-               <div className="relative z-10 w-full lg:w-[700px] bg-muted p-10 md:p-16 lg:p-24 pt-32 lg:pt-16 lg:pl-40 -mt-16 lg:-mt-0 lg:-ml-32 min-h-[420px] flex flex-col justify-center items-start shadow-inner">
+                <div className="relative z-10 w-full lg:w-[700px] bg-muted p-10 md:p-16 lg:p-24 pt-32 lg:pt-16 lg:pl-40 -mt-16 lg:-mt-0 lg:-ml-32 min-h-[420px] flex flex-col justify-center items-start shadow-inner">
                   {/* Mission Text Content */}
                   <div className="mb-12">
                      <span className="text-primary font-black text-lg lg:text-2xl tracking-widest mb-4 block">
@@ -178,7 +185,8 @@ const AboutPage = () => {
       </section>
 
       {/* Section 3: Sustainable Healthcare */}
-      <section className="bg-primary py-16 lg:py-24 text-white overflow-hidden">
+      <section className="bg-primary py-12 lg:py-16 text-white overflow-hidden">
+
          <div className="container mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="max-w-xl">
                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8">
@@ -199,18 +207,22 @@ const AboutPage = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
-               {/* SDG Icons (mock) */}
+               {/* SDG Icons (Official Visual Replica - Local Assets) */}
                {[
-                 { id: 3, color: "#4C9F38", label: "GOOD HEALTH\nAND WELL-BEING" },
-                 { id: 4, color: "#C5192D", label: "QUALITY\nEDUCATION" },
-                 { id: 6, color: "#26BDE2", label: "CLEAN WATER\nAND SANITATION" },
-                 { id: 10, color: "#DD1367", label: "REDUCED\nINEQUALITIES" },
-                 { id: 12, color: "#BF8B2E", label: "RESPONSIBLE\nCONSUMPTION" },
-                 { id: 17, color: "#19486A", label: "PARTNERSHIPS\nFOR THE GOALS" }
+                 { id: 3, src: sdg3 },
+                 { id: 4, src: sdg4 },
+                 { id: 6, src: sdg6 },
+                 { id: 10, src: sdg10 },
+                 { id: 12, src: sdg12 },
+                 { id: 17, src: "https://en.wikipedia.org/wiki/Special:FilePath/Sustainable_Development_Goal_17.svg" }
                ].map(sdg => (
-                 <div key={sdg.id} style={{backgroundColor: sdg.color}} className="aspect-square p-2 md:p-3 flex flex-col justify-between rounded-sm shadow-inner transform transition-transform hover:scale-[1.03]">
-                    <span className="text-xl md:text-2xl font-black">{sdg.id}</span>
-                    <span className="text-[8px] md:text-[10px] font-bold leading-none uppercase whitespace-pre-wrap">{sdg.label}</span>
+                 <div key={sdg.id} className="aspect-square bg-white flex items-center justify-center transform transition-transform hover:scale-[1.03] shadow-md border-[4px] md:border-[8px] border-white">
+                    <img 
+                      src={sdg.src}
+                      alt={`Sustainable Development Goal ${sdg.id}`} 
+                      className="w-full h-full object-cover bg-white"
+                      loading="lazy"
+                    />
                  </div>
                ))}
             </div>
@@ -218,7 +230,8 @@ const AboutPage = () => {
       </section>
 
       {/* Section 4: Awards & Media */}
-      <section className="py-20 bg-background overflow-hidden">
+      <section className="py-12 bg-background overflow-hidden">
+
          <div className="container mx-auto px-4 lg:px-8">
             <div className="flex flex-col gap-12">
                
@@ -256,152 +269,187 @@ const AboutPage = () => {
          </div>
       </section>
 
-      {/* Section 5: Team - Re-engineered for Vanguard Structure */}
-      <section className="py-24 bg-white overflow-hidden">
-         <div className="container mx-auto px-4 lg:px-8 max-w-[1240px]">
-            {/* Leadership Header */}
-            <div className="text-center mb-24 uppercase">
-              <span className="text-primary font-black text-sm tracking-[0.3em] mb-4 block">OUR LEADERSHIP</span>
-              <h2 className="text-5xl md:text-7xl font-black text-[#111] leading-[0.9] tracking-tighter">
-                THE MINDS<br />BEHIND THE<br />MOTION.
+       {/* Section 5: The Vanguard (The Minds Behind the Motion) - Consolidated Uniform Square Grid */}
+       <section className="py-12 bg-[#F5F5F7] overflow-visible relative border-y border-gray-100">
+         
+         {/* Top Branding Header */}
+         <div className="container mx-auto px-6 lg:px-12 max-w-[1240px] mb-12">
+            <div className="border-l-[6px] border-primary pl-8 md:pl-12 py-3">
+              <span className="text-[#999] font-black text-[10px] md:text-xs tracking-[0.4em] mb-3 block uppercase">OUR VANGUARD</span>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#111] leading-[1] tracking-tighter uppercase mb-6 transition-all">
+                THE MINDS<br />BEHIND THE<br /><span className="text-primary">MOTION.</span>
               </h2>
+              <p className="text-[#333] text-base md:text-lg font-medium leading-relaxed max-w-[500px] opacity-80">
+                A collective of visionaries, strategists, and health architects bound by a pursuit of excellence.
+              </p>
             </div>
-            
-            {/* CEO Spotlight Section */}
-            <div className="max-w-[800px] mx-auto flex flex-col items-center mb-32">
-               <div className="relative mb-12">
-                  {/* Decorative Overlapping Hexagon (Light Pink as specified in structure) */}
-                  <div className="absolute -top-10 -left-10 w-24 h-24 md:w-32 md:h-32 bg-[#FDE8E9] -z-10" 
-                       style={{clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'}} />
-                  
-                  {/* Main CEO Hexagon */}
-                  <div className="relative w-[280px] h-[310px] md:w-[360px] md:h-[400px] overflow-hidden bg-[#111] group shadow-2xl" 
-                       style={{clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'}}>
-                     <img src={teamLeadImg} alt="Alice Miller" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                     
-                     {/* Red CEO Badge */}
-                     <div className="absolute bottom-10 right-4 bg-primary text-white py-2 px-6 font-black text-sm uppercase skew-x-[-15deg] shadow-lg">
-                        <span className="skew-x-[15deg] block">CEO</span>
-                     </div>
+         </div>
+
+         {/* Consolidated Proper Square Grid - Guaranteed Uniformity */}
+         <div className="container mx-auto px-6 lg:px-12 max-w-[1240px] mb-16 relative">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 transition-all duration-500">
+               
+               {/* Alice Miller */}
+               <div className="flex flex-col items-start group">
+                  <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
+                     <img src={teamLeadImg} alt="Alice Miller" className="w-full h-full object-cover transition-all duration-700" />
+                  </div>
+                  <div className="mt-5 pl-1">
+                    <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Alice Miller</h3>
+                    <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">CEO</p>
                   </div>
                </div>
 
-               <div className="text-center max-w-2xl">
-                  <h3 className="text-4xl md:text-5xl font-black text-[#111] leading-none mb-6 uppercase tracking-tighter">Alice Miller</h3>
-                  <p className="text-[#666] leading-relaxed text-sm md:text-base font-medium mb-10">
-                     A visionary architect of healthy ecosystems, Alice leads HealthyRoo with a relentless priority 
-                     on precision and student-centric innovation. With over a decade in strategic health leadership, 
-                     she harmonizes the complex standards of medical practice with the fluid needs of 
-                     modern education systems across Australia.
-                  </p>
-                  <button className="bg-primary text-white font-black px-12 py-4 rounded-sm uppercase tracking-widest text-sm hover:brightness-110 transition-all shadow-xl hover:-translate-y-1">
-                    Read Manifesto
-                  </button>
+               {/* Marcus Thorne */}
+               <div className="flex flex-col items-start group">
+                  <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
+                     <img src={t2} alt="Marcus Thorne" className="w-full h-full object-cover transition-all duration-700" />
+                  </div>
+                  <div className="mt-5 pl-1">
+                    <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Marcus Thorne</h3>
+                    <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Creative Director</p>
+                  </div>
                </div>
+
+               {/* Sarah Chen */}
+               <div className="flex flex-col items-start group">
+                  <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
+                     <img src={doctorGreen} alt="Sarah Chen" className="w-full h-full object-cover transition-all duration-700" />
+                  </div>
+                  <div className="mt-5 pl-1">
+                    <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Sarah Chen</h3>
+                    <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Editorial Chief</p>
+                  </div>
+               </div>
+
+               {/* David Rossi */}
+               <div className="flex flex-col items-start group">
+                  <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
+                     <img src={careerMan} alt="David Rossi" className="w-full h-full object-cover transition-all duration-700" />
+                  </div>
+                  <div className="mt-5 pl-1">
+                    <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">David Rossi</h3>
+                    <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Director of Ops</p>
+                  </div>
+               </div>
+
+               {/* Elena Vance */}
+               <div className="flex flex-col items-start group">
+                  <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
+                     <img src={schoolNurse} alt="Elena Vance" className="w-full h-full object-cover transition-all duration-700" />
+                  </div>
+                  <div className="mt-5 pl-1">
+                    <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Elena Vance</h3>
+                    <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Head of Strategy</p>
+                  </div>
+               </div>
+
+               {/* Maya Kalu */}
+               <div className="flex flex-col items-start group">
+                  <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
+                     <img src={workshopNurse} alt="Maya Kalu" className="w-full h-full object-cover transition-all duration-700" />
+                  </div>
+                  <div className="mt-5 pl-1">
+                    <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Maya Kalu</h3>
+                    <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Design Lead</p>
+                  </div>
+               </div>
+
+               {/* Julian Black */}
+               <div className="flex flex-col items-start group">
+                  <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
+                     <img src={t1} alt="Julian Black" className="w-full h-full object-cover transition-all duration-700" />
+                  </div>
+                  <div className="mt-5 pl-1">
+                    <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Julian Black</h3>
+                    <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Technology Principal</p>
+                  </div>
+               </div>
+
             </div>
+         </div>
 
-            {/* The Collective - Diamond Grid */}
-            <div className="relative pt-12 pb-24 h-auto">
-               <div className="flex items-center justify-center mb-16 relative">
-                  <div className="absolute left-0 right-0 h-px bg-muted -z-10" />
-                  <span className="bg-white px-8 text-primary font-black text-sm tracking-[0.4em] uppercase">THE COLLECTIVE</span>
-               </div>
-
-               <div className="flex flex-col items-center relative gap-4">
-                  {/* Role Detail Typography - Centered under hexagons */}
-                  
-                  {/* Top Layer: M. THORNE (CTO) */}
-                  <div className="flex flex-col items-center mb-4">
-                    <HexTeamMember imgSrc={t2} className="hover:grayscale-0 grayscale" />
-                    <div className="text-center mt-4 uppercase">
-                      <p className="font-black text-lg text-[#111]">M. THORNE</p>
-                      <p className="text-primary font-black text-[10px] tracking-widest mt-0.5">CTO</p>
-                    </div>
-                  </div>
-
-                  {/* Middle Layer: J. BLACK & E. VANCE */}
-                  <div className="flex flex-row items-center gap-4 lg:gap-20 md:-mt-10 lg:-mt-12">
-                    <div className="flex flex-col items-center">
-                      <HexTeamMember imgSrc={t1} className="hover:grayscale-0 grayscale" />
-                      <div className="text-center mt-4 uppercase">
-                        <p className="font-black text-lg text-[#111]">J. BLACK</p>
-                        <p className="text-primary font-black text-[10px] tracking-widest mt-0.5">Design Lead</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <HexTeamMember imgSrc={t3} className="hover:grayscale-0 grayscale" />
-                      <div className="text-center mt-4 uppercase">
-                        <p className="font-black text-lg text-[#111]">E. VANCE</p>
-                        <p className="text-primary font-black text-[10px] tracking-widest mt-0.5">Strategy</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Layer: S. REED (Operations) */}
-                  <div className="flex flex-col items-center md:-mt-10 lg:-mt-12">
-                    <HexTeamMember imgSrc={t4} className="hover:grayscale-0 grayscale" />
-                    <div className="text-center mt-4 uppercase">
-                      <p className="font-black text-lg text-[#111]">S. REED</p>
-                      <p className="text-primary font-black text-[10px] tracking-widest mt-0.5">Operations</p>
-                    </div>
-                  </div>
-
+         {/* Selection: Philosophy */}
+         <div className="container mx-auto px-6 lg:px-12 max-w-[900px] text-center pb-12">
+            <div className="flex flex-col items-center">
+               <svg width="40" height="40" viewBox="0 0 24 24" fill="#FDE8E9" className="mb-8">
+                  <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H12.017C11.4647 13 11.017 12.5523 11.017 12V9C11.017 7.34315 12.3601 6 14.017 6H19.017C20.6738 6 22.017 7.34315 22.017 9V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM3.017 21L3.017 18C3.017 16.8954 3.91243 16 5.017 16H8.017C8.56928 16 9.017 15.5523 9.017 15V9C9.017 8.44772 8.56928 8 8.017 8H5.017C4.46472 8 4.017 8.44772 4.017 9V12C4.017 12.5523 3.56928 13 3.017 13H1.017C0.464718 13 0.017 12.5523 0.017 12V9C0.017 7.34315 1.36015 6 3.017 6H8.017C9.67385 6 11.017 7.34315 11.017 9V15C11.017 18.3137 8.33075 21 5.017 21H3.017Z" />
+               </svg>
+               <h4 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#111] leading-tight mb-12 max-w-[700px] tracking-tight">
+                 "We believe that the future of school health is not found in algorithms, but in the intersection of <span className="text-primary italic">human narrative</span> and architectural precision."
+               </h4>
+               <div className="flex items-center gap-4 w-full max-w-xs">
+                  <div className="h-[1px] bg-[#EEE] flex-1" />
+                  <span className="text-[#999] font-black text-[9px] tracking-[0.4em] uppercase">THE HEALTHYROO PHILOSOPHY</span>
+                  <div className="h-[1px] bg-[#EEE] flex-1" />
                </div>
             </div>
          </div>
-      </section>
+       </section>
 
-      {/* Section 6: Careers/Join Our Mission */}
-      <section className="py-24 bg-white overflow-hidden">
+       {/* Section 6: Careers/Join Our Mission - Visual Replica from Screenshot */}
+       <section className="pt-0 pb-32 bg-white overflow-visible">
          <div className="container mx-auto px-4 lg:px-8">
-            <div className="relative min-h-[500px] flex flex-col lg:flex-row items-center justify-center lg:justify-start">
+            <div className="relative min-h-[500px] md:min-h-[600px] flex flex-col lg:flex-row items-center justify-center lg:justify-start">
                
-               {/* Large Yellow Circle Content */}
-               <div className="relative z-10 w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] bg-secondary rounded-full flex flex-col items-center justify-center p-8 md:p-14 lg:p-20 text-center lg:text-left shadow-lg">
-                  <h3 className="text-lg md:text-2xl lg:text-3xl font-black text-[#111] leading-tight mb-8">
+               {/* Large RED Circle Content */}
+               <div className="relative z-10 w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] bg-primary rounded-full flex flex-col items-center justify-center p-8 md:p-14 lg:p-20 text-center shadow-lg text-white">
+                  <h3 className="text-lg md:text-2xl lg:text-3xl font-black leading-tight mb-8 max-w-[400px] uppercase">
                      FROM FRESHERS TO EXPERIENCED INDIVIDUALS, ALL HAVE A CHANCE TO EVOLVE AT HEALTHYROO. 
                      HERE'S WHAT IT LOOKS LIKE WORKING AT HEALTHYROO.
                   </h3>
-                  <a href="#" className="flex items-center gap-4 text-[#111] font-black text-sm md:text-lg uppercase tracking-widest hover:translate-x-2 transition-transform">
+                  
+                  {/* JOIN OUR MISSION Pill Button */}
+                  <button className="bg-white text-primary font-black px-10 py-3.5 rounded-full uppercase tracking-widest text-sm shadow-xl hover:scale-105 transition-transform">
                      JOIN OUR MISSION
-                     <div className="w-12 h-[2px] bg-[#111]" />
-                  </a>
+                  </button>
 
-                  {/* Decorative Elements inside circle logic area */}
-                  <Star className="absolute top-[10%] -left-4 text-[#FFC53D] fill-current w-12 h-12 opacity-80" />
-                  <Star className="absolute bottom-[20%] -left-8 text-[#FFC53D] fill-current w-8 h-8 opacity-60" />
+                  {/* Decorative Elements inside circle logic area (White for visibility on Red) */}
+                  <Star className="absolute top-[10%] -left-4 text-white fill-current w-12 h-12 opacity-80" />
+                  <Star className="absolute bottom-[20%] -left-8 text-white fill-current w-8 h-8 opacity-60" />
                   
                   {/* Zigzag Doodle at bottom left */}
                   <div className="absolute -bottom-10 left-10 md:left-20">
                      <svg width="60" height="120" viewBox="0 0 60 120" className="opacity-80">
-                        <path d="M10,10 L50,30 L10,50 L50,70 L10,90 L50,110" fill="none" stroke="black" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M10,10 L50,30 L10,50 L50,70 L10,90 L50,110" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
                      </svg>
                   </div>
                </div>
 
-               {/* Video/Image Block (Overlapping Right) */}
-               <div className="relative z-20 w-full lg:w-[650px] aspect-video bg-gray-200 rounded-3xl overflow-hidden shadow-2xl mt-12 lg:mt-0 lg:-ml-32 transform hover:scale-[1.02] transition-transform duration-500 group">
-                  <img src={heroImg} alt="Working at HealthyRoo" className="w-full h-full object-cover grayscale-[0.2] transition-all group-hover:grayscale-0" />
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                     <div className="w-20 h-20 md:w-28 md:h-28 bg-white/90 rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
-                        <div className="w-0 h-0 border-t-[15px] border-t-transparent border-l-[25px] border-l-[#EE1D26] border-b-[15px] border-b-transparent ml-2" />
+                {/* Video Window with Black Frame and Caption - Positioned Lower and Offset */}
+                <div className="relative z-20 flex flex-col items-center mt-12 lg:-mt-0 lg:-ml-28 transform lg:translate-y-48">
+                  <div className="w-full lg:w-[500px] aspect-video bg-gray-200 border-[3px] border-black rounded-[4px] shadow-2xl relative group overflow-hidden">
+                     <img src={heroImg} alt="Working at HealthyRoo" className="w-full h-full object-cover grayscale-[0.2] transition-all group-hover:grayscale-0" />
+                     <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+                        <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
+                           <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-[#EE1D26] border-b-[10px] border-b-transparent ml-1.5" />
+                        </div>
+                     </div>
+                     {/* Top Right Video Badge from screenshot */}
+                     <div className="absolute top-4 left-4 flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm border border-white/30" />
+                        <span className="text-white text-[10px] font-bold uppercase tracking-tight opacity-80">Working at HealthyRoo</span>
                      </div>
                   </div>
-                  <div className="absolute bottom-6 left-6 text-white text-sm font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                  
+                  {/* Caption directly below the frame like in screenshot */}
+                  <span className="mt-4 font-black text-black text-xs md:text-sm uppercase tracking-widest bg-white lg:bg-transparent px-2">
                      Life at HealthyRoo
-                  </div>
-               </div>
-
-               {/* Floating Star Right */}
-               <Star className="hidden lg:block absolute top-[20%] right-[15%] text-[#FFC53D] fill-current w-10 h-10 opacity-70" />
+                  </span>
+                </div>
+ 
+                {/* External Stars like in screenshot */}
+                <Star className="hidden lg:block absolute top-[15%] left-[2%] text-[#FFD641] fill-current w-10 h-10" />
+                <Star className="hidden lg:block absolute bottom-[10%] left-[8%] text-[#FFD641] fill-current w-8 h-8" />
+                <Star className="hidden lg:block absolute top-[40%] right-[30%] text-[#FFD641] fill-current w-10 h-10" />
 
             </div>
          </div>
-      </section>
+       </section>
 
-      <Footer />
-    </div>
-  );
+       <Footer />
+     </div>
+   );
 };
 
 export default AboutPage;

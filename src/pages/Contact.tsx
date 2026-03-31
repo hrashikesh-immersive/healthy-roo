@@ -148,7 +148,7 @@ const ContactPage = () => {
                            <textarea className="w-full bg-transparent outline-none py-1 font-bold h-32 ring-0 resize-none" required></textarea>
                         </div>
                         <div className="pt-6">
-                           <button type="submit" className="bg-secondary text-secondary-foreground px-16 py-5 font-black tracking-[0.25em] hover:bg-black hover:text-white transition-all transform hover:scale-105 shadow-xl uppercase text-sm">
+                           <button type="submit" className="bg-[#EE1D26] text-white px-16 py-5 font-black tracking-[0.25em] hover:bg-black hover:text-white transition-all transform hover:scale-105 shadow-xl uppercase text-sm">
                               SUBMIT
                            </button>
                         </div>
@@ -205,7 +205,7 @@ const ContactPage = () => {
                             </div>
                         </div>
 
-                        <button type="submit" className="bg-secondary text-black px-14 py-4 font-black tracking-widest hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
+                        <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-black tracking-widest hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
                            SUBMIT
                         </button>
                      </form>
@@ -273,7 +273,7 @@ const ContactPage = () => {
                             </div>
                         </div>
 
-                        <button type="submit" className="bg-secondary text-black px-14 py-4 font-black tracking-widest hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
+                        <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-black tracking-widest hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
                            SUBMIT
                         </button>
                      </form>
@@ -358,7 +358,7 @@ const ContactPage = () => {
                             </div>
                         </div>
 
-                        <button type="submit" className="bg-secondary text-black px-14 py-4 font-black tracking-widest hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
+                        <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-black tracking-widest hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
                            SUBMIT
                         </button>
                      </form>
@@ -377,8 +377,8 @@ const ContactPage = () => {
                {features.map((f, i) => (
                  <div key={i} className="flex gap-8 group">
                     <div className="shrink-0">
-                       <div className="w-12 h-12 md:w-14 md:h-14 bg-[#FFC53D] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                          <ChevronRight className="w-8 h-8 text-black stroke-[4]" />
+                       <div className="w-12 h-12 md:w-14 md:h-14 bg-[#EE1D26] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                          <ChevronRight className="w-8 h-8 text-white stroke-[4]" />
                        </div>
                     </div>
                     <div>
@@ -426,24 +426,31 @@ const ContactPage = () => {
          </div>
 
          {/* Interactive Map View */}
-         <div className="w-full lg:w-1/2 min-h-[500px] relative group overflow-hidden">
-            {/* Satellite Grid Image / Placeholder */}
-            <div className="absolute inset-0 bg-[#eee] transition-transform duration-1000">
-               <img src={mapPlaceholder} alt="Sydney Map Location" className="w-full h-full object-cover opacity-80" />
-            </div>
-            <div className="absolute inset-0 bg-black/5" />
+         <div className="w-full lg:w-1/2 min-h-[500px] relative group overflow-hidden bg-muted">
+            {/* Real Google Maps Embed */}
+            <iframe 
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.7915234151247!2d151.2065!3d-33.8398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12aec0f30500c5%3A0x6b430e7943cc979!2s100%20Mount%20St%2C%20North%20Sydney%20NSW%202060%2C%20Australia!5e0!3m2!1sen!2sau!4v1711880000000!5m2!1sen!2sau" 
+               className="absolute inset-0 w-full h-full border-0 grayscale-[0.3] opacity-90 group-hover:grayscale-0 transition-all duration-700 pointer-events-auto"
+               allowFullScreen={true} 
+               loading="lazy" 
+               referrerPolicy="no-referrer-when-downgrade"
+               title="HealthyRoo HQ Location"
+            ></iframe>
             
-            {/* Pulsing Marker */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+            {/* Interactive Overlay - Optional custom marker for branding */}
+            <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+            
+            {/* Pulsing Marker - Positioned over North Sydney area roughly */}
+            <div className="absolute top-[45%] left-[48%] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
                <div className="relative">
                   {/* Ping Effect */}
-                  <div className="absolute inset-0 w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(238,29,38,0.5)] border-4 border-white transform transition-transform group-hover:scale-110 cursor-pointer">
-                     <MapPin className="text-primary-foreground w-8 h-8 fill-current" />
+                  <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(238,29,38,0.5)] border-4 border-white transform transition-transform group-hover:scale-110">
+                     <MapPin className="text-primary-foreground w-6 h-6 fill-current" />
                   </div>
                   
                   {/* Info Tooltip */}
-                  <div className="absolute -top-14 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-2 rounded-xl text-[10px] font-black shadow-2xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-widest uppercase">
-                    Sydney, Australia
+                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-black text-white px-4 py-1.5 rounded-lg text-[9px] font-black shadow-2xl whitespace-nowrap tracking-widest uppercase">
+                    North Sydney HQ
                   </div>
                </div>
             </div>

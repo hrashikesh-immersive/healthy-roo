@@ -50,8 +50,16 @@ const SchoolLoginPage = () => {
           </div>
 
           {/* Card Footer Actions */}
-          <div className="flex items-center justify-between pt-4">
-            <div className="flex items-center gap-3 cursor-pointer group">
+          <div className="flex flex-col gap-6 pt-4">
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-3 bg-accent hover:opacity-90 text-white font-bold py-4 rounded-md shadow-[0_10px_20px_rgba(54,179,162,0.2)] transition-all active:scale-[0.98] group"
+            >
+              <Power className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              <span className="uppercase tracking-widest text-sm">LOGIN</span>
+            </button>
+
+            <div className="flex items-center justify-center gap-3 cursor-pointer group">
                <input 
                 type="checkbox" 
                 id="remember" 
@@ -61,14 +69,6 @@ const SchoolLoginPage = () => {
                 Remember Me
               </label>
             </div>
-
-            <button
-              type="submit"
-              className="flex items-center gap-3 bg-accent hover:opacity-90 text-white font-bold px-8 py-3 rounded-md shadow-[0_5px_15px_rgba(54,179,162,0.3)] transition-all active:scale-95 group"
-            >
-              <Power className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              <span className="uppercase tracking-widest text-xs">LOGIN</span>
-            </button>
           </div>
         </form>
       </div>

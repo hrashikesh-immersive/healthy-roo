@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import testImg1 from "@/assets/impact-kids-active.jpg"; // Placeholder
-import testImg2 from "@/assets/health-assessment-bg.jpg"; // Placeholder
+import testImg1 from "@/assets/testimonial_principal_woman_1774967591464.png";
+import testImg2 from "@/assets/testimonial_teacher_man_1774967611326.png";
 
 const TestimonialsSection = () => {
   return (

@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+    
+    /* Brand Color Definitions (HSL) */
+    --brand-red: 358 85% 53%;    /* #EE1E25 */
+    --brand-red-dark: 358 85% 45%; 
+    --brand-yellow: 45 100% 62%;  /* #FFC53D */
+    --brand-accent-red: 354 70% 50%; /* #D93644 - Vibrant Red Accent */
+    --brand-accent-red-dark: 354 70% 40%;
+
+    /* Centralized Theme System (Functional Variables) */
+    --primary-color: var(--brand-red);
+    --secondary-color: var(--brand-yellow);
+    --accent-color: var(--brand-accent-red);
+    --background-color: 0 0% 100%;
+    
+    --text-primary: 220 20% 10%;    /* #111111 */
+    --text-secondary: 220 10% 45%;  /* #666666 */
+    
+    --button-primary: var(--brand-red);
+    --button-hover: var(--brand-red-dark);
+
+    /* UI Registry Mapping */
+    --background: var(--background-color);
+    --foreground: var(--text-primary);
+
+    --card: 0 0% 100%;
+    --card-foreground: var(--text-primary);
+
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--text-primary);
+
+    --primary: var(--primary-color);
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: var(--secondary-color);
+    --secondary-foreground: var(--text-primary);
+
+    --muted: 0 0% 96%;
+    --muted-foreground: var(--text-secondary);
+
+    --accent: var(--accent-color);
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: var(--brand-red);
+
+    --radius: 0.5rem;
+
+    --hero-yellow: var(--brand-yellow);
+    --hero-blue: 200 80% 55%;
+    --ticker-bg: var(--brand-red);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

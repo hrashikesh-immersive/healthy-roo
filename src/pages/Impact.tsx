@@ -5,7 +5,6 @@ import { Users, GraduationCap, School, MapPin } from "lucide-react";
 
 // Assets
 import heroImg from "@/assets/impact-hero-highres.png";
-import impactHeroAus from "@/assets/impact-hero-aus.png";
 import sydneyImg from "@/assets/impact-sydney.png";
 import qldImg from "@/assets/impact-qld.png";
 import vicImg from "@/assets/impact-vic.png";
@@ -56,80 +55,47 @@ const ImpactPage = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Structural Hero inspired by the provided reference */}
-      <section className="bg-[#FAF9F6]">
-        {/* Dark Hero Background with bottom fading to background color */}
-        <div className="relative w-full h-[450px] md:h-[600px] lg:h-[70vh]">
-          <img 
-            src={impactHeroAus}
-            alt="Australian Students Impact"
-            className="w-full h-full object-cover object-top brightness-[0.8] contrast-[1.1]"
+      {/* Hero Section - Elite Desktop Responsiveness */}
+      <section className="relative min-h-[700px] lg:h-[90vh] lg:max-h-[850px] flex flex-col overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroImg}
+            alt="Impact Hero - Official High-Res"
+            className="w-full h-full object-cover brightness-[0.75] contrast-[1.05]"
           />
-          {/* Subtle dark overlay at the top if needed */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3" />
-          {/* Smooth fade to the light background color at the bottom */}
-          <div className="absolute bottom-0 w-full h-[60%] lg:h-[75%] bg-gradient-to-t from-[#FAF9F6] via-[#FAF9F6]/80 to-transparent" />
-          
-          {/* Header Text overlay perfectly aligned at the bottom of the image container */}
-          <div className="absolute bottom-0 w-full pb-8 md:pb-12">
-            <div className="container mx-auto px-6 max-w-[1100px]">
-              <span className="text-[#EE1D26] font-bold text-xs md:text-sm tracking-[0.25em] uppercase block mb-3 drop-shadow-sm">
-                 OUR EVOLUTION OF IMPACT
-              </span>
-              <h1 className="text-4xl md:text-6xl lg:text-[75px] font-black text-[#111] leading-[0.9] tracking-tighter uppercase relative z-10 drop-shadow-md">
-                 TRANSFORMING<br />EDUCATION
-              </h1>
-            </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/30" />
+        </div>
+        
+        {/* Hero Headline - Single line, left aligned */}
+        <div className="flex-grow flex items-center relative z-10 w-full pt-24 lg:pt-0">
+          <div className="container mx-auto px-4 text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight uppercase leading-[0.85] drop-shadow-[0_20px_60px_rgba(0,0,0,0.7)] max-w-4xl">
+              OUR JOURNEY OF IMPACT
+            </h1>
           </div>
         </div>
+      </section>
 
-        {/* Content Section below Header */}
-        <div className="container mx-auto px-6 max-w-[1100px] py-16 md:py-24 relative z-20">
-           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-              {/* Left Column Text (Paragraphs) */}
-              <div className="flex-1 flex flex-col space-y-8 lg:pr-10">
-                 <p className="text-lg md:text-xl lg:text-[22px] font-bold text-[#333] leading-snug">
-                    From a single classroom to a nationwide movement, our commitment to transforming education remains unwavering.
-                 </p>
-                 <div className="border-l-[3px] border-[#EE1D26] pl-6 py-2">
-                    <p className="text-[#555] leading-relaxed text-sm lg:text-base font-medium">
-                       We started with a simple belief: every child deserves a path to success. Today, we're not just reaching students; we're empowering entire communities through data-driven innovation and human-centric design.
-                    </p>
-                 </div>
-              </div>
+      {/* Signature Red Metrics Banner - Separate section to allow full hero image visibility */}
+      <section className="w-full bg-primary py-10 lg:py-16 relative z-20">
+           <div className="container mx-auto px-4 max-w-[1400px]">
+               <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-4 lg:gap-12">
+                  {stats.map((stat, i) => (
+                    <div key={i} className="flex flex-col items-center text-center text-white relative">
+                      <div className="mb-4 md:mb-6 transform hover:scale-110 transition-transform duration-300">
+                         {React.cloneElement(stat.icon as React.ReactElement, { className: "w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white stroke-[1.5]" })}
+                      </div>
+                      <div className="text-2xl md:text-3xl lg:text-6xl font-black mb-2 leading-none tracking-tight">{stat.value}</div>
+                      <div className="text-[10px] lg:text-sm uppercase tracking-[0.2em] lg:tracking-[0.25em] font-black opacity-95 max-w-[160px] lg:max-w-[200px] leading-relaxed">
+                        {stat.label}
+                      </div>
 
-              {/* Right Column Grid (Stats) */}
-              <div className="flex-1 flex flex-col">
-                 <div className="grid grid-cols-2 gap-4 lg:gap-6 w-full">
-                    {/* Stat Card 1: White/Light */}
-                    <div className="bg-white p-6 lg:p-10 rounded shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col justify-center transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_15px_50px_rgba(0,0,0,0.08)] text-center lg:text-left">
-                       <span className="text-[40px] lg:text-[54px] font-black text-[#EE1D26] mb-1 leading-none tracking-tighter">500K+</span>
-                       <span className="text-[10px] lg:text-xs font-black text-gray-600 uppercase tracking-widest leading-none">IMPACTED</span>
+                      {/* Vertical dividers for desktop */}
+                      {i < 3 && <div className="hidden md:block absolute -right-[15%] lg:-right-[10%] top-1/2 -translate-y-1/2 w-[1px] h-24 bg-white/20" />}
                     </div>
-                    {/* Stat Card 2: Gray */}
-                    <div className="bg-[#f2f2f2] p-6 lg:p-10 rounded flex flex-col justify-center transform transition-transform duration-300 hover:-translate-y-1 text-center lg:text-left">
-                       <span className="text-[40px] lg:text-[54px] font-black text-[#111] mb-1 leading-none tracking-tighter">364+</span>
-                       <span className="text-[10px] lg:text-xs font-black text-gray-600 uppercase tracking-widest leading-none">TEACHERS</span>
-                    </div>
-                    {/* Stat Card 3: Gray */}
-                    <div className="bg-[#f2f2f2] p-6 lg:p-10 rounded flex flex-col justify-center transform transition-transform duration-300 hover:-translate-y-1 text-center lg:text-left">
-                       <span className="text-[40px] lg:text-[54px] font-black text-[#111] mb-1 leading-none tracking-tighter">125+</span>
-                       <span className="text-[10px] lg:text-xs font-black text-gray-600 uppercase tracking-widest leading-none">SCHOOLS</span>
-                    </div>
-                    {/* Stat Card 4: Red */}
-                    <div className="bg-[#EE1D26] p-6 lg:p-10 rounded shadow-xl flex flex-col justify-center transform transition-transform duration-300 hover:-translate-y-1 text-center lg:text-left">
-                       <span className="text-[40px] lg:text-[54px] font-black text-white mb-1 leading-none tracking-tighter">42+</span>
-                       <span className="text-[10px] lg:text-xs font-black text-white/95 uppercase tracking-widest leading-none">CITIES</span>
-                    </div>
-                 </div>
-                 
-                 {/* Full width button below grid */}
-                 <button className="w-full mt-6 bg-[#EE1D26] text-white font-black py-[22px] rounded text-[13px] tracking-[0.15em] uppercase hover:opacity-90 shadow-xl transition-all hover:-translate-y-[2px]">
-                    VIEW FULL TIMELINE
-                 </button>
-              </div>
+                  ))}
+               </div>
            </div>
-        </div>
       </section>
 
       {/* Special Projects Section - Asymmetrical Design */}

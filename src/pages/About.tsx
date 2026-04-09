@@ -2,6 +2,27 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Star, Users } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" } as any,
+  },
+};
+
 
 // Assets
 import logo from "@/assets/logo/healthyroo-logo.svg";
@@ -50,7 +71,7 @@ const HexTeamMember = ({
            <img src={imgSrc} className={`w-full h-full object-cover transition-transform duration-500 hover:scale-110 ${scale}`} style={{ objectPosition }} alt="Team Member" />
         ) : active ? (
           <div className="text-white text-center p-2 flex flex-col items-center justify-center h-full">
-             <p className="font-black text-[12px] md:text-sm lg:text-lg uppercase leading-tight mb-0.5">Alice Miller</p>
+             <p className="font-black text-[12px] md:text-sm lg:text-lg uppercase leading-tight mb-0.5">Smit Tanksale</p>
              <p className="text-[10px] md:text-xs lg:text-sm font-bold opacity-90 uppercase tracking-wider">CEO</p>
           </div>
         ) : (
@@ -62,26 +83,36 @@ const HexTeamMember = ({
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-white font-sans overflow-x-hidden w-full max-w-full">
+    <div className="min-h-screen bg-white font-sans pt-[72px] md:pt-[88px]">
       <Navbar />
 
       {/* Section 1: Who We Are / Hero - Precision Layout Match */}
       <section className="relative w-full overflow-visible bg-white">
         
         {/* Image Backdrop bounded above lower area */}
-        <div className="relative w-full h-[300px] md:h-[500px] lg:h-[600px]">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="relative w-full h-[300px] md:h-[500px] lg:h-[600px]"
+        >
           <img
             src={heroImg}
             alt="HealthyRoo Australian School Engagement"
             className="w-full h-full object-cover brightness-[0.9] contrast-[1.05]"
           />
-        </div>
+        </motion.div>
 
         {/* Container strictly bound to the image height to ensure accurate overlapping placement */}
         <div className="absolute top-0 left-0 w-full h-[300px] md:h-[500px] lg:h-[600px] z-20 pointer-events-none flex items-end">
            <div className="container mx-auto px-4 lg:px-12 flex justify-center md:justify-end">
              {/* High-Impact Red Circle positioned identically to screenshot - Proportions Scaled Down for Visibility */}
-             <div className="pointer-events-auto relative w-[210px] h-[210px] sm:w-[280px] sm:h-[280px] md:w-[380px] md:h-[380px] lg:w-[460px] lg:h-[460px] bg-[#EE1D26] rounded-full flex flex-col items-center justify-center text-center text-white p-4 md:p-8 lg:p-10 translate-y-[25%] shadow-xl shadow-red-500/10">
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.8, x: 50 }}
+               animate={{ opacity: 1, scale: 1, x: 0 }}
+               transition={{ duration: 1, delay: 0.5, ease: "easeOut" } as any}
+               className="pointer-events-auto relative w-[210px] h-[210px] sm:w-[280px] sm:h-[280px] md:w-[380px] md:h-[380px] lg:w-[460px] lg:h-[460px] bg-[#EE1D26] rounded-full flex flex-col items-center justify-center text-center text-white p-4 md:p-8 lg:p-10 translate-y-[25%] shadow-xl shadow-red-500/10"
+             >
              
              {/* Sun Doodle Graphic */}
              <div className="absolute top-[8%] left-[2%] md:top-[10%] md:left-[3%] w-6 md:w-12 lg:w-16">
@@ -113,7 +144,7 @@ const AboutPage = () => {
                 primary and secondary schools with the mission to nurture <br className="hidden md:block" />
                 the world's largest network of health promoting schools.
               </p>
-           </div>
+           </motion.div>
           </div>
         </div>
 
@@ -126,7 +157,13 @@ const AboutPage = () => {
             <div className="flex flex-col lg:flex-row items-center justify-center relative">
                
                {/* Vision Panel - Overlapping Focal Point */}
-               <div className="relative z-20 flex flex-col lg:flex-row items-center lg:translate-x-[-40px]">
+               <motion.div 
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "easeOut" } as any}
+                className="relative z-20 flex flex-col lg:flex-row items-center lg:translate-x-[-40px]"
+               >
                   {/* Overlapping Image of Child */}
                   <div className="relative -mb-12 md:-mb-0 md:-mr-16 z-30 transform hover:scale-105 transition-transform duration-500">
                      <div className="w-[180px] h-[240px] md:w-[280px] md:h-[350px] lg:w-[320px] lg:h-[400px]">
@@ -154,10 +191,16 @@ const AboutPage = () => {
                   </div>
 
                   <Star className="absolute -bottom-20 right-[15%] text-primary w-12 h-12 fill-current opacity-90" />
-               </div>
+               </motion.div>
 
                {/* Mission Panel - Horizontal Staggering */}
-                <div className="relative z-10 w-full lg:w-[700px] bg-muted p-10 md:p-16 lg:p-24 pt-32 lg:pt-16 lg:pl-40 -mt-16 lg:-mt-0 lg:-ml-32 min-h-[420px] flex flex-col justify-center items-start shadow-inner">
+                <motion.div 
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0.2 } as any}
+                  className="relative z-10 w-full lg:w-[700px] bg-muted p-10 md:p-16 lg:p-24 pt-32 lg:pt-16 lg:pl-40 -mt-16 lg:-mt-0 lg:-ml-32 min-h-[420px] flex flex-col justify-center items-start shadow-inner"
+                >
                   {/* Mission Text Content */}
                   <div className="mb-12">
                      <span className="text-primary font-black text-lg lg:text-2xl tracking-widest mb-4 block">
@@ -178,7 +221,7 @@ const AboutPage = () => {
                   </div>
 
                   <Star className="absolute -top-12 right-[25%] text-primary w-8 h-8 fill-current opacity-80" />
-               </div>
+               </motion.div>
 
             </div>
          </div>
@@ -187,8 +230,14 @@ const AboutPage = () => {
       {/* Section 3: Sustainable Healthcare */}
       <section className="bg-primary py-12 lg:py-16 text-white overflow-hidden">
 
-         <div className="container mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="max-w-xl">
+         <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+            className="container mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+         >
+            <motion.div variants={itemVariants} className="max-w-xl">
                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8">
                   Sustainable<br />Healthcare
                </h2>
@@ -204,9 +253,9 @@ const AboutPage = () => {
                     SUSTAINABLE DEVELOPMENT <br className="sm:hidden" /> <span className="text-[#34A853]">GOALS</span>
                   </span>
                 </div>
-            </div>
+            </motion.div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
+            <motion.div variants={containerVariants} className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                {/* SDG Icons (Official Visual Replica - Local Assets) */}
                {[
                  { id: 3, src: sdg3 },
@@ -216,17 +265,21 @@ const AboutPage = () => {
                  { id: 12, src: sdg12 },
                  { id: 17, src: "https://en.wikipedia.org/wiki/Special:FilePath/Sustainable_Development_Goal_17.svg" }
                ].map(sdg => (
-                 <div key={sdg.id} className="aspect-square bg-white flex items-center justify-center transform transition-transform hover:scale-[1.03] shadow-md border-[4px] md:border-[8px] border-white">
+                 <motion.div 
+                    key={sdg.id} 
+                    variants={itemVariants}
+                    className="aspect-square bg-white flex items-center justify-center transform transition-transform hover:scale-[1.03] shadow-md border-[4px] md:border-[8px] border-white"
+                 >
                     <img 
                       src={sdg.src}
                       alt={`Sustainable Development Goal ${sdg.id}`} 
                       className="w-full h-full object-cover bg-white"
                       loading="lazy"
                     />
-                 </div>
+                 </motion.div>
                ))}
-            </div>
-         </div>
+            </motion.div>
+         </motion.div>
       </section>
 
       {/* Section 4: Awards & Media */}
@@ -287,21 +340,27 @@ const AboutPage = () => {
 
          {/* Consolidated Proper Square Grid - Guaranteed Uniformity */}
          <div className="container mx-auto px-6 lg:px-12 max-w-[1240px] mb-16 relative">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 transition-all duration-500">
+            <motion.div 
+               initial="hidden"
+               whileInView="visible"
+               viewport={{ once: true, amount: 0.1 }}
+               variants={containerVariants}
+               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 transition-all duration-500"
+            >
                
-               {/* Alice Miller */}
-               <div className="flex flex-col items-start group">
+               {/* Smit Tanksale */}
+               <motion.div variants={itemVariants} className="flex flex-col items-start group">
                   <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
-                     <img src={teamLeadImg} alt="Alice Miller" className="w-full h-full object-cover transition-all duration-700" />
+                     <img src={teamLeadImg} alt="Smit Tanksale" className="w-full h-full object-cover transition-all duration-700" />
                   </div>
                   <div className="mt-5 pl-1">
-                    <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Alice Miller</h3>
+                    <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Smit Tanksale</h3>
                     <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">CEO</p>
                   </div>
-               </div>
+               </motion.div>
 
                {/* Marcus Thorne */}
-               <div className="flex flex-col items-start group">
+               <motion.div variants={itemVariants} className="flex flex-col items-start group">
                   <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
                      <img src={t2} alt="Marcus Thorne" className="w-full h-full object-cover transition-all duration-700" />
                   </div>
@@ -309,10 +368,10 @@ const AboutPage = () => {
                     <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Marcus Thorne</h3>
                     <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Creative Director</p>
                   </div>
-               </div>
+               </motion.div>
 
                {/* Sarah Chen */}
-               <div className="flex flex-col items-start group">
+               <motion.div variants={itemVariants} className="flex flex-col items-start group">
                   <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
                      <img src={doctorGreen} alt="Sarah Chen" className="w-full h-full object-cover transition-all duration-700" />
                   </div>
@@ -320,10 +379,10 @@ const AboutPage = () => {
                     <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Sarah Chen</h3>
                     <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Editorial Chief</p>
                   </div>
-               </div>
+               </motion.div>
 
                {/* David Rossi */}
-               <div className="flex flex-col items-start group">
+               <motion.div variants={itemVariants} className="flex flex-col items-start group">
                   <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
                      <img src={careerMan} alt="David Rossi" className="w-full h-full object-cover transition-all duration-700" />
                   </div>
@@ -331,10 +390,10 @@ const AboutPage = () => {
                     <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">David Rossi</h3>
                     <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Director of Ops</p>
                   </div>
-               </div>
+               </motion.div>
 
                {/* Elena Vance */}
-               <div className="flex flex-col items-start group">
+               <motion.div variants={itemVariants} className="flex flex-col items-start group">
                   <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
                      <img src={schoolNurse} alt="Elena Vance" className="w-full h-full object-cover transition-all duration-700" />
                   </div>
@@ -342,10 +401,10 @@ const AboutPage = () => {
                     <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Elena Vance</h3>
                     <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Head of Strategy</p>
                   </div>
-               </div>
+               </motion.div>
 
                {/* Maya Kalu */}
-               <div className="flex flex-col items-start group">
+               <motion.div variants={itemVariants} className="flex flex-col items-start group">
                   <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
                      <img src={workshopNurse} alt="Maya Kalu" className="w-full h-full object-cover transition-all duration-700" />
                   </div>
@@ -353,10 +412,10 @@ const AboutPage = () => {
                     <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Maya Kalu</h3>
                     <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Design Lead</p>
                   </div>
-               </div>
+               </motion.div>
 
                {/* Julian Black */}
-               <div className="flex flex-col items-start group">
+               <motion.div variants={itemVariants} className="flex flex-col items-start group">
                   <div className="relative w-full aspect-square bg-white overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
                      <img src={t1} alt="Julian Black" className="w-full h-full object-cover transition-all duration-700" />
                   </div>
@@ -364,9 +423,9 @@ const AboutPage = () => {
                     <h3 className="text-base lg:text-lg font-black text-[#111] uppercase tracking-tighter">Julian Black</h3>
                     <p className="text-primary font-black text-[9px] tracking-[0.2em] uppercase mt-1 whitespace-nowrap">Technology Principal</p>
                   </div>
-               </div>
+               </motion.div>
 
-            </div>
+            </motion.div>
          </div>
 
          {/* Selection: Philosophy */}
@@ -393,16 +452,26 @@ const AboutPage = () => {
             <div className="relative min-h-[500px] md:min-h-[600px] flex flex-col lg:flex-row items-center justify-center lg:justify-start">
                
                {/* Large RED Circle Content */}
-               <div className="relative z-10 w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] bg-primary rounded-full flex flex-col items-center justify-center p-8 md:p-14 lg:p-20 text-center shadow-lg text-white">
+               <motion.div 
+                 initial={{ opacity: 0, scale: 0.8 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 1, ease: "easeOut" } as any}
+                 className="relative z-10 w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] bg-primary rounded-full flex flex-col items-center justify-center p-8 md:p-14 lg:p-20 text-center shadow-lg text-white"
+               >
                   <h3 className="text-lg md:text-2xl lg:text-3xl font-black leading-tight mb-8 max-w-[400px] uppercase">
                      FROM FRESHERS TO EXPERIENCED INDIVIDUALS, ALL HAVE A CHANCE TO EVOLVE AT HEALTHYROO. 
                      HERE'S WHAT IT LOOKS LIKE WORKING AT HEALTHYROO.
                   </h3>
                   
                   {/* JOIN OUR MISSION Pill Button */}
-                  <button className="bg-white text-primary font-black px-10 py-3.5 rounded-full uppercase tracking-widest text-sm shadow-xl hover:scale-105 transition-transform">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-white text-primary font-black px-10 py-3.5 rounded-full uppercase tracking-widest text-sm shadow-xl hover:bg-gray-100 transition-colors"
+                  >
                      JOIN OUR MISSION
-                  </button>
+                  </motion.button>
 
                   {/* Decorative Elements inside circle logic area (White for visibility on Red) */}
                   <Star className="absolute top-[10%] -left-4 text-white fill-current w-12 h-12 opacity-80" />
@@ -414,10 +483,16 @@ const AboutPage = () => {
                         <path d="M10,10 L50,30 L10,50 L50,70 L10,90 L50,110" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
                      </svg>
                   </div>
-               </div>
+               </motion.div>
 
                 {/* Video Window with Black Frame and Caption - Positioned Lower and Offset */}
-                <div className="relative z-20 flex flex-col items-center mt-12 lg:-mt-0 lg:-ml-28 transform lg:translate-y-48">
+                <motion.div 
+                  initial={{ opacity: 0, y: 50, x: 50 }}
+                  whileInView={{ opacity: 1, y: 0, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0.3 } as any}
+                  className="relative z-20 flex flex-col items-center mt-12 lg:-mt-0 lg:-ml-28 transform lg:translate-y-48"
+                >
                   <div className="w-full lg:w-[500px] aspect-video bg-gray-200 border-[3px] border-black rounded-[4px] shadow-2xl relative group overflow-hidden">
                      <img src={heroImg} alt="Working at HealthyRoo" className="w-full h-full object-cover grayscale-[0.2] transition-all group-hover:grayscale-0" />
                      <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
@@ -436,7 +511,7 @@ const AboutPage = () => {
                   <span className="mt-4 font-black text-black text-xs md:text-sm uppercase tracking-widest bg-white lg:bg-transparent px-2">
                      Life at HealthyRoo
                   </span>
-                </div>
+                </motion.div>
  
                 {/* External Stars like in screenshot */}
                 <Star className="hidden lg:block absolute top-[15%] left-[2%] text-[#FFD641] fill-current w-10 h-10" />

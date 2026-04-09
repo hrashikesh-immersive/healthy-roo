@@ -71,7 +71,20 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
+  html, body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+}
+
+@layer utilities {
+  @keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+  }
+  .animate-scan {
+    animation: scan 3s linear infinite;
   }
 }

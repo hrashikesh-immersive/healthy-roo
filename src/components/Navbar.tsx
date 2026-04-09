@@ -1,42 +1,68 @@
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo/healthyroo-logo.svg";
 
-const navLinks = ["Home", "Services", "Impact", "About Us", "Contact Us"];
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+  { name: "Impact", path: "/impact" },
+  { name: "About Us", path: "/about" },
+  { name: "Careers", path: "/careers" },
+  { name: "Contact Us", path: "/contact" }
+];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="sticky top-0 z-50 bg-background border-b border-border">
-      <div className="container mx-auto flex items-center justify-between py-3 px-4 lg:px-8">
+    <nav className={`fixed left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 ${
+      isScrolled 
+        ? "top-4 w-[95%] max-w-7xl bg-white/75 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/20 rounded-3xl" 
+        : "top-0 w-full bg-white border-transparent"
+    }`}>
+      <div className={`container mx-auto flex items-center justify-between transition-all duration-300 ${isScrolled ? "py-2" : "py-3"} px-4 lg:px-8`}>
         {/* Logo */}
-        <a href="/" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img src={logo} alt="HealthyRoo" className="h-8 md:h-10 w-auto object-contain" />
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <ul className="hidden lg:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
-            <li key={link}>
-              <a 
-                href={link === "Home" ? "/" : link === "Services" ? "/#services" : link === "Impact" ? "/impact" : link === "About Us" ? "/about" : link === "Contact Us" ? "/contact" : "#"} 
-                className="text-foreground hover:text-primary transition-colors font-medium text-xs lg:text-sm whitespace-nowrap"
+            <li key={link.name}>
+              <Link 
+                to={link.path} 
+                className={`transition-colors font-semibold text-xs lg:text-sm whitespace-nowrap ${
+                  isActive(link.path) ? "text-primary underline underline-offset-8 decoration-2" : "text-foreground hover:text-primary"
+                }`}
               >
-                {link}
-              </a>
+                {link.name}
+              </Link>
             </li>
           ))}
         </ul>
 
         {/* CTA Buttons */}
         <div className="hidden lg:flex items-center gap-2 lg:gap-3">
-          <a href="/school-login" className="px-4 lg:px-6 py-2.5 rounded-full border border-primary text-primary font-medium text-xs lg:text-sm hover:bg-primary/5 transition-colors whitespace-nowrap">
+          <Link to="/school-login" className="px-4 lg:px-6 py-2.5 rounded-full border border-primary text-primary font-medium text-xs lg:text-sm hover:bg-primary/5 transition-colors whitespace-nowrap">
             School Login
-          </a>
-          <a href="#" className="px-4 lg:px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-xs lg:text-sm hover:bg-primary/90 transition-colors whitespace-nowrap">
+          </Link>
+          <Link to="#" className="px-4 lg:px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-xs lg:text-sm hover:bg-primary/90 transition-colors whitespace-nowrap">
             Sign In
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -54,24 +80,26 @@ const Navbar = () => {
         <div className="lg:hidden bg-background border-t border-border px-4 pb-4">
           <ul className="flex flex-col gap-3 py-4">
             {navLinks.map((link) => (
-              <li key={link}>
-                <a 
-                  href={link === "Home" ? "/" : link === "Services" ? "/#services" : link === "Impact" ? "/impact" : link === "About Us" ? "/about" : link === "Contact Us" ? "/contact" : "#"} 
-                  className="text-foreground hover:text-primary font-medium"
+              <li key={link.name}>
+                <Link 
+                  to={link.path} 
+                  className={`font-bold transition-colors ${
+                    isActive(link.path) ? "text-primary" : "text-foreground hover:text-primary"
+                  }`}
                   onClick={() => setMobileOpen(false)}
                 >
-                  {link}
-                </a>
+                  {link.name}
+                </Link>
               </li>
             ))}
           </ul>
           <div className="flex flex-col gap-2">
-            <a href="/school-login" onClick={() => setMobileOpen(false)} className="text-center px-6 py-2.5 rounded-full border border-primary text-primary font-medium text-sm">
+            <Link to="/school-login" onClick={() => setMobileOpen(false)} className="text-center px-6 py-2.5 rounded-full border border-primary text-primary font-medium text-sm">
               School Login
-            </a>
-            <a href="#" className="text-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm">
+            </Link>
+            <Link to="#" className="text-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm">
               Sign In
-            </a>
+            </Link>
           </div>
         </div>
       )}

@@ -2,6 +2,26 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Users, GraduationCap, School, MapPin, Sparkles, BarChart2, CalendarDays, Share2 } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" } as any,
+  },
+};
 
 // Assets
 import heroImg from "@/assets/australian-students-impact.png";
@@ -45,7 +65,7 @@ const ImpactPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden w-full max-w-full">
+    <div className="min-h-screen bg-white pt-[72px] md:pt-[88px]">
       <Navbar />
 
       {/* Structured Impact Hero Section */}
@@ -63,7 +83,12 @@ const ImpactPage = () => {
           
           {/* Headlines bounded to bottom portion */}
           <div className="absolute bottom-4 lg:bottom-12 left-0 w-full z-10">
-            <div className="container mx-auto px-6 md:px-12 max-w-[1300px]">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" } as any}
+              className="container mx-auto px-6 md:px-12 max-w-[1300px]"
+            >
               <span className="text-white font-bold text-xs sm:text-sm tracking-[0.2em] lg:tracking-[0.2em] mb-2 block uppercase drop-shadow-md opacity-90">
                 Our Evolution of Impact
               </span>
@@ -72,7 +97,7 @@ const ImpactPage = () => {
                 <br />
                 Education
               </h1>
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -92,44 +117,50 @@ const ImpactPage = () => {
             </div>
 
             {/* Balanced 2x2 Stats Grid Block */}
-            <div className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={containerVariants}
+              className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12"
+            >
               
               {/* Card 1: Lives Impacted */}
-              <div className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
+              <motion.div variants={itemVariants} className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
                 <div className="flex flex-col">
-                  <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">500,000+</span>
-                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Lives Impacted Regionally</span>
+                   <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">500,000+</span>
+                   <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Lives Impacted Regionally</span>
                 </div>
                 <Users className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
-              </div>
+              </motion.div>
               
               {/* Card 2: Trained Teachers */}
-              <div className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
+              <motion.div variants={itemVariants} className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
                 <div className="flex flex-col">
-                  <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">364+</span>
-                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Trained Teachers</span>
+                   <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">364+</span>
+                   <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Trained Teachers</span>
                 </div>
                 <GraduationCap className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
-              </div>
+              </motion.div>
               
               {/* Card 3: Partner Schools */}
-              <div className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
+              <motion.div variants={itemVariants} className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
                 <div className="flex flex-col">
-                  <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">125+</span>
-                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Partner Schools</span>
+                   <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">125+</span>
+                   <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Partner Schools</span>
                 </div>
                 <School className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
-              </div>
+              </motion.div>
               
               {/* Card 4: Cities Reached */}
-              <div className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
+              <motion.div variants={itemVariants} className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
                 <div className="flex flex-col">
-                  <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">42+</span>
-                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Cities Reached</span>
+                   <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">42+</span>
+                   <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Cities Reached</span>
                 </div>
                 <MapPin className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -146,8 +177,12 @@ const ImpactPage = () => {
 
           <div className="space-y-32 lg:space-y-48">
             {projects.map((project, i) => (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8, ease: "easeOut" } as any}
                 className={`flex flex-col items-center gap-12 lg:gap-24 ${
                   i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
@@ -182,7 +217,7 @@ const ImpactPage = () => {
                     {project.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

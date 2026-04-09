@@ -16,6 +16,26 @@ import {
   Pill, MoreHorizontal, Apple, Brain, Droplets, 
   Activity, Plus, Minus, Lightbulb 
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" } as any,
+  },
+};
 
 const HealthAssessmentTab = ({ onContact }: { onContact: () => void }) => (
   <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 animate-in fade-in duration-700 max-w-[1200px] mx-auto px-4 lg:px-0">
@@ -503,11 +523,21 @@ const OurServicesSection = () => {
          </div>
 
         {/* Dynamic Content */}
-        <div className="min-h-[600px]">
-          {activeTab === "Health Assessment" && <HealthAssessmentTab onContact={() => navigate("/contact")} />}
-          {activeTab === "Health Safety" && <HealthSafetyTab onContact={() => navigate("/contact")} />}
-          {activeTab === "Health Education" && <HealthEducationTab onContact={() => navigate("/contact")} />}
-          {activeTab === "Community Wellness" && <CommunityWellnessTab onContact={() => navigate("/contact")} />}
+        <div className="min-h-[600px] relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
+            >
+              {activeTab === "Health Assessment" && <HealthAssessmentTab onContact={() => navigate("/contact")} />}
+              {activeTab === "Health Safety" && <HealthSafetyTab onContact={() => navigate("/contact")} />}
+              {activeTab === "Health Education" && <HealthEducationTab onContact={() => navigate("/contact")} />}
+              {activeTab === "Community Wellness" && <CommunityWellnessTab onContact={() => navigate("/contact")} />}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>

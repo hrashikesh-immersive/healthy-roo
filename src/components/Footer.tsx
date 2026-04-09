@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Instagram, Linkedin, MapPin, Mail, Phone, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo/healthyroo-logo.svg"; // Using existing logo file
 
 const Footer = () => {
@@ -26,18 +27,18 @@ const Footer = () => {
             </p>
             
             <div className="flex items-center gap-3">
-              <a href="#" className="w-9 h-9 rounded-full bg-neutral-700 hover:bg-primary transition-colors flex items-center justify-center text-white">
+              <Link to="#" className="w-9 h-9 rounded-full bg-neutral-700 hover:bg-primary transition-colors flex items-center justify-center text-white">
                 <Facebook className="w-[15px] h-[15px] fill-current" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-neutral-700 hover:bg-primary transition-colors flex items-center justify-center text-white">
+              </Link>
+              <Link to="#" className="w-9 h-9 rounded-full bg-neutral-700 hover:bg-primary transition-colors flex items-center justify-center text-white">
                 <Twitter className="w-[15px] h-[15px] fill-current" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-neutral-700 hover:bg-primary transition-colors flex items-center justify-center text-white">
+              </Link>
+              <Link to="#" className="w-9 h-9 rounded-full bg-neutral-700 hover:bg-primary transition-colors flex items-center justify-center text-white">
                 <Instagram className="w-[15px] h-[15px]" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-neutral-700 hover:bg-primary transition-colors flex items-center justify-center text-white">
+              </Link>
+              <Link to="#" className="w-9 h-9 rounded-full bg-neutral-700 hover:bg-primary transition-colors flex items-center justify-center text-white">
                 <Linkedin className="w-[15px] h-[15px] fill-current" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -47,16 +48,17 @@ const Footer = () => {
             <ul className="space-y-4">
               {[
                 { name: 'About Us', href: '/about' },
-                { name: 'Services', href: '/#services' },
+                { name: 'Services', href: '/services' },
+                { name: 'Careers', href: '/careers' },
                 { name: 'Blog', href: '/#blog' },
                 { name: 'Parent Login', href: '/login' },
                 { name: 'School Login', href: '/school-login' }
               ].map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="flex items-center gap-3 text-[#BBBBBB] hover:text-white transition-colors text-sm">
+                  <Link to={link.href} className="flex items-center gap-3 text-[#BBBBBB] hover:text-white transition-colors text-sm">
                     <ArrowRight className="w-4 h-4 text-[#666]" strokeWidth={2} /> 
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -87,9 +89,8 @@ const Footer = () => {
               <div className="flex items-start gap-4 text-[#BBBBBB]">
                 <MapPin className="w-5 h-5 text-white flex-shrink-0 mt-0.5 fill-white/10" strokeWidth={1.5} />
                 <span className="text-sm leading-[1.6]">
-                  400, Clarendon Street, South Melbourne<br />
-                  Market, South Melbourne - <span className="text-white font-semibold">Victoria<br />
-                  3205</span>
+                  1710/687 La trobe street,<br />
+                  Docklands, Victoria <span className="text-white font-semibold">3008</span>
                 </span>
               </div>
               <div className="flex items-center gap-4 text-[#BBBBBB]">
@@ -98,7 +99,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-4 text-[#BBBBBB]">
                 <Phone className="w-5 h-5 text-white flex-shrink-0 fill-white/10" strokeWidth={1.5} />
-                <span className="text-sm">+1 852-963-7415</span>
+                <span className="text-sm">+61 401 477 772</span>
               </div>
             </div>
           </div>
@@ -113,11 +114,11 @@ const Footer = () => {
              © 2026 healthyroo | Made by www.immersiveinfotech.com
            </p>
            <div className="flex items-center gap-3 text-[#A3A3A3] text-xs">
-             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+             <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
              <span>|</span>
-             <a href="#" className="hover:text-white transition-colors">Cookie Notice</a>
+             <Link to="#" className="hover:text-white transition-colors">Cookie Notice</Link>
              <span>|</span>
-             <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
+             <Link to="#" className="hover:text-white transition-colors">Terms of Use</Link>
            </div>
         </div>
       </div>

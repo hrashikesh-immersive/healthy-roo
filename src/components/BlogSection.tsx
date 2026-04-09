@@ -1,4 +1,6 @@
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import blogThumbnail1 from "@/assets/blog-thumbnail-1.png";
 import blogThumbnail2 from "@/assets/blog-thumbnail-2.png";
 
@@ -20,6 +22,27 @@ const postsData = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" } as any,
+  },
+};
+
+const MotionLink = motion(Link);
+
 const BlogSection = () => {
   return (
     <section id="blog" className="relative overflow-hidden bg-white">
@@ -28,7 +51,13 @@ const BlogSection = () => {
       
       <div className="container relative z-10 mx-auto px-4 lg:px-8 py-20 lg:py-28 max-w-[1240px]">
         {/* Header Block */}
-        <div className="mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-14"
+        >
           <span className="text-[#EE1D26] font-black text-lg mb-4 block tracking-wide uppercase">
             Recent News
           </span>
@@ -36,14 +65,21 @@ const BlogSection = () => {
             Check out everything interesting<br className="hidden sm:block" />
             and useful from our blog
           </h2>
-        </div>
+        </motion.div>
 
         {/* Blog Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
           {postsData.map((post, i) => (
-            <a 
+            <MotionLink 
               key={i} 
-              href="#" 
+              to="#" 
+              variants={cardVariants}
               className="group block"
             >
               {/* Card Image */}
@@ -67,9 +103,9 @@ const BlogSection = () => {
                   Read More <ArrowRight className="w-5 h-5 stroke-[3]" />
                 </span>
               </div>
-            </a>
+            </MotionLink>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

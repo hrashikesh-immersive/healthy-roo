@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import whyHealthDoctorLemon from "@/assets/why-health-doctor-lemon.png";
 import whyHealthSmilingGirl from "@/assets/smiling-girl.png";
 import customClipboard from "@/assets/custom-clipboard.png";
@@ -14,7 +15,13 @@ const WhyHealthSection = () => {
             <div className="relative h-[450px] md:h-[600px] w-full max-w-[600px] mx-auto lg:mx-0 mt-8">
 
               {/* Layer 1: Doctor with Lemon - Top Left */}
-              <div className="absolute top-0 left-0 w-[65%] h-[55%] z-20 group">
+              <motion.div 
+                initial={{ opacity: 0, x: -50, y: -50 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" } as any}
+                className="absolute top-0 left-0 w-[65%] h-[55%] z-20 group"
+              >
                 <div
                   className="absolute inset-0 shadow-lg"
                   style={{
@@ -28,27 +35,16 @@ const WhyHealthSection = () => {
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-              </div>
-
-              {/* Layer 2: Background Male Doctor - Middle Center */}
-              {/* <div className="absolute top-[20%] left-[25%] w-[60%] h-[50%] z-10 opacity-80 group">
-                <div 
-                  className="absolute inset-0 grayscale-[0.2]"
-                  style={{
-                    clipPath: "url(#brush-mask-2)",
-                    WebkitClipPath: "url(#brush-mask-2)"
-                  }}
-                >
-                  <img 
-                    src={whyHealthSmilingGirl} 
-                    alt="Healthcare background" 
-                    className="absolute w-[150%] h-[150%] max-w-none left-[-40%] top-[-10%] object-cover"
-                  />
-                </div>
-              </div> */}
+              </motion.div>
 
               {/* Layer 3: Smiling Girl - Bottom Right */}
-              <div className="absolute bottom-[5%] right-0 w-[65%] h-[60%] z-30 group">
+              <motion.div 
+                initial={{ opacity: 0, x: 50, y: 50 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" } as any}
+                className="absolute bottom-[5%] right-0 w-[65%] h-[60%] z-30 group"
+              >
                 <div
                   className="absolute inset-0 shadow-2xl"
                   style={{
@@ -62,7 +58,7 @@ const WhyHealthSection = () => {
                     className="absolute w-[180%] h-[180%] max-w-none left-[-55%] top-[-30%] object-scale-down transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
-              </div>
+              </motion.div>
 
               {/* Decorative Doodles - Top Right (Green Circle) */}
               <div className="absolute top-[-40px] right-[10%] z-40">
@@ -104,37 +100,73 @@ const WhyHealthSection = () => {
 
           {/* Right Text Content Section */}
           <div className="flex-1 order-1 lg:order-2">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-[1.1] tracking-tight mb-4">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-[1.1] tracking-tight mb-4"
+            >
               Why Health, Why now
-            </h2>
-            <p className="text-primary font-bold text-xl mb-8">
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-primary font-bold text-xl mb-8"
+            >
               This is the lifestyle our children lead today
-            </p>
+            </motion.p>
 
             <div className="space-y-6 mb-12">
-              <p className="text-foreground text-base leading-relaxed max-w-[550px]">
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-foreground text-base leading-relaxed max-w-[550px]"
+              >
                 Australia is one of the youngest countries in the world but it is also facing a healthcare epidemic
-              </p>
-              <p className="text-muted-foreground text-base leading-relaxed max-w-[550px]">
+              </motion.p>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-muted-foreground text-base leading-relaxed max-w-[550px]"
+              >
                 Our youth represent the foundation of Australia's future, yet many face underlying health challenges that go undetected during critical development years. We are here to provide the insights parents and schools need to ensure every student can reach their full potential.
-              </p>
+              </motion.p>
             </div>
 
             {/* Final side-by-side layout: Text and User-Provided Infographic */}
             <div className="mt-20 grid xl:grid-cols-[280px_1fr] gap-12 xl:gap-20 items-center">
 
               {/* Left Column: Fixed Header Text */}
-              <div className="w-full max-w-[280px]">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="w-full max-w-[280px]"
+              >
                 <h3 className="text-2xl md:text-3xl font-black text-[#111] mb-5 leading-tight">
                   The consequences are
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Modern lifestyle challenges have profound impacts on physical and mental development.
                 </p>
-              </div>
+              </motion.div>
 
               {/* Right Column: High-Res Infographic Image */}
-              <div className="w-full flex justify-center xl:justify-end">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="w-full flex justify-center xl:justify-end"
+              >
                 <div className="relative group max-w-[650px] w-full transform transition-transform duration-500 hover:scale-[1.02]">
                   <img
                     src={customClipboard}
@@ -142,7 +174,7 @@ const WhyHealthSection = () => {
                     className="w-full h-auto object-contain drop-shadow-xl"
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

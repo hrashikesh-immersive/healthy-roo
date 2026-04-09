@@ -6,10 +6,13 @@ import heroBoyBlueImg from "@/assets/hero-boy-blue.png";
 import heroNurseYellowImg from "@/assets/hero-nurse-yellow.png";
 import engagedStudentsImg from "@/assets/engaged-students.png";
 
+import { useContactPopup } from "@/context/ContactPopupContext";
+
 const features = [
-  "High-End Screening Tools",
-  "Data Management & Analytics",
-  "Leading Consultants & Experts",
+  "Comprehensive Health Assessments",
+  "Mental Wellness Tracking",
+  "Real-time Analytics",
+  "Custom Health Programs",
 ];
 
 const containerVariants = {
@@ -38,20 +41,22 @@ const imageVariants = (delay: number) => ({
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { 
-      duration: 1, 
-      delay, 
-      ease: "easeOut" 
+    transition: {
+      duration: 1,
+      delay,
+      ease: "easeOut"
     } as any,
   },
 });
 
 const HeroSection = () => {
+  const { openPopup } = useContactPopup();
+
   return (
     <section className="container mx-auto px-4 lg:px-8 py-12 lg:py-20 text-foreground">
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         {/* Left Content */}
-        <motion.div 
+        <motion.div
           className="flex-1 max-w-xl"
           initial="hidden"
           animate="visible"
@@ -60,42 +65,39 @@ const HeroSection = () => {
           {/* Rating - Precision Match */}
           <motion.div variants={itemVariants} className="flex items-center gap-4 mb-6">
             <div className="shrink-0">
-              <img 
-                src={engagedStudentsImg} 
-                alt="Engaged HealthyRoo Students - Australia" 
+              <img
+                src={engagedStudentsImg}
+                alt="Engaged HealthyRoo Students - Australia"
                 className="w-[93px] h-[27px] object-contain"
               />
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-2 leading-none">
-                <span className="text-xl font-black">4.9</span>
+                <span className="text-xl font-[500]">4.9</span>
                 <div className="flex gap-0.5">
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star key={i} className="w-3.5 h-3.5 fill-secondary text-secondary" />
                   ))}
                 </div>
               </div>
-              <p className="text-sm font-bold text-muted-foreground mt-1 tracking-tight">Engaged Students</p>
+              <p className="text-sm font-[500] text-muted-foreground mt-1 ">Engaged Students</p>
             </div>
           </motion.div>
 
           {/* Heading */}
-          <motion.h1 
+          <motion.h1
             variants={itemVariants}
-            className="text-[2.25rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6"
+            className="text-[2.25rem] sm:text-4xl md:text-5xl lg:text-6xl font-[500] leading-tight text-foreground mb-6"
           >
-            Better Education Through{" "}
-            <span className="text-primary">"Health"</span>
+            AI-powered school health <span className="text-primary italic">ecosystem</span> for smarter well‑being
           </motion.h1>
 
           {/* Description */}
-          <motion.p 
+          <motion.p
             variants={itemVariants}
             className="text-muted-foreground leading-relaxed mb-8 max-w-lg"
           >
-            HealthyRoo empowers Australian schools with comprehensive health screening programmes, 
-            helping students thrive through early detection and expert-led wellness initiatives 
-            tailored to the unique needs of young Australians.
+            Everything a school, parent, and healthcare provider needs — built into one seamless, AI‑enabled platform for early risk detection and continuous monitoring.
           </motion.p>
 
           {/* Features */}
@@ -110,19 +112,19 @@ const HeroSection = () => {
 
           {/* CTA */}
           <motion.div variants={itemVariants}>
-            <Link
-              to="/contact"
+            <button
+              onClick={openPopup}
               className="inline-block px-8 py-3.5 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
             >
               Empower Your School
-            </Link>
+            </button>
           </motion.div>
         </motion.div>
 
         {/* Right Images */}
         <div className="flex-1 flex gap-3 md:gap-4 justify-center items-center w-full max-w-3xl overflow-hidden px-2">
           {/* Green Card - Male Dr */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={imageVariants(0.4)}
@@ -135,7 +137,7 @@ const HeroSection = () => {
             />
           </motion.div>
           {/* Blue Card - Student focal point */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={imageVariants(0.6)}
@@ -148,7 +150,7 @@ const HeroSection = () => {
             />
           </motion.div>
           {/* Yellow Card - Female Dr - visible only on sm+ */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={imageVariants(0.8)}

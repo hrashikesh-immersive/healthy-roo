@@ -1,0 +1,129 @@
+--- ppt/slides/slide1.xml ---
+PRODUCT
+PROFILE
+
+
+--- ppt/slides/slide10.xml ---
+OUR FEATURES
+Everything a school, parent, and doctor needs — built into one seamless platform.
+FOR PARENTS:
+Receive health reports within 24 hours through your appplication.
+Access a dashboard to track your child's health over time.
+Compare multiple checkup reports to identify patterns and improvements
+FOR SCHOOLS :
+Full student list with individual health profiles in one place
+Download multiple student reports at once with a single click
+Monitor which students have pending follow-ups or flagged health concerns
+
+
+--- ppt/slides/slide11.xml ---
+Our 
+GOALS
+Integrate routine health checkups into the school system to eliminate the need for parents to organize them.
+Detect all health conditions regardless of a family's schedule or the school's resources.
+Foster health awareness among children, encouraging informed decisions and lifelong healthy habits.
+Equip schools to act as health promoting entities with proper resources and trained personnel.
+
+
+--- ppt/slides/slide12.xml ---
+Contact us
+Smit Tanksale |+61 401 477 772
+www.healthyroo.ai
+Healthyroo
+ Wellness
+1710/687 La 
+trobe
+ street, Docklands, Victoria 3008
+smit@healthyroo.ai
+
+
+--- ppt/slides/slide13.xml ---
+THANK YOU
+
+
+--- ppt/slides/slide2.xml ---
+About
+HEALTHYROO.AI
+AI-powered school health ecosystem for smarter student well-being
+Health assessments
+Mental wellness tracking
+Real-time analytics
+Custom health programs
+Why it matters
+Building healthier schools through continuous 
+monitoring & insights
+
+
+--- ppt/slides/slide3.xml ---
+To transform educational institutions into proactive health ecosystems that nurture healthy bodies, resilient minds, and lifelong success.
+OUR VISION
+
+
+--- ppt/slides/slide4.xml ---
+To integrate health, well‑being, and education through AI‑enabled tools, preventive practices, and collaborative partnerships that create resilient and responsive learning environments.
+OUR MISSION
+Intelligent Care : 
+AI-powered insights for early risk detection
+Continuous Monitoring :
+ 
+Real-time health tracking across school life
+Integrated Ecosystem :
+ Students, parents, schools & providers on single platform
+Child
+Early detection for better learning outcomes, sustainable life skills
+Parents
+Family Wellbeing, No hospital runs, no missed work
+School
+Healthy Bodies, Healthy Minds 
+Strong Academics, Winning Sports
+
+
+--- ppt/slides/slide5.xml ---
+OUR SERVICES
+Health Assessments
+Vision, dental, ENT, growth tracking
+70+ health parameters screened
+Digital Health Reports
+Reports within 24 hours
+Accessible via app
+No clinic visits needed
+Wellness Programs
+Nutrition, mental health, hygiene
+Student-led engagement activities
+On-Campus Care
+Nurses & doctors in schools
+Continuous medical support
+Insurance + hospital partnerships
+Bringing preventive healthcare directly into schools
+
+
+--- ppt/slides/slide6.xml ---
+OUR DIGITAL ECOSYSTEM
+ A unified platform connecting schools, parents, and healthcare providers
+
+
+--- ppt/slides/slide7.xml ---
+OUR DIGITAL ECOSYSTEM
+Access complete health reports within 
+24 hours
+Track key metrics like 
+BMI, growth & health scores
+Compare past and current reports with ease
+Get 
+color-coded
+ insights for quick understanding
+Stay informed with 
+real-time updates & alerts
+Empowering parents with clarity, control, and continuous health visibility
+
+
+--- ppt/slides/slide8.xml ---
+The Process
+The school collaborates with Healthyroo, choosing services like health checkups, wellness programs, infrastructure setup, or workshops. These are scheduled to avoid disrupting the academic calendar.
+On assessment day, Healthyroo's medical team sets up health stations on campus to screen children for physical, dental, vision, ENT, and growth parameters during school hours.
+Healthyroo promotes year-round health in schools through monthly CARE Boxes, student Wellness Clubs, quarterly wellness themes, and teacher training, ensuring wellness is prioritized every day, not just during checkups.
+Parents receive detailed digital health reports for their child within 24 hours through the MyHealth app, featuring color-coded results, expert recommendations, and alerts for any concerns needing follow-up.
+
+
+--- ppt/slides/slide9.xml ---
+

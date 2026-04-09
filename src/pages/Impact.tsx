@@ -70,7 +70,7 @@ const ImpactPage = () => {
 
       {/* Structured Impact Hero Section */}
       <section className="relative bg-white">
-        
+
         {/* Top Image + Overlay Text Area */}
         <div className="relative w-full h-[50vh] min-h-[400px] lg:h-[60vh] max-h-[700px] overflow-hidden">
           <img
@@ -80,19 +80,19 @@ const ImpactPage = () => {
           />
           {/* Base gradient fading from red at bottom over the image to add more reds */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#EE1D26] via-[#EE1D26]/80 to-transparent bottom-0 h-full lg:h-[70%] top-auto" />
-          
+
           {/* Headlines bounded to bottom portion */}
           <div className="absolute bottom-4 lg:bottom-12 left-0 w-full z-10">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" } as any}
               className="container mx-auto px-6 md:px-12 max-w-[1300px]"
             >
-              <span className="text-white font-bold text-xs sm:text-sm tracking-[0.2em] lg:tracking-[0.2em] mb-2 block uppercase drop-shadow-md opacity-90">
+              <span className="text-white font-[500] text-xs sm:text-sm  lg: mb-2 block uppercase drop-shadow-md opacity-90">
                 Our Evolution of Impact
               </span>
-              <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-[0.95] drop-shadow-xl">
+              <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[500] text-white uppercase er leading-[0.95] drop-shadow-xl">
                 Transforming
                 <br />
                 Education
@@ -106,7 +106,7 @@ const ImpactPage = () => {
           <div className="container mx-auto px-6 md:px-12 max-w-[1300px]">
             {/* Descriptive Text block */}
             <div className="max-w-[800px] mb-12">
-              <h2 className="text-[#2B3544] font-bold text-xl md:text-2xl lg:text-3xl leading-snug lg:leading-normal mb-8 tracking-tight">
+              <h2 className="text-[#2B3544] font-[500] text-xl md:text-2xl lg:text-3xl leading-snug lg:leading-normal mb-8 ">
                 From a single classroom to a nationwide movement, our commitment to transforming education remains unwavering.
               </h2>
               <div className="pl-6 border-l-[3px] border-[#EE1D26]">
@@ -117,46 +117,46 @@ const ImpactPage = () => {
             </div>
 
             {/* Balanced 2x2 Stats Grid Block */}
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={containerVariants}
               className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12"
             >
-              
+
               {/* Card 1: Lives Impacted */}
               <motion.div variants={itemVariants} className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
                 <div className="flex flex-col">
-                   <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">500,000+</span>
-                   <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Lives Impacted Regionally</span>
+                  <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-[500] er leading-none mb-2">500,000+</span>
+                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-[500] uppercase ">Lives Impacted Regionally</span>
                 </div>
                 <Users className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
               </motion.div>
-              
+
               {/* Card 2: Trained Teachers */}
               <motion.div variants={itemVariants} className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
                 <div className="flex flex-col">
-                   <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">364+</span>
-                   <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Trained Teachers</span>
+                  <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-[500] er leading-none mb-2">364+</span>
+                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-[500] uppercase ">Trained Teachers</span>
                 </div>
                 <GraduationCap className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
               </motion.div>
-              
+
               {/* Card 3: Partner Schools */}
               <motion.div variants={itemVariants} className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
                 <div className="flex flex-col">
-                   <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">125+</span>
-                   <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Partner Schools</span>
+                  <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-[500] er leading-none mb-2">125+</span>
+                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-[500] uppercase ">Partner Schools</span>
                 </div>
                 <School className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
               </motion.div>
-              
+
               {/* Card 4: Cities Reached */}
               <motion.div variants={itemVariants} className="bg-[#F9F9F9] border-l-[6px] border-[#EE1D26] p-5 sm:p-8 md:p-10 flex flex-row items-center justify-between shadow-sm relative overflow-hidden group hover:bg-white transition-all">
                 <div className="flex flex-col">
-                   <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none mb-2">42+</span>
-                   <span className="text-[#EE1D26] text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Cities Reached</span>
+                  <span className="text-[#111] text-3xl sm:text-4xl md:text-5xl font-[500] er leading-none mb-2">42+</span>
+                  <span className="text-[#EE1D26] text-[10px] md:text-xs font-[500] uppercase ">Cities Reached</span>
                 </div>
                 <MapPin className="w-8 h-8 md:w-12 md:h-12 text-black/10 group-hover:text-black/20 transition-colors" />
               </motion.div>
@@ -165,14 +165,69 @@ const ImpactPage = () => {
         </div>
       </section>
 
+      {/* Stakeholder Impact - From Slide 4 */}
+      <section className="py-24 bg-neutral-900 text-white overflow-hidden relative">
+        <div className="absolute inset-0 opacity-10">
+           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#EE1D26,transparent)]" />
+        </div>
+        <div className="container mx-auto px-6 lg:px-12 max-w-[1300px] relative z-10">
+          <div className="text-center mb-20">
+            <span className="text-primary font-[500] text-sm uppercase tracking-widest mb-4 block">Stakeholder Benefits</span>
+            <h2 className="text-4xl md:text-6xl font-[500] uppercase er">WHO WE <span className="text-primary italic">EMPOWER</span></h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {[
+              {
+                title: "For Students",
+                benefit: "Healthy Bodies, Healthy Minds",
+                desc: "Early detection for better learning outcomes and sustainable life skills for a healthier lifestyle.",
+                icon: GraduationCap,
+                color: "bg-primary"
+              },
+              {
+                title: "For Parents",
+                benefit: "Seamless Family Wellbeing",
+                desc: "No clinic runs, no missed work. Peace of mind with professional medical assessments on-campus.",
+                icon: Users,
+                color: "bg-[#2B569A]"
+              },
+              {
+                title: "For Schools",
+                benefit: "A Proactive Health Hub",
+                desc: "Strong Academics and Winning Sports through integrated health tracking and continuous support.",
+                icon: School,
+                color: "bg-[#26C797]"
+              }
+            ].map((card, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2 }}
+                className="bg-neutral-800 p-12 rounded-[3.5rem] border border-neutral-700 hover:border-neutral-500 transition-all group"
+              >
+                <div className={`${card.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg`}>
+                   <card.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-primary font-[500] text-sm uppercase mb-2 tracking-widest">{card.title}</h3>
+                <h4 className="text-2xl font-[500] text-white uppercase er mb-6 leading-tight">{card.benefit}</h4>
+                <p className="text-[#BBBBBB] text-base leading-relaxed">{card.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Special Projects Section - Asymmetrical Design */}
       <section className="py-24 lg:py-40 bg-white">
         <div className="container mx-auto px-4 lg:px-12 max-w-[1300px]">
           <div className="mb-24 flex flex-col items-center lg:items-start">
-             <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tighter uppercase leading-none">
-               Special Projects<br />That Sparked Change
-             </h2>
-             <div className="w-24 h-2 bg-primary mt-6" />
+            <h2 className="text-3xl md:text-5xl font-[500] text-foreground er uppercase leading-none">
+              Special Projects<br />That Sparked Change
+            </h2>
+            <div className="w-24 h-2 bg-primary mt-6" />
           </div>
 
           <div className="space-y-32 lg:space-y-48">
@@ -183,34 +238,31 @@ const ImpactPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.8, ease: "easeOut" } as any}
-                className={`flex flex-col items-center gap-12 lg:gap-24 ${
-                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+                className={`flex flex-col items-center gap-12 lg:gap-24 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
               >
                 {/* Image with Organic/Asymmetrical Mask */}
                 <div className="flex-1 w-full relative">
-                  <div className={`relative z-10 overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-[1.03] ${
-                    i % 2 === 0 
-                      ? "rounded-[60px_10px_60px_10px] md:rounded-[120px_20px_120px_20px]" 
-                      : "rounded-[10px_60px_10px_60px] md:rounded-[20px_120px_20px_120px]"
-                  }`}>
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
+                  <div className={`relative z-10 overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-[1.03] ${i % 2 === 0
+                    ? "rounded-[60px_10px_60px_10px] md:rounded-[120px_20px_120px_20px]"
+                    : "rounded-[10px_60px_10px_60px] md:rounded-[20px_120px_20px_120px]"
+                    }`}>
+                    <img
+                      src={project.image}
+                      alt={project.title}
                       className="w-full aspect-[16/10] object-cover"
                     />
                   </div>
                   {/* Decorative background shape */}
-                  <div className={`absolute -inset-4 md:-inset-8 ${i % 2 === 0 ? "bg-accent/5" : "bg-primary/5"} -z-0 ${
-                    i % 2 === 0 
-                      ? "rounded-[10px_60px_10px_60px] md:rounded-[20px_120px_20px_120px]" 
-                      : "rounded-[60px_10px_60px_10px] md:rounded-[120px_20px_120px_20px]"
-                  }`} />
+                  <div className={`absolute -inset-4 md:-inset-8 ${i % 2 === 0 ? "bg-accent/5" : "bg-primary/5"} -z-0 ${i % 2 === 0
+                    ? "rounded-[10px_60px_10px_60px] md:rounded-[20px_120px_20px_120px]"
+                    : "rounded-[60px_10px_60px_10px] md:rounded-[120px_20px_120px_20px]"
+                    }`} />
                 </div>
 
                 {/* Text Content */}
                 <div className="flex-1 space-y-8">
-                  <h3 className="text-2xl lg:text-4xl font-black text-foreground leading-[1.1] uppercase tracking-tighter">
+                  <h3 className="text-2xl lg:text-4xl font-[500] text-foreground leading-[1.1] uppercase er">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground text-lg lg:text-xl leading-relaxed font-semibold opacity-90">

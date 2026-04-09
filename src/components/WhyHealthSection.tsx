@@ -15,7 +15,7 @@ const WhyHealthSection = () => {
             <div className="relative h-[450px] md:h-[600px] w-full max-w-[600px] mx-auto lg:mx-0 mt-8">
 
               {/* Layer 1: Doctor with Lemon - Top Left */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -50, y: -50 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true }}
@@ -38,7 +38,7 @@ const WhyHealthSection = () => {
               </motion.div>
 
               {/* Layer 3: Smiling Girl - Bottom Right */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 50, y: 50 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true }}
@@ -100,58 +100,65 @@ const WhyHealthSection = () => {
 
           {/* Right Text Content Section */}
           <div className="flex-1 order-1 lg:order-2">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-[1.1] tracking-tight mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-[500] text-foreground leading-[1.1]  mb-4"
             >
               Why Health, Why now
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-primary font-bold text-xl mb-8"
+              className="text-primary font-[500] text-xl mb-8"
             >
               This is the lifestyle our children lead today
             </motion.p>
 
             <div className="space-y-6 mb-12">
-              <motion.p 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-foreground text-base leading-relaxed max-w-[550px]"
+                className="bg-primary/5 p-8 rounded-[2rem] border-l-4 border-primary"
               >
-                Australia is one of the youngest countries in the world but it is also facing a healthcare epidemic
-              </motion.p>
-              <motion.p 
+                <h3 className="text-xl font-[500] text-primary uppercase tracker-widest mb-3">Our Vision</h3>
+                <p className="text-foreground text-base leading-relaxed">
+                  To transform educational institutions into proactive health ecosystems that nurture healthy bodies, resilient minds, and lifelong success.
+                </p>
+              </motion.div>
+              
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-muted-foreground text-base leading-relaxed max-w-[550px]"
+                className="bg-neutral-50 p-8 rounded-[2rem] border-l-4 border-neutral-300"
               >
-                Our youth represent the foundation of Australia's future, yet many face underlying health challenges that go undetected during critical development years. We are here to provide the insights parents and schools need to ensure every student can reach their full potential.
-              </motion.p>
+                <h3 className="text-xl font-[500] text-neutral-800 uppercase tracker-widest mb-3">Our Mission</h3>
+                <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                  To integrate health, well‑being, and education through AI‑enabled tools, preventive practices, and collaborative partnerships that create resilient and responsive learning environments.
+                </p>
+              </motion.div>
             </div>
 
             {/* Final side-by-side layout: Text and User-Provided Infographic */}
             <div className="mt-20 grid xl:grid-cols-[280px_1fr] gap-12 xl:gap-20 items-center">
 
               {/* Left Column: Fixed Header Text */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 className="w-full max-w-[280px]"
               >
-                <h3 className="text-2xl md:text-3xl font-black text-[#111] mb-5 leading-tight">
+                <h3 className="text-2xl md:text-3xl font-[500] text-[#111] mb-5 leading-tight">
                   The consequences are
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -160,7 +167,7 @@ const WhyHealthSection = () => {
               </motion.div>
 
               {/* Right Column: High-Res Infographic Image */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

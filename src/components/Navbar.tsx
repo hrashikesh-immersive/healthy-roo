@@ -8,6 +8,7 @@ const navLinks = [
   { name: "Services", path: "/services" },
   { name: "Impact", path: "/impact" },
   { name: "About Us", path: "/about" },
+  { name: "Blog", path: "/blog" },
   { name: "Careers", path: "/careers" },
   { name: "Contact Us", path: "/contact" }
 ];
@@ -28,11 +29,10 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className={`fixed left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 ${
-      isScrolled 
-        ? "top-4 w-[95%] max-w-7xl bg-white/75 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/20 rounded-3xl" 
+    <nav className={`fixed left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 ${isScrolled
+        ? "top-4 w-[95%] max-w-7xl bg-white/75 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/20 rounded-3xl"
         : "top-0 w-full bg-white border-transparent"
-    }`}>
+      }`}>
       <div className={`container mx-auto flex items-center justify-between transition-all duration-300 ${isScrolled ? "py-2" : "py-3"} px-4 lg:px-8`}>
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -43,11 +43,10 @@ const Navbar = () => {
         <ul className="hidden lg:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <Link 
-                to={link.path} 
-                className={`transition-colors font-semibold text-xs lg:text-sm whitespace-nowrap ${
-                  isActive(link.path) ? "text-primary underline underline-offset-8 decoration-2" : "text-foreground hover:text-primary"
-                }`}
+              <Link
+                to={link.path}
+                className={`transition-colors font-semibold text-xs lg:text-sm whitespace-nowrap ${isActive(link.path) ? "text-primary underline underline-offset-8 decoration-2" : "text-foreground hover:text-primary"
+                  }`}
               >
                 {link.name}
               </Link>
@@ -60,8 +59,8 @@ const Navbar = () => {
           <Link to="/school-login" className="px-4 lg:px-6 py-2.5 rounded-full border border-primary text-primary font-medium text-xs lg:text-sm hover:bg-primary/5 transition-colors whitespace-nowrap">
             School Login
           </Link>
-          <Link to="#" className="px-4 lg:px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-xs lg:text-sm hover:bg-primary/90 transition-colors whitespace-nowrap">
-            Sign In
+          <Link to="/school-signup" className="px-4 lg:px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-xs lg:text-sm hover:bg-primary/90 transition-colors whitespace-nowrap shadow-lg shadow-primary/10">
+            Register School
           </Link>
         </div>
 
@@ -81,11 +80,10 @@ const Navbar = () => {
           <ul className="flex flex-col gap-3 py-4">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <Link 
-                  to={link.path} 
-                  className={`font-bold transition-colors ${
-                    isActive(link.path) ? "text-primary" : "text-foreground hover:text-primary"
-                  }`}
+                <Link
+                  to={link.path}
+                  className={`font-[500] transition-colors ${isActive(link.path) ? "text-primary" : "text-foreground hover:text-primary"
+                    }`}
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.name}
@@ -97,8 +95,8 @@ const Navbar = () => {
             <Link to="/school-login" onClick={() => setMobileOpen(false)} className="text-center px-6 py-2.5 rounded-full border border-primary text-primary font-medium text-sm">
               School Login
             </Link>
-            <Link to="#" className="text-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm">
-              Sign In
+            <Link to="/school-signup" onClick={() => setMobileOpen(false)} className="text-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm">
+              Register School
             </Link>
           </div>
         </div>

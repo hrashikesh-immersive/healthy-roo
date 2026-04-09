@@ -19,7 +19,7 @@ const HealthAssessmentSection = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Content */}
           <div className="flex-1">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-[500] text-primary-foreground mb-4">
               Health Assessment for Australian Schools
             </h2>
             <p className="text-primary-foreground/80 leading-relaxed mb-8 max-w-lg">
@@ -37,11 +37,11 @@ const HealthAssessmentSection = () => {
           {/* Right Stats */}
           <div className="flex-1 flex gap-8 justify-center">
             <div className="text-center">
-              <div className="text-6xl md:text-7xl font-bold text-primary-foreground">80+</div>
+              <div className="text-6xl md:text-7xl font-[500] text-primary-foreground">80+</div>
               <p className="text-primary-foreground/70 text-sm mt-2">Health Metrics Tracked</p>
             </div>
             <div className="text-center">
-              <div className="text-6xl md:text-7xl font-bold text-primary-foreground">45K+</div>
+              <div className="text-6xl md:text-7xl font-[500] text-primary-foreground">45K+</div>
               <p className="text-primary-foreground/70 text-sm mt-2">Assessments Completed</p>
             </div>
           </div>

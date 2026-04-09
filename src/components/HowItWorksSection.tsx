@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import howItWorksNurse from "@/assets/how-it-works-nurse.png";
 
 const WavyDashedLine = () => (
-  <div 
-    className="absolute top-0 left-0 w-full h-[15px] pointer-events-none opacity-50" 
+  <div
+    className="absolute top-0 left-0 w-full h-[15px] pointer-events-none opacity-50"
     style={{
       backgroundImage: `url("data:image/svg+xml,%3Csvg width='30' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 Q 7.5 10 15 5 T 30 5' fill='none' stroke='%239CA3AF' stroke-width='1' stroke-dasharray='0'/%3E%3C/svg%3E")`,
       backgroundRepeat: 'repeat-x'
@@ -12,10 +12,10 @@ const WavyDashedLine = () => (
 );
 
 const steps = [
-  { num: "01", text: "Child's Complete Assessment" },
-  { num: "02", text: "Prompt & Easy Accessible Medical Report" },
-  { num: "03", text: "Review & Improvement by Senior Doctors" },
-  { num: "04", text: "Awareness & Education Delivered by Top Doctors from Across Australia" },
+  { num: "01", text: "School Collaboration & Service Selection" },
+  { num: "02", text: "On-Campus Clinical Health Screening" },
+  { num: "03", text: "Year-Round Wellness Engagement" },
+  { num: "04", text: "Rapid 24h Digital Health Reporting" },
 ];
 
 const containerVariants = {
@@ -37,7 +37,11 @@ const itemVariants = {
   },
 };
 
+import { useContactPopup } from "@/context/ContactPopupContext";
+
 const HowItWorksSection = () => {
+  const { openPopup } = useContactPopup();
+
   return (
     <section className="py-20 lg:py-24 bg-background relative overflow-hidden">
       {/* Decorative Wavy Line at the top spanning full width */}
@@ -45,20 +49,20 @@ const HowItWorksSection = () => {
 
       <div className="container mx-auto px-4 lg:px-8 max-w-[1240px]">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
-          
+
           {/* Left Content - Stepper */}
-          <motion.div 
+          <motion.div
             className="flex-1 lg:max-w-[450px] z-10 w-full pt-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={containerVariants}
           >
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-[54px] font-black text-foreground mb-4 leading-[1.1]">
+            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-[54px] font-[500] text-foreground mb-4 leading-[1.1]">
               How it works
             </motion.h2>
             <motion.p variants={itemVariants} className="text-foreground/70 text-base leading-relaxed mb-12 max-w-[400px]">
-              HealthyRoo's structured approach ensures every student receives a comprehensive screening with minimal disruption. We deliver immediate results, empowering schools and parents with actionable data.
+              Our 4-step process is designed to integrate seamlessly into your school's schedule, providing deep health insights without academic disruption.
             </motion.p>
 
             <motion.div variants={containerVariants} className="relative space-y-10">
@@ -68,50 +72,53 @@ const HowItWorksSection = () => {
               {steps.map((item) => (
                 <motion.div key={item.num} variants={itemVariants} className="flex items-start gap-8 group">
                   <div className="w-10 h-10 rounded-full border border-dashed border-foreground/40 flex items-center justify-center shrink-0 bg-background z-10 shadow-sm transition-all group-hover:border-[#ee1e25] group-hover:scale-110">
-                    <span className="text-sm font-black text-foreground">
+                    <span className="text-sm font-[500] text-foreground">
                       {item.num}
                     </span>
                   </div>
-                  <p className="text-foreground font-black text-lg leading-tight pt-1">
+                  <p className="text-foreground font-[500] text-lg leading-tight pt-1">
                     {item.text}
                   </p>
                 </motion.div>
               ))}
             </motion.div>
-          </motion.div> 
+          </motion.div>
 
           {/* Right Content - Image and Overlays */}
           <div className="flex-1 relative w-full lg:mt-0 z-10">
             {/* The Main Image Rectangle */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="relative rounded-[2.5rem] overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-[540px] shadow-2xl border-4 border-white transform transition-transform hover:scale-[1.01]"
             >
-              <img 
-                src={howItWorksNurse} 
-                alt="Nurse taking student's temperature" 
+              <img
+                src={howItWorksNurse}
+                alt="Nurse taking student's temperature"
                 className="w-full h-full object-cover"
               />
             </motion.div>
 
             {/* Bottom Left White Cutout with Appointment Button */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="absolute -bottom-1 -left-1 w-[260px] h-[110px] bg-white rounded-tr-[3.5rem] rounded-bl-[2.5rem] z-20 flex items-center justify-center pr-6 pt-6"
             >
-              <button className="bg-[#ee1e25] text-white font-black px-12 py-4 text-base rounded-full hover:brightness-110 transition-all shadow-xl hover:-translate-y-1 active:translate-y-0 uppercase tracking-wider">
+              <button 
+                onClick={openPopup}
+                className="bg-[#ee1e25] text-white font-[500] px-12 py-4 text-base rounded-full hover:brightness-110 transition-all shadow-xl hover:-translate-y-1 active:translate-y-0 uppercase r"
+              >
                 Appointment
               </button>
             </motion.div>
 
             {/* Bottom Right Blue Stats Block */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -119,15 +126,15 @@ const HowItWorksSection = () => {
               className="absolute -bottom-8 -right-4 lg:-right-8 bg-[#2B569A] rounded-2xl text-white py-8 px-10 flex items-center gap-10 shadow-2xl z-30 min-w-[340px] transform transition-transform hover:scale-105"
             >
               <div className="text-left">
-                <div className="text-[44px] font-black leading-none tracking-tight">180+</div>
-                <div className="text-sm font-bold opacity-80 uppercase tracking-widest mt-2">Specialists</div>
+                <div className="text-[44px] font-[500] leading-none ">180+</div>
+                <div className="text-sm font-[500] opacity-80 uppercase st mt-2">Specialists</div>
               </div>
-              
+
               <div className="w-[1.5px] h-14 bg-white/20" />
-              
+
               <div className="text-left">
-                <div className="text-[44px] font-black leading-none tracking-tight">45K</div>
-                <div className="text-sm font-bold opacity-80 uppercase tracking-widest mt-2">Happy Patients</div>
+                <div className="text-[44px] font-[500] leading-none ">45K</div>
+                <div className="text-sm font-[500] opacity-80 uppercase st mt-2">Happy Patients</div>
               </div>
             </motion.div>
 

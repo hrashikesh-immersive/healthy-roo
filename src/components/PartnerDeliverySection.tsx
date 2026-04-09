@@ -19,7 +19,7 @@ const PartnerDeliverySection = () => {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold text-foreground mb-2">Partnered Healthcare</h3>
+              <h3 className="text-xl font-[500] text-foreground mb-2">Partnered Healthcare</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 We partner with AHPRA-registered health professionals across Australia to deliver
                 trusted, clinical-grade assessments in school settings.
@@ -40,7 +40,7 @@ const PartnerDeliverySection = () => {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold text-foreground mb-2">Delivered To School</h3>
+              <h3 className="text-xl font-[500] text-foreground mb-2">Delivered To School</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 No need for parents to take time off work. Our team comes to the school, making
                 health screening accessible and convenient for every family.

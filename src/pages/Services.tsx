@@ -86,8 +86,8 @@ const ServicesPage = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-primary font-bold text-xs uppercase tracking-[0.3em] mb-4 block">Our Solutions</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground uppercase tracking-tight mb-6">
+            <span className="text-primary font-[500] text-xs uppercase mb-4 block">Our Solutions</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-[500] text-foreground uppercase  mb-6">
               SCHOOL HEALTH <span className="text-primary">SERVICES</span>
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed opacity-90">
@@ -116,7 +116,7 @@ const ServicesPage = () => {
                 <div className={`w-14 h-14 rounded-2xl ${service.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                   <service.icon className={`${service.iconColor} w-6 h-6`} />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4 uppercase tracking-tight">{service.title}</h3>
+                <h3 className="text-xl font-[500] text-foreground mb-4 uppercase ">{service.title}</h3>
                 <p className="text-muted-foreground text-sm font-medium leading-relaxed flex-grow">
                   {service.desc}
                 </p>
@@ -137,7 +137,7 @@ const ServicesPage = () => {
               </div>
             </div>
             <div className="flex-1 space-y-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight uppercase tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-[500] text-foreground leading-tight uppercase ">
                 Establish a benchmark of <span className="text-primary italic">Clinical Health</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed font-medium">
@@ -147,7 +147,7 @@ const ServicesPage = () => {
                 {["Vision Screening", "Dental Hygiene", "ENT Assessments", "Growth Metrics"].map(item => (
                   <div key={item} className="flex items-center gap-3">
                     <CheckCircle2 className="text-primary w-5 h-5 shrink-0" />
-                    <span className="text-sm font-bold uppercase tracking-wide text-foreground/80">{item}</span>
+                    <span className="text-sm font-[500] uppercase  text-foreground/80">{item}</span>
                   </div>
                 ))}
               </div>
@@ -166,7 +166,7 @@ const ServicesPage = () => {
               </div>
             </div>
             <div className="flex-1 space-y-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight uppercase tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-[500] text-foreground leading-tight uppercase ">
                 World-Class <span className="text-secondary italic">Infrastructure</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed font-medium">
@@ -174,11 +174,11 @@ const ServicesPage = () => {
               </p>
               <div className="space-y-4">
                 <div className="p-6 bg-[#F9F9F9] rounded-2xl border-l-4 border-secondary">
-                  <p className="text-sm font-bold text-foreground uppercase tracking-wider mb-1">Qualified Medical Staff</p>
+                  <p className="text-sm font-[500] text-foreground uppercase r mb-1">Qualified Medical Staff</p>
                   <p className="text-xs text-muted-foreground font-medium">Certified nurses and doctors deployed on campus for continuous support.</p>
                 </div>
                 <div className="p-6 bg-[#F9F9F9] rounded-2xl border-l-4 border-secondary">
-                  <p className="text-sm font-bold text-foreground uppercase tracking-wider mb-1">Insurance & Safety</p>
+                  <p className="text-sm font-[500] text-foreground uppercase r mb-1">Insurance & Safety</p>
                   <p className="text-xs text-muted-foreground font-medium">Comprehensive accidental coverage and emergency evacuation plans.</p>
                 </div>
               </div>
@@ -190,8 +190,8 @@ const ServicesPage = () => {
       {/* Wellness Workflow - Cleaned up */}
       <section className="py-20 bg-accent-color text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-16 underline underline-offset-[12px] decoration-white/20">
-            The Wellness <span className="text-primary">Journey</span>
+          <h2 className="text-3xl md:text-5xl font-[500] uppercase  mb-16 underline underline-offset-[12px] decoration-white/20">
+            The Wellness Journey
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
@@ -204,7 +204,7 @@ const ServicesPage = () => {
                 <div className="w-20 h-20 rounded-full border-2 border-white/20 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-accent-color transition-all">
                   <step.icon className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-bold uppercase tracking-wider mb-2">{step.title}</h3>
+                <h3 className="text-lg font-[500] uppercase r mb-2">{step.title}</h3>
                 <p className="text-sm font-medium opacity-80 max-w-[200px]">{step.desc}</p>
               </div>
             ))}
@@ -216,17 +216,17 @@ const ServicesPage = () => {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto p-12 lg:p-16 bg-[#F9F9F9] rounded-[3rem] text-center border border-gray-100 shadow-sm">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground uppercase tracking-tight mb-6">
+            <h2 className="text-3xl md:text-4xl font-[500] text-foreground uppercase  mb-6">
               Transform Health at Your School
             </h2>
             <p className="text-muted-foreground text-lg font-medium mb-12 max-w-xl mx-auto">
               Discover how HealthyRoo can help you establish a gold standard in student health and safety.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="bg-primary text-white font-bold px-12 py-4 rounded-full uppercase tracking-widest text-sm hover:bg-black transition-all shadow-lg">
+              <Link to="/contact" className="bg-primary text-white font-[500] px-12 py-4 rounded-full uppercase st text-sm hover:bg-black transition-all shadow-lg">
                 Book a Consultation
               </Link>
-              <Link to="/about" className="bg-white border border-gray-200 text-foreground font-bold px-12 py-4 rounded-full uppercase tracking-widest text-sm hover:bg-gray-50 transition-all">
+              <Link to="/about" className="bg-white border border-gray-200 text-foreground font-[500] px-12 py-4 rounded-full uppercase st text-sm hover:bg-gray-50 transition-all">
                 About US
               </Link>
             </div>

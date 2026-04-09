@@ -90,7 +90,7 @@ const ContactPage = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" } as any}
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 uppercase leading-none"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[500]  mb-4 uppercase leading-none"
                >
                   GET IN TOUCH WITH US
                </motion.h1>
@@ -98,7 +98,7 @@ const ContactPage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" } as any}
-                  className="text-lg sm:text-xl md:text-3xl font-black uppercase tracking-[0.1em] sm:tracking-[0.2em] opacity-95"
+                  className="text-lg sm:text-xl md:text-3xl font-[500] uppercase  sm: opacity-95"
                >
                   WE'D LOVE TO RESOLVE YOUR QUERIES
                </motion.p>
@@ -113,9 +113,9 @@ const ContactPage = () => {
                         <button
                            key={tab}
                            onClick={() => setActiveTab(tab)}
-                           className={`pb-4 text-xs sm:text-sm md:text-base font-semibold tracking-wide transition-all relative whitespace-nowrap ${activeTab === tab
-                                 ? "text-primary border-b-[3px] border-primary"
-                                 : "text-[#444] hover:text-foreground"
+                           className={`pb-4 text-xs sm:text-sm md:text-base font-semibold  transition-all relative whitespace-nowrap ${activeTab === tab
+                              ? "text-primary border-b-[3px] border-primary"
+                              : "text-[#444] hover:text-foreground"
                               }`}
                         >
                            {tab}
@@ -140,7 +140,7 @@ const ContactPage = () => {
                         transition={{ duration: 0.5 }}
                      >
                         <div className="text-center max-w-5xl mx-auto mb-16">
-                           <p className="text-base md:text-xl leading-relaxed font-black opacity-80 uppercase tracking-wide px-4">
+                           <p className="text-base md:text-xl leading-relaxed font-[500] opacity-80 uppercase  px-4">
                               You are an integral part of the HealthyRoo Family! Do you have anything we can help you with?<br className="hidden md:block" />
                               Feel free to connect with us for any queries, technical issues or card related questions.
                            </p>
@@ -153,32 +153,32 @@ const ContactPage = () => {
                            </div>
 
                            <div className="w-full lg:w-1/2 bg-muted p-8 md:p-14 lg:p-20">
-                              <h2 className="text-4xl md:text-5xl font-black mb-12 tracking-tighter uppercase text-foreground">CONTACT US</h2>
+                              <h2 className="text-4xl md:text-5xl font-[500] mb-12 er uppercase text-foreground">CONTACT US</h2>
                               <form className="space-y-10">
                                  <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3">
-                                    <label className="block text-xs font-black uppercase tracking-[0.2em] mb-3 text-black/50">Your Name *</label>
-                                    <input type="text" className="w-full bg-transparent outline-none py-1 font-bold text-lg" required />
+                                    <label className="block text-xs font-[500] uppercase  mb-3 text-black/50">Your Name *</label>
+                                    <input type="text" className="w-full bg-transparent outline-none py-1 font-[500] text-lg" required />
                                  </div>
                                  <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3">
-                                    <label className="block text-xs font-black uppercase tracking-[0.2em] mb-3 text-black/50">Your Email *</label>
-                                    <input type="email" className="w-full bg-transparent outline-none py-1 font-bold text-lg" required />
+                                    <label className="block text-xs font-[500] uppercase  mb-3 text-black/50">Your Email *</label>
+                                    <input type="email" className="w-full bg-transparent outline-none py-1 font-[500] text-lg" required />
                                  </div>
                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                     <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3">
-                                       <label className="block text-xs font-black uppercase tracking-[0.2em] mb-3 text-black/50">Phone *</label>
-                                       <input type="text" className="w-full bg-transparent outline-none py-1 font-bold text-lg" required />
+                                       <label className="block text-xs font-[500] uppercase  mb-3 text-black/50">Phone *</label>
+                                       <input type="text" className="w-full bg-transparent outline-none py-1 font-[500] text-lg" required />
                                     </div>
                                     <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3">
-                                       <label className="block text-xs font-black uppercase tracking-[0.2em] mb-3 text-black/50">School Name *</label>
-                                       <input type="text" className="w-full bg-transparent outline-none py-1 font-bold text-lg" required />
+                                       <label className="block text-xs font-[500] uppercase  mb-3 text-black/50">School Name *</label>
+                                       <input type="text" className="w-full bg-transparent outline-none py-1 font-[500] text-lg" required />
                                     </div>
                                  </div>
                                  <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3">
-                                    <label className="block text-xs font-black uppercase tracking-[0.2em] mb-3 text-black/50">Your Message *</label>
-                                    <textarea className="w-full bg-transparent outline-none py-1 font-bold h-32 ring-0 resize-none" required></textarea>
+                                    <label className="block text-xs font-[500] uppercase  mb-3 text-black/50">Your Message *</label>
+                                    <textarea className="w-full bg-transparent outline-none py-1 font-[500] h-32 ring-0 resize-none" required></textarea>
                                  </div>
                                  <div className="pt-6">
-                                    <button type="submit" className="bg-[#EE1D26] text-white px-16 py-5 font-black tracking-[0.25em] hover:bg-black hover:text-white transition-all transform hover:scale-105 shadow-xl uppercase text-sm">
+                                    <button type="submit" className="bg-[#EE1D26] text-white px-16 py-5 font-[500] hover:bg-black hover:text-white transition-all transform hover:scale-105 shadow-xl uppercase text-sm">
                                        SUBMIT
                                     </button>
                                  </div>
@@ -197,7 +197,7 @@ const ContactPage = () => {
                         transition={{ duration: 0.5 }}
                      >
                         <div className="text-center max-w-5xl mx-auto mb-16 px-4">
-                           <p className="text-lg md:text-xl leading-relaxed font-bold text-foreground">
+                           <p className="text-lg md:text-xl leading-relaxed font-[500] text-foreground">
                               We believe that schools can nurture the next generation of health leaders by empowering students to inculcate health from an early stage while providing a high value program that connects directly to the parents at home. Join the movement of building a healthier tomorrow at your school.
                            </p>
                         </div>
@@ -206,25 +206,25 @@ const ContactPage = () => {
                               <img src={parentsBeachImg} alt="Parent and child on beach" className="w-full h-full object-cover" />
                            </div>
                            <div className="w-full lg:w-1/2 bg-[#F2F2F2] p-8 md:p-16">
-                              <h2 className="text-4xl font-black mb-10 tracking-tight uppercase">CONTACT US</h2>
+                              <h2 className="text-4xl font-[500] mb-10  uppercase">CONTACT US</h2>
                               <form className="space-y-12">
                                  <div className="border-b border-black/40">
-                                    <label className="block text-base font-bold text-foreground mb-3">Your Name *</label>
+                                    <label className="block text-base font-[500] text-foreground mb-3">Your Name *</label>
                                     <input type="text" className="w-full bg-transparent outline-none py-1 font-semibold" required />
                                  </div>
                                  <div className="border-b border-black/40">
-                                    <label className="block text-base font-bold text-foreground mb-3">Your Email *</label>
+                                    <label className="block text-base font-[500] text-foreground mb-3">Your Email *</label>
                                     <input type="email" className="w-full bg-transparent outline-none py-1 font-semibold" required />
                                  </div>
                                  <div className="border-b border-black/40">
-                                    <label className="block text-base font-bold text-foreground mb-3">Phone *</label>
+                                    <label className="block text-base font-[500] text-foreground mb-3">Phone *</label>
                                     <input type="text" className="w-full bg-transparent outline-none py-1 font-semibold" required />
                                  </div>
                                  <div className="border-b border-black/40">
-                                    <label className="block text-base font-bold text-foreground mb-3">Your Message *</label>
+                                    <label className="block text-base font-[500] text-foreground mb-3">Your Message *</label>
                                     <textarea className="w-full bg-transparent outline-none py-2 font-semibold h-24 resize-none" required></textarea>
                                  </div>
-                                 <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-black tracking-widest hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
+                                 <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-[500] st hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
                                     SUBMIT
                                  </button>
                               </form>
@@ -242,10 +242,10 @@ const ContactPage = () => {
                         transition={{ duration: 0.5 }}
                      >
                         <div className="text-center max-w-5xl mx-auto mb-16 px-4">
-                           <p className="text-base md:text-lg leading-relaxed font-bold text-foreground">
+                           <p className="text-base md:text-lg leading-relaxed font-[500] text-foreground">
                               Would you like to shape a healthy nation while being part of a dynamic team and work environment?<br />
                               Then HealthSetGo is the place for you. We are looking to explore fresh minds with an entrepreneurial bent.<br />
-                              Drop in your CVs at <a href="mailto:hr@healthsetgoeducation.com" className="text-primary font-black hover:underline transition-all">hr@healthsetgoeducation.com</a> and tell us your motivation. We'll get back to you!
+                              Drop in your CVs at <a href="mailto:hr@healthyroo.ai" className="text-primary font-[500] hover:underline transition-all">hr@healthyroo.ai</a> and tell us your motivation. We'll get back to you!
                            </p>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-0 max-w-6xl mx-auto overflow-hidden shadow-2xl rounded-3xl">
@@ -253,29 +253,29 @@ const ContactPage = () => {
                               <img src={careerManImg} alt="Career at HealthyRoo" className="w-full h-full object-cover" />
                            </div>
                            <div className="w-full lg:w-1/2 bg-[#F2F2F2] p-8 md:p-16">
-                              <h2 className="text-4xl font-black mb-10 tracking-tight uppercase">CONTACT US</h2>
+                              <h2 className="text-4xl font-[500] mb-10  uppercase">CONTACT US</h2>
                               <form className="space-y-12">
                                  <div className="border-b border-black/40">
-                                    <label className="block text-base font-bold text-foreground mb-3">Your Name *</label>
+                                    <label className="block text-base font-[500] text-foreground mb-3">Your Name *</label>
                                     <input type="text" className="w-full bg-transparent outline-none py-1 font-semibold" required />
                                  </div>
                                  <div className="border-b border-black/40">
-                                    <label className="block text-base font-bold text-foreground mb-3">Your Email *</label>
+                                    <label className="block text-base font-[500] text-foreground mb-3">Your Email *</label>
                                     <input type="email" className="w-full bg-transparent outline-none py-1 font-semibold" required />
                                  </div>
                                  <div className="border-b border-black/40 relative pb-3 cursor-pointer group">
                                     <div className="flex items-center gap-3">
                                        <FileText className="w-6 h-6 text-black" />
-                                       <span className="text-lg font-bold text-foreground">Upload CV</span>
+                                       <span className="text-lg font-[500] text-foreground">Upload CV</span>
                                        <Upload className="ml-auto w-5 h-5 group-hover:text-primary transition-colors" />
                                     </div>
                                     <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" />
                                  </div>
                                  <div className="border-b border-black/40">
-                                    <label className="block text-base font-bold text-foreground mb-3">Your Message *</label>
+                                    <label className="block text-base font-[500] text-foreground mb-3">Your Message *</label>
                                     <textarea className="w-full bg-transparent outline-none py-2 font-semibold h-24 resize-none" required></textarea>
                                  </div>
-                                 <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-black tracking-widest hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
+                                 <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-[500] st hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
                                     SUBMIT
                                  </button>
                               </form>
@@ -293,7 +293,7 @@ const ContactPage = () => {
                         transition={{ duration: 0.5 }}
                      >
                         <div className="text-center max-w-5xl mx-auto mb-16 px-4">
-                           <p className="text-base md:text-lg font-bold text-foreground">
+                           <p className="text-base md:text-lg font-[500] text-foreground">
                               We partner with the best hospitals and doctors from across the country for our health assessments and sessions.
                            </p>
                         </div>
@@ -302,19 +302,19 @@ const ContactPage = () => {
                               <img src={medicalCuffImg} alt="Medical Partnerships" className="w-full h-full object-cover" />
                            </div>
                            <div className="w-full lg:w-1/2 bg-[#F2F2F2] p-8 md:p-14">
-                              <h2 className="text-4xl font-black mb-10 tracking-tight uppercase">CONTACT US</h2>
+                              <h2 className="text-4xl font-[500] mb-10  uppercase">CONTACT US</h2>
                               <form className="space-y-10">
                                  <div className="border-b border-black/40">
-                                    <label className="block text-base font-bold text-foreground mb-3">Your Name *</label>
+                                    <label className="block text-base font-[500] text-foreground mb-3">Your Name *</label>
                                     <input type="text" className="w-full bg-transparent outline-none py-1 font-semibold" required />
                                  </div>
                                  <div className="border-b border-black/40">
-                                    <label className="block text-base font-bold text-foreground mb-3">Your Email *</label>
+                                    <label className="block text-base font-[500] text-foreground mb-3">Your Email *</label>
                                     <input type="email" className="w-full bg-transparent outline-none py-1 font-semibold" required />
                                  </div>
                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     <div className="border-b border-black/40 relative">
-                                       <label className="block text-base font-bold text-foreground mb-3">State</label>
+                                       <label className="block text-base font-[500] text-foreground mb-3">State</label>
                                        <select className="w-full bg-transparent outline-none py-1 font-semibold appearance-none cursor-pointer">
                                           <option disabled selected>Select State</option>
                                           <option>NSW</option><option>VIC</option><option>QLD</option><option>WA</option>
@@ -322,11 +322,11 @@ const ContactPage = () => {
                                        <ChevronDown className="absolute bottom-2 right-0 w-4 h-4 pointer-events-none" />
                                     </div>
                                     <div className="border-b border-black/40">
-                                       <label className="block text-base font-bold text-foreground mb-3">City *</label>
+                                       <label className="block text-base font-[500] text-foreground mb-3">City *</label>
                                        <input type="text" className="w-full bg-transparent outline-none py-1 font-semibold" required />
                                     </div>
                                  </div>
-                                 <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-black tracking-widest hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
+                                 <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-[500] st hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
                                     SUBMIT
                                  </button>
                               </form>
@@ -356,7 +356,7 @@ const ContactPage = () => {
                            </div>
                         </div>
                         <div>
-                           <h4 className="text-xl md:text-2xl font-black mb-4 text-[#111] leading-tight uppercase tracking-tight">{f.title}</h4>
+                           <h4 className="text-xl md:text-2xl font-[500] mb-4 text-[#111] leading-tight uppercase ">{f.title}</h4>
                            <p className="text-sm md:text-lg leading-relaxed text-[#555] font-semibold opacity-90">{f.desc}</p>
                         </div>
                      </motion.div>
@@ -368,22 +368,23 @@ const ContactPage = () => {
          {/* Info & Map Section */}
          <section className="bg-background flex flex-col lg:flex-row min-h-[650px] border-t-8 border-secondary">
             <div className="w-full lg:w-1/2 bg-accent p-8 md:p-16 lg:p-24 text-white flex flex-col justify-center relative overflow-hidden">
-               <h2 className="text-4xl md:text-5xl lg:text-7xl font-black mb-10 leading-[0.9] uppercase tracking-tighter relative z-10">
+               <h2 className="text-4xl md:text-5xl lg:text-7xl font-[500] mb-10 leading-[0.9] uppercase er relative z-10">
                   WE ARE<br />ALWAYS<br />HERE TO<br />HELP.
                </h2>
-               <div className="space-y-8 text-base md:text-lg font-black relative z-10 tracking-wide">
+               <div className="space-y-8 text-base md:text-lg font-[500] relative z-10 ">
                   <div className="flex flex-col space-y-2">
-                     <span className="text-white/60 text-[10px] uppercase tracking-[0.3em]">Direct Support</span>
-                     <a href="mailto:support@healthyroo.com.au" className="text-xl md:text-2xl hover:text-black transition-colors">support@healthyroo.com.au</a>
-                     <a href="mailto:hello@healthyroo.com.au" className="text-xl md:text-2xl hover:text-black transition-colors">hello@healthyroo.com.au</a>
+                     <span className="text-white/60 text-[10px] uppercase ">Direct Support</span>
+                     <a href="mailto:smit@healthyroo.ai" className="text-xl md:text-2xl hover:text-black transition-colors font-bold text-primary">smit@healthyroo.ai</a>
+                     <a href="mailto:info@healthyroo.ai" className="text-xl md:text-2xl hover:text-black transition-colors">info@healthyroo.ai</a>
+                     <a href="mailto:hello@healthyroo.ai" className="text-xl md:text-2xl hover:text-black transition-colors">hello@healthyroo.ai</a>
                   </div>
                   <div className="flex flex-col space-y-2">
-                     <span className="text-white/60 text-[10px] uppercase tracking-[0.3em]">Hotline</span>
+                     <span className="text-white/60 text-[10px] uppercase ">Hotline</span>
                      <span className="text-2xl md:text-3xl">+61 401 477 772</span>
                   </div>
                   <div className="pt-10 mt-10 border-t-2 border-white/20">
-                     <h4 className="text-xs font-black uppercase tracking-[0.4em] text-white/60 mb-6">HQ LOCATION</h4>
-                     <p className="text-lg md:text-xl leading-relaxed font-bold">
+                     <h4 className="text-xs font-[500] uppercase text-white/60 mb-6">HQ LOCATION</h4>
+                     <p className="text-lg md:text-xl leading-relaxed font-[500]">
                         HealthyRoo Australia HQ<br />
                         1710/687 La trobe street,<br />
                         Docklands, Victoria 3008

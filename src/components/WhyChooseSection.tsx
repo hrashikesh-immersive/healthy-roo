@@ -2,6 +2,7 @@ import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import whyChooseLaptop from "@/assets/why-choose-laptop.png";
 import whyChooseDoctor from "@/assets/why-choose-doctor.png";
+import { useContactPopup } from "@/context/ContactPopupContext";
 
 const assessments = [
   "Qualified Medical Professionals",
@@ -42,17 +43,17 @@ const imageVariants = {
 };
 
 const WellnessGraphic = () => (
-  <svg 
-    width="120" 
-    height="120" 
-    viewBox="0 0 120 120" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg" 
+  <svg
+    width="120"
+    height="120"
+    viewBox="0 0 120 120"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
     className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 text-primary/40"
   >
     {/* Outer circle */}
     <circle cx="60" cy="60" r="45" stroke="currentColor" strokeWidth="2.5" fill="none" />
-    
+
     {/* Center Meditating Figure (Abstract) */}
     <circle cx="60" cy="40" r="8" stroke="currentColor" strokeWidth="2.5" fill="none" />
     {/* Body */}
@@ -63,17 +64,17 @@ const WellnessGraphic = () => (
     <path d="M42 75 Q 60 85 78 75" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" />
     <path d="M42 75 Q 60 85 78 75" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" />
     <path d="M45 78 Q 60 78 75 78" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-    
+
     {/* Gear Top Left */}
     <circle cx="25" cy="25" r="18" fill="rgba(238, 30, 37, 0.05)" />
     <circle cx="25" cy="25" r="6" fill="currentColor" />
-    <path 
-      d="M25 10v5 M25 35v5 M10 25h5 M35 25h5 M15 15l3.5 3.5 M31.5 31.5l3.5 3.5 M35 15l-3.5 3.5 M18.5 31.5l-3.5 3.5" 
-      stroke="currentColor" 
-      strokeWidth="2.5" 
-      strokeLinecap="round" 
+    <path
+      d="M25 10v5 M25 35v5 M10 25h5 M35 25h5 M15 15l3.5 3.5 M31.5 31.5l3.5 3.5 M35 15l-3.5 3.5 M18.5 31.5l-3.5 3.5"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
     />
-    
+
     {/* Lotus Bottom Right */}
     <circle cx="95" cy="95" r="18" fill="rgba(238, 30, 37, 0.05)" />
     <path d="M95 82 C 90 90, 88 95, 88 95 C 88 95, 102 95, 102 95 C 102 95, 100 90, 95 82 Z" fill="currentColor" />
@@ -83,23 +84,25 @@ const WellnessGraphic = () => (
 );
 
 const WhyChooseSection = () => {
+  const { openPopup } = useContactPopup();
+
   return (
     <section className="py-16 lg:py-24">
       <div className="container mx-auto px-4 lg:px-8 max-w-[1280px]">
         <div className="bg-gradient-to-br from-primary/10 via-background to-secondary/10 rounded-[2.5rem] p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 lg:gap-20 relative">
-          
+
           {/* Left Content */}
-          <motion.div 
+          <motion.div
             className="flex-1 lg:max-md xl:max-w-lg z-20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={containerVariants}
           >
-            <motion.span variants={itemVariants} className="text-[#EE1D26] font-bold text-sm md:text-base mb-3 block uppercase tracking-wider">
+            <motion.span variants={itemVariants} className="text-[#EE1D26] font-[500] text-sm md:text-base mb-3 block uppercase r">
               Australia first program with
             </motion.span>
-            <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-5">
+            <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-[500] text-foreground leading-tight mb-5">
               Why Choose Our Assessments?
             </motion.h2>
             <motion.p variants={itemVariants} className="text-muted-foreground leading-relaxed mb-8 text-base">
@@ -113,16 +116,20 @@ const WhyChooseSection = () => {
                 </motion.li>
               ))}
             </motion.ul>
-            <motion.button variants={itemVariants} className="bg-primary text-primary-foreground font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-primary/90 transition-all shadow-sm cursor-pointer hover:scale-105 active:scale-95">
+            <motion.button 
+              onClick={openPopup}
+              variants={itemVariants} 
+              className="bg-primary text-primary-foreground font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-primary/90 transition-all shadow-sm cursor-pointer hover:scale-105 active:scale-95"
+            >
               Learn more
             </motion.button>
           </motion.div>
 
           {/* Right Content - Images */}
           <div className="flex-1 relative w-full h-[500px] lg:h-auto min-h-[500px] lg:min-h-[600px] z-10 flex items-center justify-center lg:justify-end">
-            
+
             {/* Background pill image */}
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -135,9 +142,9 @@ const WhyChooseSection = () => {
                 className="w-full h-full object-cover"
               />
             </motion.div>
-            
+
             {/* Foreground squircle image */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.8, x: 20 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
               viewport={{ once: true }}
@@ -152,16 +159,16 @@ const WhyChooseSection = () => {
             </motion.div>
 
             {/* Floating Graphic Element */}
-            <motion.div 
+            <motion.div
               className="absolute -top-10 -right-6 md:right-[5%] lg:-top-12 lg:right-0 z-30 drop-shadow-xl"
-              animate={{ 
+              animate={{
                 y: [0, -10, 0],
                 rotate: [0, 5, 0]
               }}
-              transition={{ 
-                duration: 6, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
               }}
             >
               <WellnessGraphic />

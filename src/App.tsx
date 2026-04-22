@@ -15,6 +15,13 @@ import CareersPage from "./pages/Careers";
 import ServicesPage from "./pages/Services";
 import BlogPage from "./pages/Blog";
 import NotFound from "./pages/NotFound";
+import SuperadminLoginPage from "./pages/superadmin/SuperadminLogin";
+import SuperadminDashboard from "./pages/superadmin/SuperadminDashboard";
+import DoctorsPage from "./pages/superadmin/Doctors";
+import VisitsPage from "./pages/superadmin/Visits";
+import StudentsPage from "./pages/superadmin/Students";
+import ReportsPage from "./pages/superadmin/Reports";
+import AnalyticsPage from "./pages/superadmin/Analytics";
 
 import { ContactPopupProvider } from "./context/ContactPopupContext";
 import ContactPopup from "./components/ContactPopup";
@@ -44,6 +51,17 @@ const App = () => (
             <Route path="/school-signup" element={<SchoolSignupPage />} />
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
+            {/* SUPERADMIN ROUTES */}
+            <Route path="/superadmin/login" element={<SuperadminLoginPage />} />
+            <Route path="/superadmin" element={<SuperadminDashboard />} />
+            <Route path="/superadmin/schools" element={<SuperadminDashboard />} />
+            <Route path="/superadmin/doctors" element={<DoctorsPage />} />
+            <Route path="/superadmin/visits" element={<VisitsPage />} />
+            <Route path="/superadmin/students" element={<StudentsPage />} />
+            <Route path="/superadmin/reports" element={<ReportsPage />} />
+            <Route path="/superadmin/analytics" element={<AnalyticsPage />} />
+            <Route path="/superadmin/settings" element={<SuperadminDashboard />} />
+            
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

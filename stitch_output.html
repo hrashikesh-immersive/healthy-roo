@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#c9e6ff",
+                        "on-background": "#0b1c30",
+                        "secondary-fixed": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#004b6f",
+                        "on-primary-fixed-variant": "#93000e",
+                        "secondary-container": "#fd685e",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary-container": "#007cb3",
+                        "outline": "#936e6a",
+                        "on-secondary-container": "#690007",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary": "#bb0015",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#410002",
+                        "background": "#f8f9ff",
+                        "primary-container": "#e71522",
+                        "on-tertiary-fixed": "#001e2f",
+                        "surface-container": "#e5eeff",
+                        "inverse-primary": "#ffb4ac",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffdad6",
+                        "on-secondary-fixed-variant": "#8d1516",
+                        "on-error": "#ffffff",
+                        "tertiary": "#00628e",
+                        "surface-dim": "#cbdbf5",
+                        "tertiary-fixed-dim": "#8bceff",
+                        "on-surface-variant": "#5e3f3c",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#d3e4fe",
+                        "on-surface": "#0b1c30",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-fixed": "#410002",
+                        "secondary-fixed-dim": "#ffb4ac",
+                        "surface-tint": "#c00015",
+                        "inverse-surface": "#213145",
+                        "outline-variant": "#e8bcb8",
+                        "on-primary-container": "#fffbff",
+                        "secondary": "#ae2f2b",
+                        "on-tertiary-container": "#fcfcff",
+                        "primary-fixed-dim": "#ffb4ac",
+                        "surface": "#f8f9ff",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<!-- TopAppBar -->
+<header class="bg-[#f8f9ff] dark:bg-[#0b1c30] shadow-[0_32px_64px_-12px_rgba(11,28,48,0.06)] flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border-2 border-primary/10">
+<img alt="Doctor Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a professional male doctor in a white clinical coat looking confident against a clean blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjQSI4EYhE3-hEHyq6yTQryhZc1V7t2urnqdHDLKI87o5DZiGQNPg-Z-QRCZi78mzY6mrOwr2gXP77pM_XJFBaTJUhQB7lwqr5pEdvgMX7J_Da-Fei1EqZKrvcLS1UoEs0eQbYQyY-j_HSVQyj9pf0Tt5TX2bkoya6Gb3h3hGQde0uaiaAf8O3jjUPnfkbjSIde5jPo5U404jdEB5kDq3h6L7SzKePU0QAfKpTdF30BQMTogZHXSjngh_il1ur_zDdsfi6hMf3-eLo"/>
+</div>
+<span class="font-['Manrope'] font-bold tracking-tight text-xl font-black tracking-tighter text-[#bb0015] dark:text-[#e71522] uppercase">ClinicalVanguard</span>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#eff4ff] dark:hover:bg-[#1a2b3e] transition-all duration-300 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[#bb0015] dark:text-[#e71522]">notifications</span>
+</button>
+</header>
+<main class="pb-32 px-6 pt-6">
+<!-- Breadcrumbs -->
+<nav class="mb-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-on-surface/40">
+<span>Dashboard</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span>Schools</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary">Student List</span>
+</nav>
+<!-- Page Header & Actions -->
+<div class="mb-8">
+<h1 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-6">St. Jude Academy <span class="block text-sm font-medium text-on-surface/60 mt-1">Medical Inspection Session #402</span></h1>
+<div class="flex gap-3">
+<button class="flex-1 bg-gradient-to-br from-primary to-primary-container text-on-primary py-4 px-6 rounded-xl font-label text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-sm">person_add</span>
+                    Add Student
+                </button>
+<button class="flex-1 bg-surface-container-high text-on-surface py-4 px-6 rounded-xl font-label text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-sm">upload_file</span>
+                    Import
+                </button>
+</div>
+</div>
+<!-- Test Progress Summary -->
+<section class="mb-12 -mx-6">
+<div class="px-6 mb-4 flex justify-between items-end">
+<h2 class="font-headline text-xs font-black uppercase tracking-widest text-on-surface/50">Test Progress Summary</h2>
+<span class="text-[10px] font-bold text-primary">8 Modules</span>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-4 px-6 snap-x">
+<!-- Progress Cards -->
+<div class="flex-shrink-0 w-40 snap-start bg-surface-container-low p-5 rounded-2xl">
+<span class="material-symbols-outlined text-primary mb-3">analytics</span>
+<p class="font-headline font-bold text-sm text-on-surface">Biometric</p>
+<p class="font-label text-[10px] text-on-surface/60 mt-1 uppercase tracking-tight">Comp: 124 / 150</p>
+<div class="mt-4 h-1 w-full bg-on-surface/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[82%]"></div>
+</div>
+</div>
+<div class="flex-shrink-0 w-40 snap-start bg-surface-container-low p-5 rounded-2xl">
+<span class="material-symbols-outlined text-tertiary mb-3">visibility</span>
+<p class="font-headline font-bold text-sm text-on-surface">Eyes</p>
+<p class="font-label text-[10px] text-on-surface/60 mt-1 uppercase tracking-tight">Comp: 98 / 150</p>
+<div class="mt-4 h-1 w-full bg-on-surface/5 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[65%]"></div>
+</div>
+</div>
+<div class="flex-shrink-0 w-40 snap-start bg-surface-container-low p-5 rounded-2xl">
+<span class="material-symbols-outlined text-on-surface/40 mb-3">dentistry</span>
+<p class="font-headline font-bold text-sm text-on-surface">Dental</p>
+<p class="font-label text-[10px] text-on-surface/60 mt-1 uppercase tracking-tight">Comp: 45 / 150</p>
+<div class="mt-4 h-1 w-full bg-on-surface/5 rounded-full overflow-hidden">
+<div class="h-full bg-on-surface/20 w-[30%]"></div>
+</div>
+</div>
+<div class="flex-shrink-0 w-40 snap-start bg-surface-container-low p-5 rounded-2xl">
+<span class="material-symbols-outlined text-on-surface/40 mb-3">hearing</span>
+<p class="font-headline font-bold text-sm text-on-surface">ENT</p>
+<p class="font-label text-[10px] text-on-surface/60 mt-1 uppercase tracking-tight">Comp: 12 / 150</p>
+<div class="mt-4 h-1 w-full bg-on-surface/5 rounded-full overflow-hidden">
+<div class="h-full bg-on-surface/20 w-[8%]"></div>
+</div>
+</div>
+<div class="flex-shrink-0 w-40 snap-start bg-surface-container-low p-5 rounded-2xl">
+<span class="material-symbols-outlined text-on-surface/40 mb-3">favorite</span>
+<p class="font-headline font-bold text-sm text-on-surface">Cardio</p>
+<p class="font-label text-[10px] text-on-surface/60 mt-1 uppercase tracking-tight">Comp: 0 / 150</p>
+<div class="mt-4 h-1 w-full bg-on-surface/5 rounded-full overflow-hidden">
+<div class="h-full bg-on-surface/5 w-0"></div>
+</div>
+</div>
+<div class="flex-shrink-0 w-40 snap-start bg-surface-container-low p-5 rounded-2xl">
+<span class="material-symbols-outlined text-on-surface/40 mb-3">medical_services</span>
+<p class="font-headline font-bold text-sm text-on-surface">General</p>
+<p class="font-label text-[10px] text-on-surface/60 mt-1 uppercase tracking-tight">Comp: 0 / 150</p>
+<div class="mt-4 h-1 w-full bg-on-surface/5 rounded-full overflow-hidden">
+<div class="h-full bg-on-surface/5 w-0"></div>
+</div>
+</div>
+<div class="flex-shrink-0 w-40 snap-start bg-surface-container-low p-5 rounded-2xl">
+<span class="material-symbols-outlined text-on-surface/40 mb-3">body_fat</span>
+<p class="font-headline font-bold text-sm text-on-surface">BCA</p>
+<p class="font-label text-[10px] text-on-surface/60 mt-1 uppercase tracking-tight">Comp: 0 / 150</p>
+<div class="mt-4 h-1 w-full bg-on-surface/5 rounded-full overflow-hidden">
+<div class="h-full bg-on-surface/5 w-0"></div>
+</div>
+</div>
+<div class="flex-shrink-0 w-40 snap-start bg-surface-container-low p-5 rounded-2xl">
+<span class="material-symbols-outlined text-on-surface/40 mb-3">edit_note</span>
+<p class="font-headline font-bold text-sm text-on-surface">Final Notes</p>
+<p class="font-label text-[10px] text-on-surface/60 mt-1 uppercase tracking-tight">Comp: 0 / 150</p>
+<div class="mt-4 h-1 w-full bg-on-surface/5 rounded-full overflow-hidden">
+<div class="h-full bg-on-surface/5 w-0"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Student List -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline text-lg font-extrabold text-on-surface">Student Roster</h2>
+<button class="material-symbols-outlined text-on-surface/40">filter_list</button>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Student Item 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0_32px_64px_-12px_rgba(11,28,48,0.04)] relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-surface-container overflow-hidden">
+<img alt="Student" class="w-full h-full object-cover" data-alt="Portrait of a young male student with a cheerful expression wearing a casual jacket in a classroom setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR_m0iMjl9mIb5_x4wIvlxTqXympZmCPvWHwF_6UTTLmgaJUlGCXOpevYYo1SIMMav9fLK2FVD0d4O5vkUMA0cxUHdlYAXRfguf5pHiZb47QPSEYqkOksMYr4nGuqiZUElP9G14fZRb-Yt0GMa4GQl2eJh__Z_BRCPyntmkVw1g9OqhVm5VTuWI_fM5QDdo7aW0bveIQodtgmKVmc7uOZdpDaVeRI3_Ry_bwLWXmTpNekcDqlcJ7wbFNmkcHdPXFIjGp4LiLL-6__E"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface">Benjamin Thorne</h3>
+<p class="font-label text-[10px] font-semibold text-on-surface/40 uppercase tracking-widest">ID: #CV-9921</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-error-container text-on-error-container rounded-full font-label text-[9px] font-black uppercase tracking-tighter">Urgent</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div>
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface/40 mb-1">Class</p>
+<p class="font-headline font-bold text-xs text-on-surface">Grade 10-B</p>
+</div>
+<div>
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface/40 mb-1">Progress</p>
+<div class="flex gap-1 mt-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div class="w-2 h-2 rounded-full bg-on-surface/10"></div>
+<div class="w-2 h-2 rounded-full bg-on-surface/10"></div>
+</div>
+</div>
+</div>
+<button class="w-full bg-on-surface text-on-primary py-3 rounded-xl font-label text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-colors duration-300">
+                        View Tests
+                    </button>
+</div>
+<!-- Student Item 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0_32px_64px_-12px_rgba(11,28,48,0.04)] relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-surface-container overflow-hidden">
+<img alt="Student" class="w-full h-full object-cover" data-alt="Portrait of a young female student with long hair smiling gently in a bright library background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLu1Yco5OU8kxJnkiggmVzurbes34LTU2XfOMexePj09ZAeYysjjEMyyn__CpkOF1a86ZVPAE9SIWdsJV6c09PW7Vl-PXHBrdHIriFQs3EFYTyhrb7BkolXwK8WDrhroqUDxz8sit_YuFJ9HJ0f1I1iVfsqDkE7-5U-dOOpJEVhg-pqzt-ZYaP79WL4YIJ7w0exBImgNjUi5pmadgJUWGlEagsuhBSpEeg5dKXsSPJnWWqxFboUKmthh-_ZW8QbEaKqCiqUXquRpl"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface">Elena Rodriguez</h3>
+<p class="font-label text-[10px] font-semibold text-on-surface/40 uppercase tracking-widest">ID: #CV-9874</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full font-label text-[9px] font-black uppercase tracking-tighter">Normal</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div>
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface/40 mb-1">Class</p>
+<p class="font-headline font-bold text-xs text-on-surface">Grade 10-B</p>
+</div>
+<div>
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface/40 mb-1">Progress</p>
+<div class="flex gap-1 mt-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-on-surface/10"></div>
+</div>
+</div>
+</div>
+<button class="w-full bg-on-surface text-on-primary py-3 rounded-xl font-label text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-colors duration-300">
+                        View Tests
+                    </button>
+</div>
+<!-- Student Item 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0_32px_64px_-12px_rgba(11,28,48,0.04)] relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-surface-container overflow-hidden">
+<img alt="Student" class="w-full h-full object-cover" data-alt="Professional profile photo of a young boy student looking forward with neutral expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz_ElFqarQUx9VA6p1LgbPbqTMtCHlTKxaKyWdWWuGNI0OYpgJDxtokP33CbPAT0y1zZKx6Ei_-HB0J38uq6Xwsm6bLN_75LzxhGaVCNWtsqZsJlDMzihnu6-CMG19S0BNYv1_vctL9JllIjd4jzhDJY5P_vRLRFIRxBdsDcOmzNFOBe26Qzj7fvDDv4-1UIEEEs8OUZ4Y-oYlOGvOKmuuVPwhtlyRBBCqgVk4xGJMnIjKP7MI-uwR3N97TbeTkfIIskAbK1XAlVny"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface">Marcus Sterling</h3>
+<p class="font-label text-[10px] font-semibold text-on-surface/40 uppercase tracking-widest">ID: #CV-9712</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full font-label text-[9px] font-black uppercase tracking-tighter">Pending</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div>
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface/40 mb-1">Class</p>
+<p class="font-headline font-bold text-xs text-on-surface">Grade 10-C</p>
+</div>
+<div>
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface/40 mb-1">Progress</p>
+<div class="flex gap-1 mt-1">
+<div class="w-2 h-2 rounded-full bg-on-surface/10"></div>
+<div class="w-2 h-2 rounded-full bg-on-surface/10"></div>
+<div class="w-2 h-2 rounded-full bg-on-surface/10"></div>
+<div class="w-2 h-2 rounded-full bg-on-surface/10"></div>
+<div class="w-2 h-2 rounded-full bg-on-surface/10"></div>
+</div>
+</div>
+</div>
+<button class="w-full bg-on-surface text-on-primary py-3 rounded-xl font-label text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-colors duration-300">
+                        View Tests
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-8 pt-4 bg-white/80 dark:bg-[#0b1c30]/80 backdrop-blur-xl border-t border-[#0b1c30]/5 shadow-[0_-10px_40px_rgba(11,28,48,0.04)] rounded-t-3xl">
+<a class="flex flex-col items-center justify-center text-[#0b1c30]/40 dark:text-[#f8f9ff]/40 hover:text-[#bb0015] active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#bb0015] dark:text-[#e71522] relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-[#bb0015] after:rounded-full transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1">school</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Schools</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#0b1c30]/40 dark:text-[#f8f9ff]/40 hover:text-[#bb0015] active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1">person_search</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Patients</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#0b1c30]/40 dark:text-[#f8f9ff]/40 hover:text-[#bb0015] active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1">account_circle</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+</body></html>

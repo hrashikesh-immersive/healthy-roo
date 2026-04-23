@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { Mail, Lock, Power, ArrowLeft, ShieldCheck, Github, Chrome, Twitter, CheckCircle2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Mail, Lock, Power, ArrowLeft, ShieldCheck, Github, Chrome, Twitter, CheckCircle2, RotateCcw } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import healthyrooLogo from "@/assets/logo/healthyroo-logo.svg";
 import loginBg from "@/assets/health-assessment-doctor.png";
@@ -8,12 +8,44 @@ import s1 from "@/assets/schools/school-1.png";
 import s2 from "@/assets/schools/school-2.png";
 import s3 from "@/assets/schools/school-3.png";
 import s4 from "@/assets/schools/school-4.png";
+import { toast } from "sonner";
 
 
 const SchoolLoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !password) {
+      toast.error("Please enter both email and password");
+      return;
+    }
+
+    setIsLoading(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      setIsLoading(false);
+      if (email === "admin@school.edu.au" && password === "password") {
+        toast.success("Welcome back, Springfield Academy!");
+        navigate("/school/dashboard");
+      } else if (email && password) {
+        // For demo purposes, any non-empty credentials will work
+        toast.success("Login successful!");
+        navigate("/school/dashboard");
+      } else {
+        toast.error("Invalid credentials. Please try again.");
+      }
+    }, 1500);
+  };
 
   return (
     <div className="min-h-screen flex bg-white font-sans overflow-hidden">
@@ -92,7 +124,7 @@ const SchoolLoginPage = () => {
               <p className="text-muted-foreground font-medium">Logged in to manage your school's portal.</p>
             </div>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleLogin}>
               <div>
                 <label className="block text-xs font-[500] uppercase  mb-3 text-muted-foreground">School Email Address</label>
                 <div className="relative group">
@@ -100,6 +132,8 @@ const SchoolLoginPage = () => {
                   <input
                     type="email"
                     placeholder="admin@school.edu.au"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full bg-[#F9F9F9] border-2 border-transparent focus:border-primary/20 focus:bg-white outline-none rounded-2xl py-5 pl-14 pr-6 font-semibold text-foreground transition-all placeholder:text-gray-400"
                     required
                   />
@@ -116,6 +150,8 @@ const SchoolLoginPage = () => {
                   <input
                     type="password"
                     placeholder="••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="w-full bg-[#F9F9F9] border-2 border-transparent focus:border-primary/20 focus:bg-white outline-none rounded-2xl py-5 pl-14 pr-6 font-semibold text-foreground transition-all placeholder:text-gray-400"
                     required
                   />
@@ -136,9 +172,18 @@ const SchoolLoginPage = () => {
 
               <button
                 type="submit"
-                className="w-full bg-primary text-white font-[500] py-5 rounded-2xl shadow-xl shadow-red-500/10 hover:shadow-red-500/30 hover:scale-[1.02] active:scale-100 transition-all flex items-center justify-center gap-4 group"
+                disabled={isLoading}
+                className="w-full bg-primary text-white font-[500] py-5 rounded-2xl shadow-xl shadow-red-500/10 hover:shadow-red-500/30 hover:scale-[1.02] active:scale-100 transition-all flex items-center justify-center gap-4 group disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                SIGN IN <Power className="w-5 h-5 group-hover:rotate-45 transition-transform" />
+                {isLoading ? (
+                  <span className="flex items-center gap-2">
+                    SIGNING IN <RotateCcw className="w-5 h-5 animate-spin" />
+                  </span>
+                ) : (
+                  <>
+                    SIGN IN <Power className="w-5 h-5 group-hover:rotate-45 transition-transform" />
+                  </>
+                )}
               </button>
             </form>
 

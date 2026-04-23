@@ -31,10 +31,126 @@ import medicalCuffImg from "@/assets/medical-contact-cuff.png";
 
 const ContactPage = () => {
    const [activeTab, setActiveTab] = useState("FOR SCHOOL");
+   const [formData, setFormData] = useState({
+      name: "",
+      email: "",
+      phone: "",
+      schoolName: "",
+      message: "",
+      city: "",
+      state: "",
+      cv: null as File | null,
+   });
+
+   const [errors, setErrors] = useState<Record<string, string>>({});
+   const [isSubmitting, setIsSubmitting] = useState(false);
+   const [submitSuccess, setSubmitSuccess] = useState(false);
 
    useEffect(() => {
       window.scrollTo(0, 0);
    }, []);
+
+   useEffect(() => {
+      setFormData({
+         name: "",
+         email: "",
+         phone: "",
+         schoolName: "",
+         message: "",
+         city: "",
+         state: "",
+         cv: null,
+      });
+      setErrors({});
+   }, [activeTab]);
+
+   const validate = () => {
+      const newErrors: Record<string, string> = {};
+
+      if (!formData.name.trim()) newErrors.name = "Name is required";
+
+      if (!formData.email.trim()) {
+         newErrors.email = "Email is required";
+      } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+         newErrors.email = "Email is invalid";
+      }
+
+      if (activeTab === "FOR SCHOOL" || activeTab === "FOR PARENTS") {
+         if (!formData.phone) {
+            newErrors.phone = "Phone is required";
+         } else if (formData.phone.length < 8 || formData.phone.length > 15) {
+            newErrors.phone = "Phone must be 8-15 digits";
+         }
+      }
+
+      if (activeTab === "FOR SCHOOL") {
+         if (!formData.schoolName.trim()) newErrors.schoolName = "School name is required";
+      }
+
+      if (activeTab !== "FOR MEDICAL PARTNERS") {
+         if (!formData.message.trim()) newErrors.message = "Message is required";
+      }
+
+      if (activeTab === "FOR MEDICAL PARTNERS") {
+         if (!formData.city.trim()) newErrors.city = "City is required";
+         if (!formData.state || formData.state === "Select State") newErrors.state = "State is required";
+      }
+
+      if (activeTab === "FOR CAREER") {
+         if (!formData.cv) newErrors.cv = "CV is required";
+      }
+
+      setErrors(newErrors);
+      return Object.keys(newErrors).length === 0;
+   };
+
+   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+      const { name, value } = e.target;
+
+      if (name === "phone") {
+         // Allow only numbers
+         const numericValue = value.replace(/\D/g, "");
+         setFormData(prev => ({ ...prev, [name]: numericValue }));
+      } else {
+         setFormData(prev => ({ ...prev, [name]: value }));
+      }
+
+      if (errors[name]) {
+         setErrors(prev => ({ ...prev, [name]: "" }));
+      }
+   };
+
+   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (e.target.files && e.target.files[0]) {
+         setFormData(prev => ({ ...prev, cv: e.target.files![0] }));
+         if (errors.cv) {
+            setErrors(prev => ({ ...prev, cv: "" }));
+         }
+      }
+   };
+
+   const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      if (validate()) {
+         setIsSubmitting(true);
+         // Simulate API call
+         setTimeout(() => {
+            setIsSubmitting(false);
+            setSubmitSuccess(true);
+            setFormData({
+               name: "",
+               email: "",
+               phone: "",
+               schoolName: "",
+               message: "",
+               city: "",
+               state: "",
+               cv: null,
+            });
+            setTimeout(() => setSubmitSuccess(false), 5000);
+         }, 1500);
+      }
+   };
 
    const tabs = ["FOR SCHOOL", "FOR PARENTS", "FOR CAREER", "FOR MEDICAL PARTNERS"];
 
@@ -154,33 +270,80 @@ const ContactPage = () => {
 
                            <div className="w-full lg:w-1/2 bg-muted p-8 md:p-14 lg:p-20">
                               <h2 className="text-4xl md:text-5xl font-[500] mb-12 er uppercase text-foreground">CONTACT US</h2>
-                              <form className="space-y-10">
-                                 <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3">
+                              <form className="space-y-10" onSubmit={handleSubmit}>
+                                 <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3 relative">
                                     <label className="block text-xs font-[500] uppercase  mb-3 text-black/50">Your Name *</label>
-                                    <input type="text" className="w-full bg-transparent outline-none py-1 font-[500] text-lg" required />
+                                    <input
+                                       type="text"
+                                       name="name"
+                                       value={formData.name}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-1 font-[500] text-lg"
+                                    />
+                                    {errors.name && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.name}</span>}
                                  </div>
-                                 <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3">
+                                 <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3 relative">
                                     <label className="block text-xs font-[500] uppercase  mb-3 text-black/50">Your Email *</label>
-                                    <input type="email" className="w-full bg-transparent outline-none py-1 font-[500] text-lg" required />
+                                    <input
+                                       type="email"
+                                       name="email"
+                                       value={formData.email}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-1 font-[500] text-lg"
+                                    />
+                                    {errors.email && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.email}</span>}
                                  </div>
                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                                    <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3">
+                                    <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3 relative">
                                        <label className="block text-xs font-[500] uppercase  mb-3 text-black/50">Phone *</label>
-                                       <input type="text" className="w-full bg-transparent outline-none py-1 font-[500] text-lg" required />
+                                       <input
+                                          type="text"
+                                          name="phone"
+                                          value={formData.phone}
+                                          onChange={handleChange}
+                                          className="w-full bg-transparent outline-none py-1 font-[500] text-lg"
+                                       />
+                                       {errors.phone && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.phone}</span>}
                                     </div>
-                                    <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3">
+                                    <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3 relative">
                                        <label className="block text-xs font-[500] uppercase  mb-3 text-black/50">School Name *</label>
-                                       <input type="text" className="w-full bg-transparent outline-none py-1 font-[500] text-lg" required />
+                                       <input
+                                          type="text"
+                                          name="schoolName"
+                                          value={formData.schoolName}
+                                          onChange={handleChange}
+                                          className="w-full bg-transparent outline-none py-1 font-[500] text-lg"
+                                       />
+                                       {errors.schoolName && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.schoolName}</span>}
                                     </div>
                                  </div>
-                                 <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3">
+                                 <div className="border-b-2 border-black/20 focus-within:border-[#26C797] transition-colors pb-3 relative">
                                     <label className="block text-xs font-[500] uppercase  mb-3 text-black/50">Your Message *</label>
-                                    <textarea className="w-full bg-transparent outline-none py-1 font-[500] h-32 ring-0 resize-none" required></textarea>
+                                    <textarea
+                                       name="message"
+                                       value={formData.message}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-1 font-[500] h-32 ring-0 resize-none"
+                                    ></textarea>
+                                    {errors.message && <span className="absolute left-0 -bottom-1 text-red-500 text-[10px] uppercase font-bold">{errors.message}</span>}
                                  </div>
                                  <div className="pt-6">
-                                    <button type="submit" className="bg-[#EE1D26] text-white px-16 py-5 font-[500] hover:bg-black hover:text-white transition-all transform hover:scale-105 shadow-xl uppercase text-sm">
-                                       SUBMIT
+                                    <button
+                                       type="submit"
+                                       disabled={isSubmitting}
+                                       className="bg-[#EE1D26] text-white px-16 py-5 font-[500] hover:bg-black hover:text-white transition-all transform hover:scale-105 shadow-xl uppercase text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                       {isSubmitting ? "SUBMITTING..." : "SUBMIT"}
                                     </button>
+                                    {submitSuccess && (
+                                       <motion.p
+                                          initial={{ opacity: 0, y: 10 }}
+                                          animate={{ opacity: 1, y: 0 }}
+                                          className="text-[#26C797] mt-4 font-bold text-sm"
+                                       >
+                                          Thank you! Your message has been sent successfully.
+                                       </motion.p>
+                                    )}
                                  </div>
                               </form>
                            </div>
@@ -207,26 +370,68 @@ const ContactPage = () => {
                            </div>
                            <div className="w-full lg:w-1/2 bg-[#F2F2F2] p-8 md:p-16">
                               <h2 className="text-4xl font-[500] mb-10  uppercase">CONTACT US</h2>
-                              <form className="space-y-12">
-                                 <div className="border-b border-black/40">
+                              <form className="space-y-12" onSubmit={handleSubmit}>
+                                 <div className="border-b border-black/40 relative">
                                     <label className="block text-base font-[500] text-foreground mb-3">Your Name *</label>
-                                    <input type="text" className="w-full bg-transparent outline-none py-1 font-semibold" required />
+                                    <input
+                                       type="text"
+                                       name="name"
+                                       value={formData.name}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-1 font-semibold"
+                                    />
+                                    {errors.name && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.name}</span>}
                                  </div>
-                                 <div className="border-b border-black/40">
+                                 <div className="border-b border-black/40 relative">
                                     <label className="block text-base font-[500] text-foreground mb-3">Your Email *</label>
-                                    <input type="email" className="w-full bg-transparent outline-none py-1 font-semibold" required />
+                                    <input
+                                       type="email"
+                                       name="email"
+                                       value={formData.email}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-1 font-semibold"
+                                    />
+                                    {errors.email && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.email}</span>}
                                  </div>
-                                 <div className="border-b border-black/40">
+                                 <div className="border-b border-black/40 relative">
                                     <label className="block text-base font-[500] text-foreground mb-3">Phone *</label>
-                                    <input type="text" className="w-full bg-transparent outline-none py-1 font-semibold" required />
+                                    <input
+                                       type="text"
+                                       name="phone"
+                                       value={formData.phone}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-1 font-semibold"
+                                    />
+                                    {errors.phone && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.phone}</span>}
                                  </div>
-                                 <div className="border-b border-black/40">
+                                 <div className="border-b border-black/40 relative">
                                     <label className="block text-base font-[500] text-foreground mb-3">Your Message *</label>
-                                    <textarea className="w-full bg-transparent outline-none py-2 font-semibold h-24 resize-none" required></textarea>
+                                    <textarea
+                                       name="message"
+                                       value={formData.message}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-2 font-semibold h-24 resize-none"
+                                    ></textarea>
+                                    {errors.message && <span className="absolute left-0 -bottom-1 text-red-500 text-[10px] uppercase font-bold">{errors.message}</span>}
                                  </div>
-                                 <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-[500] st hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
-                                    SUBMIT
-                                 </button>
+                                 <div>
+                                    <button
+                                       type="submit"
+                                       disabled={isSubmitting}
+                                       className="bg-[#EE1D26] text-white px-14 py-4 font-[500] st hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                       {isSubmitting ? "SUBMITTING..." : "SUBMIT"}
+                                    </button>
+                                    {submitSuccess && (
+                                       <motion.p
+                                          initial={{ opacity: 0, y: 10 }}
+                                          animate={{ opacity: 1, y: 0 }}
+                                          className="text-[#26C797] mt-4 font-bold text-sm"
+                                       >
+                                          Success! We'll get back to you soon.
+                                       </motion.p>
+                                    )}
+                                 </div>
                               </form>
                            </div>
                         </div>
@@ -254,30 +459,70 @@ const ContactPage = () => {
                            </div>
                            <div className="w-full lg:w-1/2 bg-[#F2F2F2] p-8 md:p-16">
                               <h2 className="text-4xl font-[500] mb-10  uppercase">CONTACT US</h2>
-                              <form className="space-y-12">
-                                 <div className="border-b border-black/40">
+                              <form className="space-y-12" onSubmit={handleSubmit}>
+                                 <div className="border-b border-black/40 relative">
                                     <label className="block text-base font-[500] text-foreground mb-3">Your Name *</label>
-                                    <input type="text" className="w-full bg-transparent outline-none py-1 font-semibold" required />
+                                    <input
+                                       type="text"
+                                       name="name"
+                                       value={formData.name}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-1 font-semibold"
+                                    />
+                                    {errors.name && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.name}</span>}
                                  </div>
-                                 <div className="border-b border-black/40">
+                                 <div className="border-b border-black/40 relative">
                                     <label className="block text-base font-[500] text-foreground mb-3">Your Email *</label>
-                                    <input type="email" className="w-full bg-transparent outline-none py-1 font-semibold" required />
+                                    <input
+                                       type="email"
+                                       name="email"
+                                       value={formData.email}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-1 font-semibold"
+                                    />
+                                    {errors.email && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.email}</span>}
                                  </div>
                                  <div className="border-b border-black/40 relative pb-3 cursor-pointer group">
                                     <div className="flex items-center gap-3">
                                        <FileText className="w-6 h-6 text-black" />
-                                       <span className="text-lg font-[500] text-foreground">Upload CV</span>
+                                       <span className="text-lg font-[500] text-foreground">{formData.cv ? formData.cv.name : "Upload CV"}</span>
                                        <Upload className="ml-auto w-5 h-5 group-hover:text-primary transition-colors" />
                                     </div>
-                                    <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" />
+                                    <input
+                                       type="file"
+                                       onChange={handleFileChange}
+                                       className="absolute inset-0 opacity-0 cursor-pointer"
+                                    />
+                                    {errors.cv && <span className="absolute left-0 -bottom-3 text-red-500 text-[10px] uppercase font-bold">{errors.cv}</span>}
                                  </div>
-                                 <div className="border-b border-black/40">
+                                 <div className="border-b border-black/40 relative">
                                     <label className="block text-base font-[500] text-foreground mb-3">Your Message *</label>
-                                    <textarea className="w-full bg-transparent outline-none py-2 font-semibold h-24 resize-none" required></textarea>
+                                    <textarea
+                                       name="message"
+                                       value={formData.message}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-2 font-semibold h-24 resize-none"
+                                    ></textarea>
+                                    {errors.message && <span className="absolute left-0 -bottom-1 text-red-500 text-[10px] uppercase font-bold">{errors.message}</span>}
                                  </div>
-                                 <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-[500] st hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
-                                    SUBMIT
-                                 </button>
+                                 <div>
+                                    <button
+                                       type="submit"
+                                       disabled={isSubmitting}
+                                       className="bg-[#EE1D26] text-white px-14 py-4 font-[500] st hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                       {isSubmitting ? "SUBMITTING..." : "SUBMIT"}
+                                    </button>
+                                    {submitSuccess && (
+                                       <motion.p
+                                          initial={{ opacity: 0, y: 10 }}
+                                          animate={{ opacity: 1, y: 0 }}
+                                          className="text-[#26C797] mt-4 font-bold text-sm"
+                                       >
+                                          Application sent! Good luck.
+                                       </motion.p>
+                                    )}
+                                 </div>
                               </form>
                            </div>
                         </div>
@@ -303,32 +548,77 @@ const ContactPage = () => {
                            </div>
                            <div className="w-full lg:w-1/2 bg-[#F2F2F2] p-8 md:p-14">
                               <h2 className="text-4xl font-[500] mb-10  uppercase">CONTACT US</h2>
-                              <form className="space-y-10">
-                                 <div className="border-b border-black/40">
+                              <form className="space-y-10" onSubmit={handleSubmit}>
+                                 <div className="border-b border-black/40 relative">
                                     <label className="block text-base font-[500] text-foreground mb-3">Your Name *</label>
-                                    <input type="text" className="w-full bg-transparent outline-none py-1 font-semibold" required />
+                                    <input
+                                       type="text"
+                                       name="name"
+                                       value={formData.name}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-1 font-semibold"
+                                    />
+                                    {errors.name && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.name}</span>}
                                  </div>
-                                 <div className="border-b border-black/40">
+                                 <div className="border-b border-black/40 relative">
                                     <label className="block text-base font-[500] text-foreground mb-3">Your Email *</label>
-                                    <input type="email" className="w-full bg-transparent outline-none py-1 font-semibold" required />
+                                    <input
+                                       type="email"
+                                       name="email"
+                                       value={formData.email}
+                                       onChange={handleChange}
+                                       className="w-full bg-transparent outline-none py-1 font-semibold"
+                                    />
+                                    {errors.email && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.email}</span>}
                                  </div>
                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     <div className="border-b border-black/40 relative">
-                                       <label className="block text-base font-[500] text-foreground mb-3">State</label>
-                                       <select className="w-full bg-transparent outline-none py-1 font-semibold appearance-none cursor-pointer">
-                                          <option disabled selected>Select State</option>
-                                          <option>NSW</option><option>VIC</option><option>QLD</option><option>WA</option>
+                                       <label className="block text-base font-[500] text-foreground mb-3">State *</label>
+                                       <select
+                                          name="state"
+                                          value={formData.state}
+                                          onChange={handleChange}
+                                          className="w-full bg-transparent outline-none py-1 font-semibold appearance-none cursor-pointer"
+                                       >
+                                          <option value="">Select State</option>
+                                          <option value="NSW">NSW</option>
+                                          <option value="VIC">VIC</option>
+                                          <option value="QLD">QLD</option>
+                                          <option value="WA">WA</option>
                                        </select>
                                        <ChevronDown className="absolute bottom-2 right-0 w-4 h-4 pointer-events-none" />
+                                       {errors.state && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.state}</span>}
                                     </div>
-                                    <div className="border-b border-black/40">
+                                    <div className="border-b border-black/40 relative">
                                        <label className="block text-base font-[500] text-foreground mb-3">City *</label>
-                                       <input type="text" className="w-full bg-transparent outline-none py-1 font-semibold" required />
+                                       <input
+                                          type="text"
+                                          name="city"
+                                          value={formData.city}
+                                          onChange={handleChange}
+                                          className="w-full bg-transparent outline-none py-1 font-semibold"
+                                       />
+                                       {errors.city && <span className="absolute left-0 -bottom-6 text-red-500 text-[10px] uppercase font-bold">{errors.city}</span>}
                                     </div>
                                  </div>
-                                 <button type="submit" className="bg-[#EE1D26] text-white px-14 py-4 font-[500] st hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm">
-                                    SUBMIT
-                                 </button>
+                                 <div>
+                                    <button
+                                       type="submit"
+                                       disabled={isSubmitting}
+                                       className="bg-[#EE1D26] text-white px-14 py-4 font-[500] st hover:bg-black hover:text-white transition-all shadow-md uppercase text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                       {isSubmitting ? "SUBMITTING..." : "SUBMIT"}
+                                    </button>
+                                    {submitSuccess && (
+                                       <motion.p
+                                          initial={{ opacity: 0, y: 10 }}
+                                          animate={{ opacity: 1, y: 0 }}
+                                          className="text-[#26C797] mt-4 font-bold text-sm"
+                                       >
+                                          Partnership request sent successfully!
+                                       </motion.p>
+                                    )}
+                                 </div>
                               </form>
                            </div>
                         </div>
@@ -374,7 +664,7 @@ const ContactPage = () => {
                <div className="space-y-8 text-base md:text-lg font-[500] relative z-10 ">
                   <div className="flex flex-col space-y-2">
                      <span className="text-white/60 text-[10px] uppercase ">Direct Support</span>
-                     <a href="mailto:smit@healthyroo.ai" className="text-xl md:text-2xl hover:text-black transition-colors font-bold text-primary">smit@healthyroo.ai</a>
+                     <a href="mailto:smit@healthyroo.ai" className="text-xl md:text-2xl hover:text-black transition-colors font-bold">smit@healthyroo.ai</a>
                      <a href="mailto:info@healthyroo.ai" className="text-xl md:text-2xl hover:text-black transition-colors">info@healthyroo.ai</a>
                      <a href="mailto:hello@healthyroo.ai" className="text-xl md:text-2xl hover:text-black transition-colors">hello@healthyroo.ai</a>
                   </div>

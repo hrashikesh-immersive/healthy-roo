@@ -1,0 +1,6 @@
+- [x] Create Stitch MCP project
+- [x] Create and update design system with original theme
+- [x] Generate new screen using Stitch MCP with the founder text
+- [x] Update `src/pages/About.tsx` with the generated code
+- [x] Add `image.png` usage into the page
+- [x] Verify the application looks correct

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ChevronRight, Mail, Phone, MapPin, Send, Upload, FileText, ChevronDown } from "lucide-react";
+import { ChevronRight, Mail, Phone, MapPin, Send, Upload, FileText, ChevronDown, User, School, Stethoscope } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const containerVariants = {
@@ -30,7 +30,7 @@ import careerManImg from "@/assets/career-contact-man.png";
 import medicalCuffImg from "@/assets/medical-contact-cuff.png";
 
 const ContactPage = () => {
-   const [activeTab, setActiveTab] = useState("FOR SCHOOL");
+   const [activeTab, setActiveTab] = useState("FOR SCHOOLS");
    const [formData, setFormData] = useState({
       name: "",
       email: "",
@@ -75,7 +75,7 @@ const ContactPage = () => {
          newErrors.email = "Email is invalid";
       }
 
-      if (activeTab === "FOR SCHOOL" || activeTab === "FOR PARENTS") {
+      if (activeTab === "FOR SCHOOLS" || activeTab === "FOR PARENTS") {
          if (!formData.phone) {
             newErrors.phone = "Phone is required";
          } else if (formData.phone.length < 8 || formData.phone.length > 15) {
@@ -83,15 +83,15 @@ const ContactPage = () => {
          }
       }
 
-      if (activeTab === "FOR SCHOOL") {
+      if (activeTab === "FOR SCHOOLS") {
          if (!formData.schoolName.trim()) newErrors.schoolName = "School name is required";
       }
 
-      if (activeTab !== "FOR MEDICAL PARTNERS") {
+      if (activeTab !== "FOR MEDICAL PROFESSIONALS") {
          if (!formData.message.trim()) newErrors.message = "Message is required";
       }
 
-      if (activeTab === "FOR MEDICAL PARTNERS") {
+      if (activeTab === "FOR MEDICAL PROFESSIONALS") {
          if (!formData.city.trim()) newErrors.city = "City is required";
          if (!formData.state || formData.state === "Select State") newErrors.state = "State is required";
       }
@@ -152,26 +152,94 @@ const ContactPage = () => {
       }
    };
 
-   const tabs = ["FOR SCHOOL", "FOR PARENTS", "FOR CAREER", "FOR MEDICAL PARTNERS"];
+   const tabs = ["FOR SCHOOLS", "FOR PARENTS", "FOR MEDICAL PROFESSIONALS", "FOR CAREER"];
 
-   const features = [
-      {
-         title: "Establish a benchmark of Health",
-         desc: "Our world-class medical assessments are conducted annually and cover guidelines and checks as per International and Australian standards."
+   const tabFeatures: Record<string, { title: string, items: { title: string, desc: string }[] }> = {
+      "FOR SCHOOLS": {
+         title: "Why Schools Choose Healthyroo",
+         items: [
+            {
+               title: "Create a Clear Standard for Student Health",
+               desc: "Establish a consistent and measurable approach to health through structured assessments, supporting stronger school health programs in Australia."
+            },
+            {
+               title: "Simplify Health Management Across the School",
+               desc: "Bring all health records, reports, and tracking into one system, making student health checkups in Australia easier to manage."
+            },
+            {
+               title: "Build a Culture of Preventive Care",
+               desc: "Strengthening preventive healthcare for students in Australia by identifying concerns early through continuous monitoring."
+            },
+            {
+               title: "Strengthen Trust with Parents and Stakeholders",
+               desc: "Provide clear, timely health insights that help parents stay informed and confident in the school's approach to care."
+            }
+         ]
       },
-      {
-         title: "Instil Inculcate Healthy Habits",
-         desc: "Our Health Program follows a monthly chain of health activities that are delivered as CARE Boxes in schools across Australia."
+      "FOR PARENTS": {
+         title: "Why Parents Trust Healthyroo",
+         items: [
+            {
+               title: "Clear Understanding of Your Child's Health",
+               desc: "Access health information that is simple to read and easy to understand."
+            },
+            {
+               title: "Stay Informed Without the Hassle",
+               desc: "Receive timely updates and reports without chasing appointments or follow-ups."
+            },
+            {
+               title: "Track Progress Over Time",
+               desc: "Follow how your child’s health changes across checkups."
+            },
+            {
+               title: "Early Attention to What Matters",
+               desc: "Identify small concerns before they grow into bigger issues, supporting preventive healthcare for students in Australia in a practical way."
+            }
+         ]
       },
-      {
-         title: "Insure students, teachers and parents",
-         desc: "HealthyRoo facilitates accidental coverage for children and exciting medical offers for teachers and parents in partnership with leading providers."
+      "FOR MEDICAL PROFESSIONALS": {
+         title: "Why Medical Professionals Choose Healthyroo",
+         items: [
+            {
+               title: "Extend Your Practice Beyond the Clinic",
+               desc: "Work directly with schools and reach more children through a structured and reliable system."
+            },
+            {
+               title: "Build Long-Term Continuity of Care",
+               desc: "Track student health across multiple checkups, enabling better follow-up and improving student health checkups in Australia."
+            },
+            {
+               title: "Work Within a Structured, Ready System",
+               desc: "Operate through a system that standardises assessments, documentation, and reporting across every school engagement."
+            },
+            {
+               title: "Be Part of a Trusted School Health Network",
+               desc: "Collaborate within a growing ecosystem focused on improving how K-12 health programs in Australia are delivered."
+            }
+         ]
       },
-      {
-         title: "Equip Health Safety and Infrastructure",
-         desc: "We provide end-to-end health infrastructure to schools including a trained nurse and a fully-equipped infirmary module."
+      "FOR CAREER": {
+         title: "Why Join Healthyroo",
+         items: [
+            {
+               title: "Create Impact That Extends Beyond Your Role",
+               desc: "Work at a place that directly contributes to improving the way children’s health is supported across schools in Australia."
+            },
+            {
+               title: "Grow in an Environment Built on Clarity and Ownership",
+               desc: "Work alongside a team that values clear thinking and accountability. You are trusted to take ownership, along with continuous support needed to improve."
+            },
+            {
+               title: "Solve Problems That Demand Real Thinking",
+               desc: "Be part of building solutions that improve school healthcare services in Australia. The work challenges you to think deeper and deliver with purpose."
+            },
+            {
+               title: "Be Supported in How You Grow and Contribute",
+               desc: "Your growth matters as much as your output. Just as we prioritise children’s health, we ensure our team is supported, valued, and given room to evolve."
+            }
+         ]
       }
-   ];
+   };
 
    return (
       <div className="min-h-screen bg-background font-sans text-foreground pt-[72px] md:pt-[58px]">
@@ -206,18 +274,73 @@ const ContactPage = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" } as any}
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[500]  mb-4 uppercase leading-none"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 leading-tight"
                >
-                  GET IN TOUCH WITH US
+                  Get in touch with us today!
                </motion.h1>
                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" } as any}
-                  className="text-lg sm:text-xl md:text-3xl font-[500] uppercase  sm: opacity-95"
+                  className="text-lg sm:text-xl md:text-3xl font-medium sm:opacity-95 mb-10"
                >
-                  WE'D LOVE TO RESOLVE YOUR QUERIES
+                  Healthyroo Team Is Here For You, Every Step of the Way
                </motion.p>
+
+               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-16">
+                  {[
+                     {
+                        title: "Parents",
+                        desc: "Seeking clarity on your child's health and wellness journey.",
+                        icon: User,
+                        color: "bg-white"
+                     },
+                     {
+                        title: "Schools",
+                        desc: "Exploring better health systems and preventive care modules.",
+                        icon: School,
+                        color: "bg-white"
+                     },
+                     {
+                        title: "Medical Professionals",
+                        desc: "Looking to collaborate and extend your practice into schools.",
+                        icon: Stethoscope,
+                        color: "bg-white"
+                     }
+                  ].map((item, idx) => (
+                     <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.5 + idx * 0.1, ease: "easeOut" } as any}
+                        className="bg-white/10 backdrop-blur-xl p-8 rounded-[32px] border border-white/20 shadow-2xl hover:bg-white/20 transition-all group relative overflow-hidden"
+                     >
+                        <div className="relative z-10 mb-6">
+                           <div className="flex flex-col items-center gap-3">
+                              <div className={`w-14 h-14 ${item.color === 'bg-white' ? 'bg-white/20' : item.color + '/20'} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
+                                 <item.icon className={`w-7 h-7 ${item.color === 'bg-white' ? 'text-white' : 'text-white'}`} />
+                              </div>
+                              <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
+                           </div>
+                           <p className="text-sm opacity-90 leading-relaxed text-white/80">{item.desc}</p>
+                        </div>
+                        {/* Subtle decorative glow */}
+                        <div className="absolute -bottom-12 -right-12 w-24 h-24 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-all duration-500" />
+                     </motion.div>
+                  ))}
+               </div>
+
+               <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.2, duration: 1 }}
+                  className="max-w-2xl mx-auto"
+               >
+                  <p className="text-lg opacity-90 leading-relaxed text-white/80">
+                     We are committed to improving how school healthcare services in Australia are delivered. <br className="hidden md:block" />
+                     <span className="font-bold text-white underline decoration-primary/50 underline-offset-4">Every conversation matters.</span> Every question helps us serve you better.
+                  </p>
+               </motion.div>
             </div>
          </section>
 
@@ -247,7 +370,7 @@ const ContactPage = () => {
             <div className="container mx-auto px-4 py-20 lg:px-12">
 
                <AnimatePresence mode="wait">
-                  {activeTab === "FOR SCHOOL" && (
+                  {activeTab === "FOR SCHOOLS" && (
                      <motion.div
                         key="school"
                         initial={{ opacity: 0, y: 20 }}
@@ -256,9 +379,9 @@ const ContactPage = () => {
                         transition={{ duration: 0.5 }}
                      >
                         <div className="text-center max-w-5xl mx-auto mb-16">
-                           <p className="text-base md:text-xl leading-relaxed font-[500] opacity-80 uppercase  px-4">
-                              You are an integral part of the HealthyRoo Family! Do you have anything we can help you with?<br className="hidden md:block" />
-                              Feel free to connect with us for any queries, technical issues or card related questions.
+                           <p className="text-base md:text-xl leading-relaxed font-[500] opacity-80  px-4">
+                              Building effective school health programs in Australia is not always straightforward. Managing student data, coordinating assessments, and ensuring consistency across every child can quickly become complex and time-consuming. <br /><br />
+                              Healthyroo helps reduce that burden through an AI-enabled health system that brings structure, clarity, and ease into everyday processes. We work closely with schools to strengthen school wellness programs in Australia. Are you ready to make child health assessments in Australian schools more consistent and reliable? <br /><br /> OR are you looking to improve how your current health system works? Do not think twice! Contact us today, and our team will support you at every step.
                            </p>
                         </div>
 
@@ -361,7 +484,9 @@ const ContactPage = () => {
                      >
                         <div className="text-center max-w-5xl mx-auto mb-16 px-4">
                            <p className="text-lg md:text-xl leading-relaxed font-[500] text-foreground">
-                              We believe that schools can nurture the next generation of health leaders by empowering students to inculcate health from an early stage while providing a high value program that connects directly to the parents at home. Join the movement of building a healthier tomorrow at your school.
+                              Understanding your child’s health can often feel confusing at first. Healthyroo is designed to change that by keeping everything simple, clear, and easy to use from the moment you begin. <br /><br />
+                              Our team is always here to guide you if you still have questions about reports, checkups, or tracking your child’s progress. <br /><br />
+                              Our goal is to make student health checkups in Australia easier to access, understand, and act on. We support this with clear communication at every step, so you are never left unsure. <br /><br />
                            </p>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-0 max-w-6xl mx-auto overflow-hidden shadow-2xl rounded-3xl">
@@ -448,9 +573,9 @@ const ContactPage = () => {
                      >
                         <div className="text-center max-w-5xl mx-auto mb-16 px-4">
                            <p className="text-base md:text-lg leading-relaxed font-[500] text-foreground">
-                              Would you like to shape a healthy nation while being part of a dynamic team and work environment?<br />
-                              Then HealthSetGo is the place for you. We are looking to explore fresh minds with an entrepreneurial bent.<br />
-                              Drop in your CVs at <a href="mailto:hr@healthyroo.ai" className="text-primary font-[500] hover:underline transition-all">hr@healthyroo.ai</a> and tell us your motivation. We'll get back to you!
+                              Are you looking to work at a place where your ideas are heard and your contribution is visible? At Healthyroo, we focus on building a culture that values clarity, ownership, and genuine care. Every role here contributes to improving children’s health while strengthening school healthcare services in Australia.
+
+                              Drop in your CVs at <br /> <a href="mailto:hr@healthyroo.ai" className="text-primary font-[500] hover:underline transition-all">hr@healthyroo.ai</a> and tell us your motivation. We'll get back to you!
                            </p>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-0 max-w-6xl mx-auto overflow-hidden shadow-2xl rounded-3xl">
@@ -529,7 +654,7 @@ const ContactPage = () => {
                      </motion.div>
                   )}
 
-                  {activeTab === "FOR MEDICAL PARTNERS" && (
+                  {activeTab === "FOR MEDICAL PROFESSIONALS" && (
                      <motion.div
                         key="medical"
                         initial={{ opacity: 0, y: 20 }}
@@ -539,7 +664,7 @@ const ContactPage = () => {
                      >
                         <div className="text-center max-w-5xl mx-auto mb-16 px-4">
                            <p className="text-base md:text-lg font-[500] text-foreground">
-                              We partner with the best hospitals and doctors from across the country for our health assessments and sessions.
+                              Working with schools often comes with logistical challenges. Coordinating schedules, managing records, and ensuring continuity of care across students can become difficult without the right structure. Healthyroo simplifies this. It provides a ready system where doctors can conduct assessments within schools, with everything from scheduling to reporting already streamlined. <br /><br /> We are always open to collaborating with paediatricians, dentists, and ENT specialists. We are also keen on partnering with other child-focused practitioners who may want to be part of a more organised approach to care. So, are you looking to extend your practice into schools without added complexity? Connect with us today and explore how you can contribute with ease and confidence.
                            </p>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-0 max-w-6xl mx-auto overflow-hidden shadow-2xl rounded-3xl">
@@ -631,14 +756,22 @@ const ContactPage = () => {
          {/* Features Grid */}
          <section className="py-24 bg-white">
             <div className="container mx-auto px-4 lg:px-12">
+               <motion.h3
+                  key={`title-${activeTab}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="text-3xl md:text-4xl font-bold mb-16 text-foreground text-center md:text-left"
+               >
+                  {tabFeatures[activeTab].title}
+               </motion.h3>
                <motion.div
+                  key={`grid-${activeTab}`}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.1 }}
+                  animate="visible"
                   variants={containerVariants}
                   className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-16"
                >
-                  {features.map((f, i) => (
+                  {tabFeatures[activeTab].items.map((f, i) => (
                      <motion.div key={i} variants={itemVariants} className="flex gap-8 group">
                         <div className="shrink-0">
                            <div className="w-12 h-12 md:w-14 md:h-14 bg-[#EE1D26] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">

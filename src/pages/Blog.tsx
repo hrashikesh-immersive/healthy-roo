@@ -6,58 +6,120 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, User, Clock, Share2 } from "lucide-react";
 import blogThumbnail1 from "@/assets/blog-thumbnail-1.png";
 import blogThumbnail2 from "@/assets/blog-thumbnail-2.png";
+import blogDental from "@/assets/blog-dental.png";
+import blogMental from "@/assets/blog-mental.png";
+import blogNutrition from "@/assets/blog-nutrition.png";
+import blogPosture from "@/assets/blog-posture.png";
+import blogVision from "@/assets/blog-vision.png";
+import blogCommunity from "@/assets/blog-community.png";
 
 export const blogPosts = [
   {
-    id: "emerging-women-leaders",
-    image: blogThumbnail1,
-    date: "Feb 18, 2026",
-    author: "Dr. Sarah Chen",
+    id: "dental-screening-importance",
+    image: blogDental,
+    date: "April 24, 2026",
+    author: "Dr. James Wilson",
+    readTime: "6 min read",
+    title: "Why Early Dental Screening is a Game-Changer for Student Success",
+    excerpt: "Exploring the direct link between oral health and academic performance, and how on-campus screenings are closing the gap in Australian schools.",
+    content: `
+      <p>Oral health is often overlooked in the broader context of student wellness, yet it remains one of the leading causes of preventable school absences. At HealthyRoo, we've integrated dental screenings into our core platform because we believe every child deserves a pain-free learning experience.</p>
+      
+      <h3>The Link Between Teeth and Grades</h3>
+      <p>Research indicates that students with chronic dental pain are three times more likely to miss school and four times more likely to have lower GPAs. When a child is struggling with a toothache, their focus shifts from the chalkboard to the discomfort, hindering their cognitive development.</p>
+      
+      <h3>Bringing the Clinic to the Classroom</h3>
+      <p>By conducting these screenings within the school environment, we remove the logistical barriers that often prevent families from seeking care. Our AI-enabled tools help dentists identify early signs of decay and misalignment, providing parents with a clear roadmap for treatment before issues escalate.</p>
+    `
+  },
+  {
+    id: "mental-wellness-beyond-physical",
+    image: blogMental,
+    date: "April 20, 2026",
+    author: "Elena Vance",
+    readTime: "8 min read",
+    title: "Mental Wellness: The Invisible Pillar of Student Health",
+    excerpt: "Moving beyond physical metrics to address the growing need for emotional and psychological support systems in K-12 education.",
+    content: `
+      <p>In a world of increasing digital pressure and social complexity, the mental health of our students has never been more critical. While physical screenings are vital, they only tell half the story of a child's readiness to learn.</p>
+      
+      <h3>Creating a Safe Space</h3>
+      <p>HealthyRoo's approach to mental wellness focuses on early intervention and destigmatization. We work with schools to implement 'Mindful Check-ins'—short, data-driven sessions that allow students to express their emotional state in a safe, non-judgmental way.</p>
+      
+      <h3>The Role of Educators</h3>
+      <p>Teachers are on the front lines of student wellness. Our platform provides them with the tools to notice subtle shifts in behavior or social interaction, allowing for timely support from school counselors and parents.</p>
+    `
+  },
+  {
+    id: "nutritional-benchmarks",
+    image: blogNutrition,
+    date: "April 15, 2026",
+    author: "Sarah Thompson",
     readTime: "5 min read",
-    title: "Emerging women leader is helping curb non-communicable diseases in schools",
-    excerpt: "Exploring how female leadership in healthcare is driving innovative screening programs across Australian educational institutions.",
+    title: "Nutritional Benchmarks: Fueling the Next Generation of Leaders",
+    excerpt: "How data-driven dietary insights are helping Australian schools transform their cafeterias into hubs of health and energy.",
     content: `
-      <p>Research consistently shows that female leadership in healthcare leads to more empathetic, patient-centered care. At HealthyRoo, we are witnessing a transformative shift as women lead the charge in combating non-communicable diseases (NCDs) through proactive school health programs.</p>
+      <p>What a student eats at lunch directly impacts their energy levels during the afternoon session. Yet, many school menus still lack the nutritional balance required for optimal brain function.</p>
       
-      <h3>The Rise of NCDs in Schools</h3>
-      <p>Non-communicable diseases, such as childhood obesity, early-onset diabetes, and respiratory issues, are becoming increasingly prevalent. Our recent data across Western Sydney schools indicates that early detection is the only sustainable way to manage these conditions before they impact academic performance.</p>
+      <h3>Data-Driven Dining</h3>
+      <p>By analyzing the aggregated health data of a school population, HealthyRoo helps cafeteria managers tailor their menus. If a high percentage of students show iron deficiencies, we can recommend menu adjustments that are both delicious and nutrient-dense.</p>
       
-      <p>By integrating AI-powered screening tools, our teams can identify risk factors with surgical precision. But behind the technology are the leaders who design the interventions.</p>
-      
-      <h3>Leading with Impact</h3>
-      <p>Our program directors have focused on "The Holistic Circle"—an engagement model that connects the school nurse, the parent, and the student in a continuous feedback loop. This model, championed by our head of strategy Elena Vance, has seen a 30% increase in parental follow-through on health recommendations.</p>
+      <h3>Educating the Palate</h3>
+      <p>It's not just about providing food; it's about building healthy habits. Our 'Taste of Tomorrow' initiative encourages students to explore new, healthy food options through interactive workshops and tasting events.</p>
     `
   },
   {
-    id: "ai-in-predictive-health",
-    image: blogThumbnail2,
-    date: "Feb 12, 2026",
-    author: "Marcus Thorne",
+    id: "posture-and-performance",
+    image: blogPosture,
+    date: "April 10, 2026",
+    author: "Dr. Robert Lowe",
     readTime: "7 min read",
-    title: "The Role of AI in Predictive Student Health Analytics",
-    excerpt: "How machine learning is helping us predict health trends before they become clinical issues for students and families.",
+    title: "The Impact of Posture on Academic Focus and Performance",
+    excerpt: "Why ergonomics in the classroom matter more than ever in the age of tablets and laptops, and how to improve it.",
     content: `
-      <p>In the digital age, data is the most valuable asset in preventive medicine. HealthyRoo's School Platform is at the forefront of this revolution, using AI to turn raw screening numbers into actionable insights.</p>
+      <p>Modern classrooms are filled with technology, but the furniture hasn't always kept pace. 'Tech-neck' and poor posture are becoming common complaints among primary school students, leading to fatigue and reduced concentration.</p>
       
-      <h3>Beyond the Spreadsheet</h3>
-      <p>Traditional health cards are static. They tell you what happened, not what <i>might</i> happen. Our predictive engine analyzes trends in BMI, vision acuity, and dental health across school populations to identify clusters of concern.</p>
+      <h3>The Biomechanics of Learning</h3>
+      <p>Good posture isn't just about looking straight; it's about optimizing blood flow and oxygen to the brain. Our ergonomic assessments identify students at risk of musculoskeletal issues and provide simple classroom exercises to reset the body.</p>
       
-      <p>For instance, identifying a trend of declining vision in a specific grade level allowed one of our partner schools to adjust classroom lighting and screen-time policies, resulting in improved focus and reduced eye strain reports.</p>
+      <h3>Simple Changes, Big Results</h3>
+      <p>Adjusting chair heights and encouraging regular 'movement breaks' can significantly reduce physical stress on students. Schools that have implemented our ergonomic guidelines report higher levels of student engagement and fewer complaints of headaches.</p>
     `
   },
   {
-    id: "holistic-wellness-ecosystem",
-    image: blogThumbnail1,
-    date: "Feb 05, 2026",
-    author: "Smit Tanksale",
+    id: "vision-screening-learning-window",
+    image: blogVision,
+    date: "April 05, 2026",
+    author: "Marcus Thorne",
     readTime: "4 min read",
-    title: "Building a Holistic Wellness Ecosystem in Australian Schools",
-    excerpt: "A deep dive into why HealthyRoo focuses on the intersection of human narrative and architectural precision.",
+    title: "Vision Screening: Opening the Window to Better Learning",
+    excerpt: "Over 80% of classroom learning is visual. We explore why identifying vision issues early is the most effective way to prevent academic struggle.",
     content: `
-      <p>Wellness is not just the absence of illness; it is a state of complete physical, mental, and social well-being. To achieve this in a school setting, we must build ecosystems, not just programs.</p>
+      <p>Many children who are labeled as 'distracted' or 'slow learners' actually have undiagnosed vision problems. If a student can't see the board clearly, they naturally disengage from the lesson.</p>
       
-      <h3>The 4-Pillar Model</h3>
-      <p>Our collaborative model focuses on Assessment, Safety, Education, and Community. By addressing these four pillars simultaneously, we create an environment where health is not an afterthought, but a foundational element of the school day.</p>
+      <h3>The Hidden Barrier</h3>
+      <p>Standard vision screenings often miss subtle issues like tracking difficulties or binocular vision problems. HealthyRoo's advanced screening protocols are designed to catch these nuances, ensuring every student has the visual clarity they need to succeed.</p>
+      
+      <h3>A Simple Solution</h3>
+      <p>In many cases, the solution is as simple as a pair of glasses or a change in seating position. By identifying these needs early, we can prevent years of academic frustration and help students reach their full potential.</p>
+    `
+  },
+  {
+    id: "community-driven-healthcare",
+    image: blogCommunity,
+    date: "April 01, 2026",
+    author: "Smit Tanksale",
+    readTime: "9 min read",
+    title: "Bridging the Gap: Community-Driven Healthcare for the Future",
+    excerpt: "How HealthyRoo is strengthening the bond between schools and parents through transparent, real-time health data.",
+    content: `
+      <p>Healthcare should not be a series of isolated events. It should be a continuous conversation between all stakeholders in a child's life. HealthyRoo is the bridge that makes this conversation possible.</p>
+      
+      <h3>Transparency and Trust</h3>
+      <p>Our platform allows parents to access their child's health reports instantly, with clear explanations of what the data means. This transparency builds trust and empowers parents to take proactive steps in their child's wellness journey.</p>
+      
+      <h3>The Power of Community</h3>
+      <p>When schools and parents work together, the impact on student health is exponential. By fostering a community-driven approach to healthcare, we are creating a world where every child is supported, monitored, and celebrated.</p>
     `
   }
 ];
